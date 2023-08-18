@@ -8,10 +8,10 @@ import { useRef, useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import Shiva from '../../public/Shiva_1x2.png'
 
-import Projects from './Projects'
-import Technologies from './Technologies'
-import About from './About'
-import Contact from './Contact'
+import Projects from './Projects.js'
+import Technologies from './Technologies.js'
+import About from './About.js'
+import Contact from './Contact.js'
 import Home from '.'
 
 export default function App({ Component, pageProps }) {
