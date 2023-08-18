@@ -1,5 +1,8 @@
-export default function Projects() {
-    return(
-        <p>Contact</p>
+export default function Contact() {
+    return (
+        <div>
+            <h1 className="m-auto w-fit">Contact</h1>
+            
+        </div>
     )
 }
