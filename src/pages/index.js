@@ -28,7 +28,7 @@ export default function Home() {
     <>
       <div className='flex flex-col-reverse md:flex-row items-center'>
         <div>
-          <h1>Hi! <br />I'm Richard Ejdling</h1>
+          <h1>Hi! <br />{"I'm Richard Ejdling"}</h1>
           <p className=''>Front-end developer</p>
         </div>
         <img src="/Shiva.jpg" alt='My Portrait' className='rounded-full object-cover object-center h-20 w-20' />
