@@ -83,31 +83,31 @@ export default function App({ Component, pageProps }) {
       {
         name: 'Home',
         path: '#home',
-        ref: homeNav, 
+        ref: homeNav,
         id: 1
       },
       {
         name: 'Projects',
         path: '#projects',
-        ref: projectsNav, 
+        ref: projectsNav,
         id: 2
       },
       {
         name: 'Technologies',
         path: '#technologies',
-        ref: technologiesNav, 
+        ref: technologiesNav,
         id: 3
       },
       {
         name: 'About',
         path: '#about',
-        ref: aboutNav, 
+        ref: aboutNav,
         id: 4
       },
       {
         name: 'Contact',
         path: '#contact',
-        ref: contactNav, 
+        ref: contactNav,
         id: 5
       }
     ]
@@ -165,3 +165,9 @@ export default function App({ Component, pageProps }) {
     </div>
   )
 }
+
+
+// Att göra: Göra om projektet till t3? (kanske inte då just denna sida inte riktigt behöver det?)
+// ändra blurren manuellt på bg istället för css blur. (då kan man även fixa lite stiliserad blur?!!, samt behöver inte ändra brur-grad för olika skärmstorlekar!!)
+// GitHub API? för projects, finns det?
+// gå igenom varje section och designa mer detaljerat (kolla på exempelportfolierna), SEN koda.

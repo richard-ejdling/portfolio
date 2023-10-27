@@ -4,82 +4,19 @@ export default function Projects() {
     const projects = [
         {
             url: 'https://github.com/chasacademy-richard-ejdling',
-            title: 'Shiva Rules!!',
-            img: '/Shiva.jpg',
-            alt: 'Cat app',
-            desc: 'Cat App',
+            title: 'Not available',
+            img: '/no-image-available.jpg',
+            alt: 'Not Availabe',
+            desc: 'Not Available',
             gitHub: 'https://github.com/chasacademy-richard-ejdling?tab=repositories',
             id: 1
-        },
-        {
-            url: 'https://github.com/chasacademy-richard-ejdling',
-            title: 'Shiva Rules!!',
-            img: '/Shiva.jpg',
-            alt: 'Cat app',
-            desc: 'Cat App',
-            gitHub: 'https://github.com/chasacademy-richard-ejdling?tab=repositories',
-            id: 2
-        },
-        {
-            url: 'https://github.com/chasacademy-richard-ejdling',
-            title: 'Shiva Rules!!',
-            img: '/Shiva.jpg',
-            alt: 'Cat app',
-            desc: 'Cat App',
-            gitHub: 'https://github.com/chasacademy-richard-ejdling?tab=repositories',
-            id: 3
-        },
-        {
-            url: 'https://github.com/chasacademy-richard-ejdling',
-            title: 'Shiva Rules!!',
-            img: '/Shiva.jpg',
-            alt: 'Cat app',
-            desc: 'Cat App',
-            gitHub: 'https://github.com/chasacademy-richard-ejdling?tab=repositories',
-            id: 4
-        },
-        {
-            url: 'https://github.com/chasacademy-richard-ejdling',
-            title: 'Shiva Rules!!',
-            img: '/Shiva.jpg',
-            alt: 'Cat app',
-            desc: 'Cat App',
-            gitHub: 'https://github.com/chasacademy-richard-ejdling?tab=repositories',
-            id: 5
-        },
-        {
-            url: 'https://github.com/chasacademy-richard-ejdling',
-            title: 'Shiva Rules!!',
-            img: '/Shiva.jpg',
-            alt: 'Cat app',
-            desc: 'Cat App',
-            gitHub: 'https://github.com/chasacademy-richard-ejdling?tab=repositories',
-            id: 6
-        },
-        {
-            url: 'https://github.com/chasacademy-richard-ejdling',
-            title: 'Shiva Rules!!',
-            img: '/Shiva.jpg',
-            alt: 'Cat app',
-            desc: 'Cat App',
-            gitHub: 'https://github.com/chasacademy-richard-ejdling?tab=repositories',
-            id: 7
-        },
-        {
-            url: 'https://github.com/chasacademy-richard-ejdling',
-            title: 'Shiva Rules!!',
-            img: '/Shiva.jpg',
-            alt: 'Cat app',
-            desc: 'Cat App',
-            gitHub: 'https://github.com/chasacademy-richard-ejdling?tab=repositories',
-            id: 8
         },
     ]
 
     return (
-        <div>
+        <div className='max-w-[760px]'>
             <h1 className="m-auto w-fit">Projects</h1>
-            <ul className="flex flex-wrap m-4 max-h-[450px] overflow-y-auto">
+            <ul className="flex flex-wrap m-8 max-h-[450px] overflow-y-auto">
                 {projects.map(project => {
                     return (
                         <li key={project.id} className="flex flex-col sm:w-1/2 p-4 relative">

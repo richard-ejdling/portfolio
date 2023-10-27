@@ -26,12 +26,12 @@ export default function Home() {
 
   return (
     <>
-      <div className='flex flex-col-reverse md:flex-row items-center'>
+      <div className='flex flex-col-reverse md:flex-row gap-2 items-center'>
         <div>
-          <h1>Hi! <br />{"I'm Richard Ejdling"}</h1>
+          <h1 className='text-4xl'>Hi! <br />I'm Richard Ejdling</h1>
           <p className=''>Front-end developer</p>
         </div>
-        <img src="/Shiva.jpg" alt='My Portrait' className='rounded-full object-cover object-center h-20 w-20' />
+        <img src="/img/profile-img.jpg" alt='My Portrait' className='rounded-full object-cover object-center h-32 w-32' />
       </div>
       <div className='flex flex-col md:flex-row justify-center items-center md:gap-2 mt-2'>
         <div className='flex justify-center gap-2'>
@@ -40,8 +40,8 @@ export default function Home() {
         </div>
         <div className='flex gap-1'>
           <p>CV:</p>
-          <a href="/Shiva.jpg" download>Download</a>
-          <a href="/Shiva.jpg" target='_blank'>View</a>
+          <a href="/CV/CV English.pdf" download className='underline underline-offset-2'>Download</a>
+          <a href="/CV/CV English.pdf" target='_blank' className='underline underline-offset-2'>View</a>
         </div>
       </div>
 
