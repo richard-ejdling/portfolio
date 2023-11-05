@@ -18,70 +18,70 @@ export default function Technologies() {
             name: 'Tailwind CSS',
             icon: '/technology-icons/Tailwind_CSS.svg',
             alt: 'Tailwind CSS Logo',
-            id: 2,
+            id: 3,
             white_bg: false
         },
         {
             name: 'Javascript',
             icon: '/technology-icons/JavaScript.svg',
             alt: 'Javascript Logo',
-            id: 2,
+            id: 4,
             white_bg: false
         },
         {
             name: 'Typescript',
             icon: '/technology-icons/Typescript.svg',
             alt: 'Typescript Logo',
-            id: 2,
+            id: 5,
             white_bg: false
         },
         {
             name: 'React',
             icon: '/technology-icons/React.svg',
             alt: 'React Logo',
-            id: 2,
+            id: 6,
             white_bg: false
         },
         {
             name: 'React Native',
             icon: '/technology-icons/React.svg',
             alt: 'React Native Logo',
-            id: 2,
+            id: 7,
             white_bg: false
         },
         {
             name: 'Express.js',
             icon: '/technology-icons/Expressjs.png',
             alt: 'Express.js Logo',
-            id: 3,
+            id: 8,
             white_bg: true
         },
         {
             name: 'MySQL',
             icon: '/technology-icons/mysql.png',
             alt: 'MySQL Logo',
-            id: 4,
+            id: 9,
             white_bg: false
         },
         {
             name: 'Next.js',
             icon: '/next.svg',
             alt: 'Next.js Logo',
-            id: 5,
+            id: 10,
             white_bg: true
         },
         {
             name: 'MongoDB',
             icon: '/technology-icons/Mongodb.svg',
             alt: 'MongoDB Logo',
-            id: 5,
+            id: 11,
             white_bg: false
         },
         {
             name: 'T3',
             icon: '/technology-icons/t3-light.svg',
             alt: 'T3 Logo',
-            id: 5,
+            id: 12,
             white_bg: false
         },
     ]

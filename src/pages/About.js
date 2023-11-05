@@ -5,8 +5,8 @@ export default function About() {
             <p>Info about me.........</p>
             <div className='flex gap-1'>
                 <p>CV:</p>
-                <a href="/Shiva.jpg" download>Download</a>
-                <a href="/Shiva.jpg" target='_blank'>View</a>
+                <a href="/CV/CV English.pdf" download className='underline underline-offset-2'>Download</a>
+                <a href="/CV/CV English.pdf" target='_blank' className='underline underline-offset-2'>View</a>
             </div>
         </div>
     )
