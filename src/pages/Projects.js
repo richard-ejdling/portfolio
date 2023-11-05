@@ -22,7 +22,7 @@ export default function Projects() {
             id: 1
         },
         {
-            url: 'next-pokemonapi.vercel.app',
+            url: 'https://next-pokemonapi.vercel.app/',
             title: 'PokéAPI page',
             img: '/project-img/pokéAPI.png',
             alt: 'PokéAPI page',
