@@ -35,8 +35,8 @@ export default function Home() {
       </div>
       <div className='flex flex-col md:flex-row justify-center items-center md:gap-2 mt-2'>
         <div className='flex justify-center gap-2'>
-          <a href="https://github.com/chasacademy-richard-ejdling" target='_blank'><GoMarkGithub /></a>
-          <a href="" target='_blank'><BsLinkedin /></a>
+          <a href="https://github.com/richard-ejdling" target='_blank'><GoMarkGithub /></a>
+          <a href="https://www.linkedin.com/in/richard-ejdling-4a0601273" target='_blank'><BsLinkedin /></a>
         </div>
         <div className='flex gap-1'>
           <p>CV:</p>
