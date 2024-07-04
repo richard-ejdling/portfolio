@@ -4,12 +4,12 @@ export default function Projects() {
     // Olika img för mobil doch desktop? Mobilsidor i mobilläge och desktopsidor i desktopläge?
     const projects = [
         /* {
-            url: 'https://github.com/chasacademy-richard-ejdling',
+            url: 'https://github.com/richard-ejdling',
             title: 'Not available',
             img: '/no-image-available.jpg',
             alt: 'Not Availabe',
             desc: 'Not Available',
-            gitHub: 'https://github.com/chasacademy-richard-ejdling?tab=repositories',
+            gitHub: 'https://github.com/richard-ejdling?tab=repositories',
             id: 1
         }, */
         {
@@ -27,7 +27,7 @@ export default function Projects() {
             img: '/project-img/pokéAPI.png',
             alt: 'PokéAPI page',
             desc: 'Website using PokéAPI where you can search for pokémon and display them and their stats',
-            gitHub: 'https://github.com/chasacademy-richard-ejdling/next-pokemonapi',
+            gitHub: 'https://github.com/richard-ejdling/next-pokemonapi',
             id: 2
         },
         {
@@ -36,25 +36,25 @@ export default function Projects() {
             img: '/project-img/zoomCopyRedesign.png',
             alt: 'Zoom copy and redesign',
             desc: 'A copy and redesign of the layout of Zoom\'s website',
-            gitHub: 'https://github.com/chasacademy-richard-ejdling/zoom-copy-and-redesign',
+            gitHub: 'https://github.com/richard-ejdling/zoom-copy-and-redesign',
             id: 3
         },
         {
-            url: 'https://github.com/chasacademy-richard-ejdling/weather-app',
+            url: '/project-img/weatherApp.png',
             title: 'Weather app',
             img: '/project-img/weatherApp.png',
             alt: 'Weather app',
             desc: 'Weather app created in React Native',
-            gitHub: 'https://github.com/chasacademy-richard-ejdling/weather-app',
+            gitHub: 'https://github.com/richard-ejdling/weather-app',
             id: 4
         },
         {
-            url: 'https://chasacademy-richard-ejdling.github.io/chas_blackjack/',
+            url: 'https://richard-ejdling.github.io/chas_blackjack/',
             title: 'Blackjack',
             img: '/project-img/blackjack.png',
             alt: 'Blackjack',
             desc: 'Blackjack game',
-            gitHub: 'https://github.com/chasacademy-richard-ejdling/chas_blackjack',
+            gitHub: 'https://github.com/richard-ejdling/chas_blackjack',
             id: 5
         },
         {
@@ -63,7 +63,7 @@ export default function Projects() {
             img: '/project-img/todo.png',
             alt: 'Todo list',
             desc: 'Todo list website with both redux and reducer',
-            gitHub: 'https://github.com/chasacademy-richard-ejdling/todo-list-redux',
+            gitHub: 'https://github.com/richard-ejdling/todo-list-redux',
             id: 6
         },
         {
@@ -72,25 +72,25 @@ export default function Projects() {
             img: '/project-img/quiz.png',
             alt: 'Quiz',
             desc: 'Create and take quizzes. Made using redux.',
-            gitHub: 'https://github.com/chasacademy-richard-ejdling/quizz-redux',
+            gitHub: 'https://github.com/richard-ejdling/quizz-redux',
             id: 7
         },
         {
-            url: 'https://chasacademy-richard-ejdling.github.io/hangman/',
+            url: 'https://richard-ejdling.github.io/hangman/',
             title: 'Hangman',
             img: '/project-img/hangman.png',
             alt: 'Hangman',
             desc: 'Hangman game',
-            gitHub: 'https://github.com/chasacademy-richard-ejdling/hangman',
+            gitHub: 'https://github.com/richard-ejdling/hangman',
             id: 8
         },
         {
-            url: 'https://chasacademy-richard-ejdling.github.io/chas_radioplayer/',
+            url: 'https://richard-ejdling.github.io/chas_radioplayer/',
             title: 'Radio player',
             img: '/project-img/radio2.png',
             alt: 'Radio player',
             desc: 'Radio player using sr.se\'s api',
-            gitHub: 'https://github.com/chasacademy-richard-ejdling/chas_radioplayer',
+            gitHub: 'https://github.com/richard-ejdling/chas_radioplayer',
             id: 9
         },
         {
@@ -99,7 +99,7 @@ export default function Projects() {
             img: '/project-img/worldClock.png',
             alt: 'World Time Website',
             desc: 'React router exercise showing the time in different cities',
-            gitHub: 'https://github.com/chasacademy-richard-ejdling/world-time-website',
+            gitHub: 'https://github.com/richard-ejdling/world-time-website',
             id: 10
         },
     ]

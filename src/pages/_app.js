@@ -127,8 +127,8 @@ export default function App({ Component, pageProps }) {
           <h1>RE</h1>
           <nav className='flex items-center gap-4'>
             <div className='flex gap-2'>
-              <a href="https://github.com/chasacademy-richard-ejdling" target='_blank'><GoMarkGithub /></a>
-              <a href="" target='_blank'><BsLinkedin /></a>
+              <a href="https://github.com/richard-ejdling" target='_blank'><GoMarkGithub /></a>
+              <a href="https://www.linkedin.com/in/richard-ejdling-4a0601273" target='_blank'><BsLinkedin /></a>
             </div>
             <button className='sm:hidden' onClick={() => setIsMenuOpen(true)}><HiMenu /></button>
             <NavList isModal={false} />
