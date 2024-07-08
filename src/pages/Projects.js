@@ -14,7 +14,7 @@ export default function Projects() {
         }, */
         {
             url: 'https://movieshop.vercel.app/',
-            title: 'MovieShop (under development)',
+            title: 'MovieShop',
             img: '/project-img/movieshop2.png',
             alt: 'movieshop',
             desc: 'Fake Webshop using the T3-stack (in collaboration with Mojtaba-amirii, Naiso2022 and Farida1084)',
