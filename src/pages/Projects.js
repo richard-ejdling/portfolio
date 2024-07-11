@@ -105,9 +105,9 @@ export default function Projects() {
     ]
 
     return (
-        <div className='max-w-[760px]'>
+        <div>
             <h1 className="m-auto w-fit">Projects</h1>
-            <ul className="flex flex-wrap m-8 max-h-[450px] overflow-y-auto">
+            <ul className="flex flex-wrap mt-8 max-h-[450px] overflow-y-auto">
                 {projects.map(project => {
                     return (
                         <li key={project.id} className="flex flex-col w-full sm:w-1/2 p-4 relative">

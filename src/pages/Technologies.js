@@ -87,9 +87,9 @@ export default function Technologies() {
     ]
 
     return (
-        <div className="max-w-[760px]">
+        <div>
             <h1 className="m-auto w-fit">Technologies</h1>
-            <ul className="flex flex-wrap m-4">
+            <ul className="flex flex-wrap mt-4">
                 {technologies.map(technology => {
                     return (
                         <li key={technology.id} className='flex flex-col items-center justify-center w-1/3 sm:w-1/4 p-4'>

@@ -26,21 +26,21 @@ export default function App({ Component, pageProps }) {
   const aboutRef = useRef(null)
   const contactRef = useRef(null)
 
-  const projectsXPos = useRef(0)
-  const technologiesXPos = useRef(0)
-  const aboutXPos = useRef(0)
-  const contactXPos = useRef(0)
+  const projectsYPos = useRef(0)
+  const technologiesYPos = useRef(0)
+  const aboutYPos = useRef(0)
+  const contactYPos = useRef(0)
 
   useEffect(() => {
-    projectsXPos.current = projectsRef.current.offsetTop - 40
-    technologiesXPos.current = technologiesRef.current.offsetTop - 40
-    aboutXPos.current = aboutRef.current.offsetTop - 40
-    contactXPos.current = contactRef.current.offsetTop - 40
+    projectsYPos.current = projectsRef.current.offsetTop - 40
+    technologiesYPos.current = technologiesRef.current.offsetTop - 40
+    aboutYPos.current = aboutRef.current.offsetTop - 40
+    contactYPos.current = contactRef.current.offsetTop - 40
 
-    console.log(projectsXPos.current)
-    console.log(technologiesXPos.current)
-    console.log(aboutXPos.current)
-    console.log(contactXPos.current)
+    /* console.log(projectsYPos.current)
+    console.log(technologiesYPos.current)
+    console.log(aboutYPos.current)
+    console.log(contactYPos.current) */
   }, [projectsRef, technologiesRef, aboutRef, contactRef])
 
   const homeNav = useRef(null)
@@ -53,19 +53,19 @@ export default function App({ Component, pageProps }) {
     const scrollPosition = window.scrollY;
     console.log(scrollPosition);
 
-    if (scrollPosition < projectsXPos.current) {
+    if (scrollPosition < projectsYPos.current) {
       setCurrentSection('Home')
       console.log('home')
-    } else if (scrollPosition >= projectsXPos.current && scrollPosition < technologiesXPos.current) {
+    } else if (scrollPosition >= projectsYPos.current && scrollPosition < technologiesYPos.current) {
       setCurrentSection('Projects')
       console.log('project')
-    } else if (scrollPosition >= technologiesXPos.current && scrollPosition < aboutXPos.current) {
+    } else if (scrollPosition >= technologiesYPos.current && scrollPosition < aboutYPos.current) {
       setCurrentSection('Technologies')
       console.log('technologies')
-    } else if (scrollPosition >= aboutXPos.current && scrollPosition < contactXPos.current) {
+    } else if (scrollPosition >= aboutYPos.current && scrollPosition < contactYPos.current) {
       setCurrentSection('About')
       console.log('about')
-    } else if (scrollPosition >= contactXPos.current) {
+    } else if (scrollPosition >= contactYPos.current) {
       setCurrentSection('Contact')
       console.log('contact')
     }
@@ -128,8 +128,8 @@ export default function App({ Component, pageProps }) {
     <div className='relative'>
       <div className='absolute -z-50 h-full w-full blur-md sm:blur-lg md:blur-xl lg:blur-[30px] min-[1440px]:blur-2xl min-[2560px]:blur-3xl' style={{ background: `url(/Shiva_1x2.png) repeat-y top/100%` /* , backgroundImage: 'url("https://www.alleycat.org/wp-content/uploads/2019/03/FELV-cat.jpg")', */ }}></div>
       <div className='h-full'>
-        <header className='sticky top-0 left-0 z-50'>
-          <nav className='relative flex items-center h-9 px-2 z-10 bg-sky-600/75 backdrop-blur-lg justify-between'> {/* 'backdrop-blur-sm' */}
+        <header className='sticky top-0 left-0 z-50 bg-sky-600/75 backdrop-blur-lg'>
+          <nav className='relative box-content flex items-center h-10 max-w-6xl mx-auto px-2 z-10 justify-between'> {/* 'backdrop-blur-sm' */}
             <h1>RE</h1>
             <div className='flex items-center gap-6 h-full'>
               <div className='flex gap-3'>
@@ -141,7 +141,7 @@ export default function App({ Component, pageProps }) {
             </div>
           </nav>
           {isMenuOpen && (
-            <div id='close' className='fixed top-0 left-0 h-screen w-full bg-black/20' onClick={(e) => e.target.id === 'close' && setIsMenuOpen(false)}>
+            <div id='close' className='fixed top-0 left-0 h-screen w-full bg-black/25' onClick={(e) => e.target.id === 'close' && setIsMenuOpen(false)}>
               <div className='flex flex-col items-center w-full h-fit bg-sky-600 p-2 pt-11 rounded-b-lg shadow-2xl shadow-black'>
                 {/* <button className='self-end' onClick={() => setIsMenuOpen(false)}>{<CgClose />}</button> */}
                 <NavList isModal={true} />
@@ -150,7 +150,7 @@ export default function App({ Component, pageProps }) {
           )}
         </header>
 
-        <main className="flex min-h-screen flex-col items-center justify-between">
+        <main className="box-content flex flex-col items-center min-h-screen max-w-6xl mx-auto px-4">
           <section id='home' className='pt-10 scroll-mt-10'>
             <Home />
           </section>
