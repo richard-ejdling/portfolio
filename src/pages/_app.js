@@ -51,23 +51,23 @@ export default function App({ Component, pageProps }) {
 
   function handleScroll() { // Debounce for better performance 
     const scrollPosition = window.scrollY;
-    console.log(scrollPosition);
+    /* console.log(scrollPosition); */
 
     if (scrollPosition < projectsYPos.current) {
       setCurrentSection('Home')
-      console.log('home')
+      /* console.log('home') */
     } else if (scrollPosition >= projectsYPos.current && scrollPosition < technologiesYPos.current) {
       setCurrentSection('Projects')
-      console.log('project')
+      /* console.log('project') */
     } else if (scrollPosition >= technologiesYPos.current && scrollPosition < aboutYPos.current) {
       setCurrentSection('Technologies')
-      console.log('technologies')
+      /* console.log('technologies') */
     } else if (scrollPosition >= aboutYPos.current && scrollPosition < contactYPos.current) {
       setCurrentSection('About')
-      console.log('about')
+      /* console.log('about') */
     } else if (scrollPosition >= contactYPos.current) {
       setCurrentSection('Contact')
-      console.log('contact')
+      /* console.log('contact') */
     }
   };
 
@@ -78,6 +78,7 @@ export default function App({ Component, pageProps }) {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
 
   function NavList({ isModal }) {
     const navList = [
@@ -124,6 +125,22 @@ export default function App({ Component, pageProps }) {
     )
   }
 
+  useEffect(() => {
+    const handleResize = () => {
+      const isLargeScreen = window.matchMedia('(min-width: 640px)').matches
+
+      if (isLargeScreen) {
+        setIsMenuOpen(false)
+      }
+    }
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize)
+    }
+  }, [])
+
   return (
     <div className='relative'>
       <div className='absolute -z-50 h-full w-full blur-md sm:blur-lg md:blur-xl lg:blur-[30px] min-[1440px]:blur-2xl min-[2560px]:blur-3xl' style={{ background: `url(/Shiva_1x2.png) repeat-y top/100%` /* , backgroundImage: 'url("https://www.alleycat.org/wp-content/uploads/2019/03/FELV-cat.jpg")', */ }}></div>
@@ -137,7 +154,7 @@ export default function App({ Component, pageProps }) {
                 <a href="https://www.linkedin.com/in/richard-ejdling-4a0601273" target='_blank'><BsLinkedin size={20} className='text-gray-200 hover:text-white' /></a>
               </div>
               <button className='sm:hidden' onClick={() => setIsMenuOpen(prev => !prev)}>{isMenuOpen ? <CgClose size={25} /> : <HiMenu size={25} />}</button>
-              <NavList isModal={false} className='sm:hidden' />
+              <NavList isModal={false} />
             </div>
           </nav>
           {isMenuOpen && (
