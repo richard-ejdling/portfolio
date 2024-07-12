@@ -115,7 +115,7 @@ export default function Projects() {
                                 <img src={project.img} alt={project.alt} className="h-[150px] w-full object-cover" />
                                 <div className="px-2 py-1 bg-sky-600 grow">
                                     <div className='h-full flex flex-col w-[calc(100%-38px)]'>
-                                        <h2 className='font-semibold text-lg'>{project.title}</h2>
+                                        <h2 className='font-bold text-lg'>{project.title}</h2>
                                         <p>{project.desc}</p>
                                     </div>
                                 </div>

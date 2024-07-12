@@ -8,12 +8,19 @@ import Link from 'next/link'
 import { useRef, useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import Shiva from '../../public/Shiva_1x2.png'
+import { Nunito, Ubuntu, Baloo_2, Signika, Chakra_Petch } from 'next/font/google'
 
 import Projects from './Projects.js'
 import Technologies from './Technologies.js'
 import About from './About.js'
 import Contact from './Contact.js'
 import Home from '.'
+
+const signika = Signika({ subsets: ['latin'] })
+const baloo_2 = Baloo_2({ subsets: ['latin'] })
+const nunito = Nunito({ subsets: ['latin'] })
+const ubuntu = Ubuntu({ weight: ['300', '400', '500', '700',], subsets: ['latin'], style: ["normal", "italic"], display: 'swap' })
+const chakra_petch = Chakra_Petch({ weight: ['300', '400', '500', '600', '700',], subsets: ['latin'], style: ["normal", "italic"], display: 'swap' })
 
 export default function App({ Component, pageProps }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -142,7 +149,7 @@ export default function App({ Component, pageProps }) {
   }, [])
 
   return (
-    <div className='relative'>
+    <div className={`${chakra_petch.className} relative`}>
       <div className='absolute -z-50 h-full w-full blur-md sm:blur-lg md:blur-xl lg:blur-[30px] min-[1440px]:blur-2xl min-[2560px]:blur-3xl' style={{ background: `url(/Shiva_1x2.png) repeat-y top/100%` /* , backgroundImage: 'url("https://www.alleycat.org/wp-content/uploads/2019/03/FELV-cat.jpg")', */ }}></div>
       <div className='h-full'>
         <header className='sticky top-0 left-0 z-50 bg-sky-600/75 backdrop-blur-lg'>

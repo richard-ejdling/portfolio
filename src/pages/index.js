@@ -1,5 +1,4 @@
 import Image from 'next/image'
-import { Inter } from 'next/font/google'
 import { GoMarkGithub } from 'react-icons/go'
 import { BsLinkedin } from 'react-icons/bs'
 import Projects from './Projects'
@@ -7,8 +6,6 @@ import Technologies from './Technologies'
 import About from './About'
 import Contact from './Contact'
 import { useEffect, useRef } from 'react'
-
-const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
 
