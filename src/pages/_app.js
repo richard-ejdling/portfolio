@@ -174,7 +174,7 @@ export default function App({ Component, pageProps }) {
           )}
         </header>
 
-        <main className="box-content flex flex-col items-center min-h-screen max-w-6xl mx-auto px-4">
+        <main className="box-content flex flex-col items-center min-h-screen max-w-6xl mx-auto px-6">
           <section id='home' className='pt-10 scroll-mt-10'>
             <Home />
           </section>

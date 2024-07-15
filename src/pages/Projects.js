@@ -107,6 +107,7 @@ export default function Projects() {
     return (
         <div>
             <h1 className="m-auto w-fit">Projects</h1>
+            <p>A selection of personal projects</p>
             <ul className="flex flex-wrap mt-8 max-h-[450px] overflow-y-auto">
                 {projects.map(project => {
                     return (

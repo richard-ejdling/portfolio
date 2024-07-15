@@ -38,9 +38,9 @@ export default function Technologies() {
         },
         {
             name: 'Next.js',
-            icon: '/next.svg',
+            icon: '/technology-icons/next_logo.svg',
             alt: 'Next.js Logo',
-            white_bg: true
+            white_bg: false
         },
         {
             name: 'React Native',
@@ -54,14 +54,26 @@ export default function Technologies() {
             alt: 'Expo Logo',
             white_bg: true
         },
-        {
-            name: 'T3',
-            icon: '/technology-icons/t3-light.svg',
-            alt: 'T3 Logo',
-            white_bg: false
-        },
     ]
     const familiarTech = [
+        {
+            name: 'tRPC',
+            icon: '/technology-icons/tRPC.svg',
+            alt: 'tRPC Logo',
+            white_bg: false
+        },
+        {
+            name: 'Prisma',
+            icon: '/technology-icons/Prisma-LightSymbol.svg',
+            alt: 'Prisma Logo',
+            white_bg: false
+        },
+        {
+            name: 'NextAuth.js',
+            icon: '/technology-icons/nextAuthLogo.png',
+            alt: 'NextAuth.js Logo',
+            white_bg: false
+        },
         {
             name: 'GraphQL',
             icon: '/technology-icons/GraphQL Logo (Rhodamine).png',
@@ -94,7 +106,7 @@ export default function Technologies() {
         },
         {
             name: 'Express.js',
-            icon: '/technology-icons/Expressjs.png',
+            icon: '/technology-icons/expressjs_logo_icon_169185.svg',
             alt: 'Express.js Logo',
             white_bg: true
         },
@@ -103,24 +115,26 @@ export default function Technologies() {
     return (
         <div className="text-center">
             <h1>Technologies</h1>
-            <div className="">
+            <div>
                 <h2>Main</h2>
-                <ul className="flex flex-wrap">
+                <p className="text-left">The technologies I am proficient in</p>
+                <ul className="flex flex-wrap gap-8">
                     {mainTech.map(technology => {
                         return (
-                            <li key={technology.name} className='flex flex-col items-center justify-center w-1/3 sm:w-1/4 p-4 text-center'>
-                                <img src={technology.icon} alt={technology.alt} className={`aspect-square w-full object-contain ${technology.white_bg ? 'bg-white p-2' : ''}`} />
+                            <li key={technology.name} className='flex flex-col items-center justify-center w-[calc(33.333333%-21.333333px)] sm:w-[calc(25%-24px)] text-center'>
+                                <img src={technology.icon} alt={technology.alt} className={`aspect-square w-full object-contain ${technology.white_bg ? 'bg-white p-2 rounded' : ''}`} />
                                 <p>{technology.name}</p>
                             </li>
                         )
                     })}
                 </ul>
                 <h2>Familiar with</h2>
-                <ul className="flex flex-wrap">
+                <p className="text-left">The technologies I am familiar with but not yet proficient in</p>
+                <ul className="flex flex-wrap gap-8">
                     {familiarTech.map(technology => {
                         return (
-                            <li key={technology.name} className='flex flex-col items-center justify-center w-1/3 sm:w-1/4 p-4 text-center'>
-                                <img src={technology.icon} alt={technology.alt} className={`aspect-square w-full object-contain ${technology.white_bg ? 'bg-white p-2' : ''}`} />
+                            <li key={technology.name} className='flex flex-col items-center justify-center w-[calc(33.333333%-21.333333px)] sm:w-[calc(25%-24px)] text-center'>
+                                <img src={technology.icon} alt={technology.alt} className={`aspect-square w-full object-contain ${technology.white_bg ? 'bg-white p-2 rounded' : ''}`} />
                                 <p>{technology.name}</p>
                             </li>
                         )
