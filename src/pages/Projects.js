@@ -14,7 +14,7 @@ export default function Projects() {
         }, */
         {
             url: 'https://movieshop.vercel.app/',
-            title: 'MovieShop (under development)',
+            title: 'MovieShop',
             img: '/project-img/movieshop2.png',
             alt: 'movieshop',
             desc: 'Fake Webshop using the T3-stack (in collaboration with Mojtaba-amirii, Naiso2022 and Farida1084)',
@@ -105,9 +105,10 @@ export default function Projects() {
     ]
 
     return (
-        <div className='max-w-[760px]'>
+        <div>
             <h1 className="m-auto w-fit">Projects</h1>
-            <ul className="flex flex-wrap m-8 max-h-[450px] overflow-y-auto">
+            <p>A selection of personal projects</p>
+            <ul className="flex flex-wrap mt-8 max-h-[450px] overflow-y-auto">
                 {projects.map(project => {
                     return (
                         <li key={project.id} className="flex flex-col w-full sm:w-1/2 p-4 relative">
@@ -115,7 +116,7 @@ export default function Projects() {
                                 <img src={project.img} alt={project.alt} className="h-[150px] w-full object-cover" />
                                 <div className="px-2 py-1 bg-sky-600 grow">
                                     <div className='h-full flex flex-col w-[calc(100%-38px)]'>
-                                        <h2 className='font-semibold text-lg'>{project.title}</h2>
+                                        <h2 className='font-bold text-lg'>{project.title}</h2>
                                         <p>{project.desc}</p>
                                     </div>
                                 </div>

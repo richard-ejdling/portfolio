@@ -1,5 +1,4 @@
 import Image from 'next/image'
-import { Inter } from 'next/font/google'
 import { GoMarkGithub } from 'react-icons/go'
 import { BsLinkedin } from 'react-icons/bs'
 import Projects from './Projects'
@@ -7,8 +6,6 @@ import Technologies from './Technologies'
 import About from './About'
 import Contact from './Contact'
 import { useEffect, useRef } from 'react'
-
-const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
 
@@ -33,15 +30,15 @@ export default function Home() {
         </div>
         <img src="/img/profile-img.jpg" alt='My Portrait' className='rounded-full object-cover object-center h-32 w-32' />
       </div>
-      <div className='flex flex-col md:flex-row justify-center items-center md:gap-2 mt-2'>
-        <div className='flex justify-center gap-2'>
-          <a href="https://github.com/richard-ejdling" target='_blank'><GoMarkGithub /></a>
-          <a href="https://www.linkedin.com/in/richard-ejdling-4a0601273" target='_blank'><BsLinkedin /></a>
+      <div className='flex flex-col md:flex-row justify-center items-center gap-2 md:gap-4 mt-2'>
+        <div className='flex justify-center gap-4'>
+          <a href="https://github.com/richard-ejdling" target='_blank'><GoMarkGithub size={30} className='rounded-full hover:shadow-hover ease-in-out duration-100' /></a>
+          <a href="https://www.linkedin.com/in/richard-ejdling-4a0601273" target='_blank'><BsLinkedin size={30} className='rounded-sm hover:shadow-hover ease-in-out duration-100' /></a>
         </div>
         <div className='flex gap-1'>
           <p>CV:</p>
-          <a href="/CV/CV English.pdf" download className='underline underline-offset-2'>Download</a>
-          <a href="/CV/CV English.pdf" target='_blank' className='underline underline-offset-2'>View</a>
+          <a href="/CV/CV English.pdf" download className='bg-sky-600 hover:bg-sky-700 ease-in-out duration-100 px-2 rounded-full'/* 'underline underline-offset-2' */>Download</a>
+          <a href="/CV/CV English.pdf" target='_blank' className='bg-sky-600 hover:bg-sky-700 ease-in-out duration-100 px-2 rounded-full'/* 'underline underline-offset-2' */>View</a>
         </div>
       </div>
 

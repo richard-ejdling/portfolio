@@ -3,16 +3,24 @@ import { GoMarkGithub } from 'react-icons/go'
 import { BsLinkedin } from 'react-icons/bs'
 import { HiMenu } from 'react-icons/hi'
 import { RxCross2 } from 'react-icons/rx'
+import { CgClose } from "react-icons/cg";
 import Link from 'next/link'
 import { useRef, useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import Shiva from '../../public/Shiva_1x2.png'
+import { Nunito, Ubuntu, Baloo_2, Signika, Chakra_Petch } from 'next/font/google'
 
 import Projects from './Projects.js'
 import Technologies from './Technologies.js'
 import About from './About.js'
 import Contact from './Contact.js'
 import Home from '.'
+
+const signika = Signika({ subsets: ['latin'] })
+const baloo_2 = Baloo_2({ subsets: ['latin'] })
+const nunito = Nunito({ subsets: ['latin'] })
+const ubuntu = Ubuntu({ weight: ['300', '400', '500', '700',], subsets: ['latin'], style: ["normal", "italic"], display: 'swap' })
+const chakra_petch = Chakra_Petch({ weight: ['300', '400', '500', '600', '700',], subsets: ['latin'], style: ["normal", "italic"], display: 'swap' })
 
 export default function App({ Component, pageProps }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -25,21 +33,21 @@ export default function App({ Component, pageProps }) {
   const aboutRef = useRef(null)
   const contactRef = useRef(null)
 
-  const projectsXPos = useRef(0)
-  const technologiesXPos = useRef(0)
-  const aboutXPos = useRef(0)
-  const contactXPos = useRef(0)
+  const projectsYPos = useRef(0)
+  const technologiesYPos = useRef(0)
+  const aboutYPos = useRef(0)
+  const contactYPos = useRef(0)
 
   useEffect(() => {
-    projectsXPos.current = projectsRef.current.offsetTop - 40
-    technologiesXPos.current = technologiesRef.current.offsetTop - 40
-    aboutXPos.current = aboutRef.current.offsetTop - 40
-    contactXPos.current = contactRef.current.offsetTop - 40
+    projectsYPos.current = projectsRef.current.offsetTop - 40
+    technologiesYPos.current = technologiesRef.current.offsetTop - 40
+    aboutYPos.current = aboutRef.current.offsetTop - 40
+    contactYPos.current = contactRef.current.offsetTop - 40
 
-    console.log(projectsXPos.current)
-    console.log(technologiesXPos.current)
-    console.log(aboutXPos.current)
-    console.log(contactXPos.current)
+    /* console.log(projectsYPos.current)
+    console.log(technologiesYPos.current)
+    console.log(aboutYPos.current)
+    console.log(contactYPos.current) */
   }, [projectsRef, technologiesRef, aboutRef, contactRef])
 
   const homeNav = useRef(null)
@@ -50,23 +58,23 @@ export default function App({ Component, pageProps }) {
 
   function handleScroll() { // Debounce for better performance 
     const scrollPosition = window.scrollY;
-    console.log(scrollPosition);
+    /* console.log(scrollPosition); */
 
-    if (scrollPosition < projectsXPos.current) {
+    if (scrollPosition < projectsYPos.current) {
       setCurrentSection('Home')
-      console.log('home')
-    } else if (scrollPosition >= projectsXPos.current && scrollPosition < technologiesXPos.current) {
+      /* console.log('home') */
+    } else if (scrollPosition >= projectsYPos.current && scrollPosition < technologiesYPos.current) {
       setCurrentSection('Projects')
-      console.log('project')
-    } else if (scrollPosition >= technologiesXPos.current && scrollPosition < aboutXPos.current) {
+      /* console.log('project') */
+    } else if (scrollPosition >= technologiesYPos.current && scrollPosition < aboutYPos.current) {
       setCurrentSection('Technologies')
-      console.log('technologies')
-    } else if (scrollPosition >= aboutXPos.current && scrollPosition < contactXPos.current) {
+      /* console.log('technologies') */
+    } else if (scrollPosition >= aboutYPos.current && scrollPosition < contactYPos.current) {
       setCurrentSection('About')
-      console.log('about')
-    } else if (scrollPosition >= contactXPos.current) {
+      /* console.log('about') */
+    } else if (scrollPosition >= contactYPos.current) {
       setCurrentSection('Contact')
-      console.log('contact')
+      /* console.log('contact') */
     }
   };
 
@@ -77,6 +85,7 @@ export default function App({ Component, pageProps }) {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
 
   function NavList({ isModal }) {
     const navList = [
@@ -113,37 +122,59 @@ export default function App({ Component, pageProps }) {
     ]
 
     return (
-      <ul className={isModal ? 'self-start' : 'hidden sm:flex items-center gap-2'}>
-        {navList.map(item => <li className={currentSection === item.name ? 'underline' : ''} key={item.id}><a href={item.path} ref={item.ref} onClick={isModal ? () => setIsMenuOpen(false) : () => { }}>{item.name}</a></li>)}
+      isModal ? <ul className={'w-full'}>
+        {navList.map(item => <li className={`px-2 font-semibold text-lg py-2 ${currentSection === item.name ? 'text-white bg-sky-900 border-l-2 border-l-white' : 'text-gray-200 hover:text-white'}`} key={item.id}><a href={item.path} ref={item.ref} className='flex justify-center w-full' onClick={() => setIsMenuOpen(false)}>{<span>{item.name}</span>}</a></li>)}
       </ul>
+        :
+        <ul className={'hidden sm:flex h-full'}>
+          {navList.map(item => <li className={`h-full flex items-center px-2 font-semibold ${currentSection === item.name ? 'text-white bg-sky-900 border-b-2 border-b-white' : 'text-gray-200 hover:text-white'}`} key={item.id}><a href={item.path} ref={item.ref} >{item.name}</a></li>)}
+        </ul>
     )
   }
 
+  useEffect(() => {
+    const handleResize = () => {
+      const isLargeScreen = window.matchMedia('(min-width: 640px)').matches
+
+      if (isLargeScreen) {
+        setIsMenuOpen(false)
+      }
+    }
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize)
+    }
+  }, [])
+
   return (
-    <div className='relative'>
+    <div className={`${chakra_petch.className} relative`}>
       <div className='absolute -z-50 h-full w-full blur-md sm:blur-lg md:blur-xl lg:blur-[30px] min-[1440px]:blur-2xl min-[2560px]:blur-3xl' style={{ background: `url(/Shiva_1x2.png) repeat-y top/100%` /* , backgroundImage: 'url("https://www.alleycat.org/wp-content/uploads/2019/03/FELV-cat.jpg")', */ }}></div>
       <div className='h-full'>
-        <header className='flex items-center z-50 sticky top-0 left-0 p-2 bg-sky-600/75 justify-between'> {/* 'backdrop-blur-sm' */}
-          <h1>RE</h1>
-          <nav className='flex items-center gap-4'>
-            <div className='flex gap-2'>
-              <a href="https://github.com/richard-ejdling" target='_blank'><GoMarkGithub /></a>
-              <a href="https://www.linkedin.com/in/richard-ejdling-4a0601273" target='_blank'><BsLinkedin /></a>
-            </div>
-            <button className='sm:hidden' onClick={() => setIsMenuOpen(true)}><HiMenu /></button>
-            <NavList isModal={false} />
-            {isMenuOpen && (
-              <div id='close' className='flex justify-end backdrop-blur backdrop-brightness-[0.8] fixed top-0 right-0 z-10 h-screen w-screen' onClick={(e) => e.target.id === 'close' && setIsMenuOpen(false)}>
-                <div className='flex flex-col w-40 h-fit bg-sky-600 m-2 p-2 rounded-lg'>
-                  <button className='self-end' onClick={() => setIsMenuOpen(false)}><RxCross2 /></button>
-                  <NavList isModal={true} />
-                </div>
+        <header className='sticky top-0 left-0 z-50 bg-sky-600/75 backdrop-blur-lg'>
+          <nav className='relative box-content flex items-center h-10 max-w-6xl mx-auto px-2 z-10 justify-between'> {/* 'backdrop-blur-sm' */}
+            <h1>RE</h1>
+            <div className='flex items-center gap-6 h-full'>
+              <div className='flex gap-3'>
+                <a href="https://github.com/richard-ejdling" target='_blank'><GoMarkGithub size={20} className='text-gray-200 hover:text-white' /></a>
+                <a href="https://www.linkedin.com/in/richard-ejdling-4a0601273" target='_blank'><BsLinkedin size={20} className='text-gray-200 hover:text-white' /></a>
               </div>
-            )}
+              <button className='sm:hidden' onClick={() => setIsMenuOpen(prev => !prev)}>{isMenuOpen ? <CgClose size={25} /> : <HiMenu size={25} />}</button>
+              <NavList isModal={false} />
+            </div>
           </nav>
+          {isMenuOpen && (
+            <div id='close' className='fixed top-0 left-0 h-screen w-full bg-black/25' onClick={(e) => e.target.id === 'close' && setIsMenuOpen(false)}>
+              <div className='flex flex-col items-center w-full h-fit bg-sky-600 p-2 pt-11 rounded-b-lg shadow-2xl shadow-black'>
+                {/* <button className='self-end' onClick={() => setIsMenuOpen(false)}>{<CgClose />}</button> */}
+                <NavList isModal={true} />
+              </div>
+            </div>
+          )}
         </header>
 
-        <main className="flex min-h-screen flex-col items-center justify-between">
+        <main className="box-content flex flex-col items-center min-h-screen max-w-6xl mx-auto px-6">
           <section id='home' className='pt-10 scroll-mt-10'>
             <Home />
           </section>
@@ -165,9 +196,3 @@ export default function App({ Component, pageProps }) {
     </div>
   )
 }
-
-
-// Att göra: Göra om projektet till t3? (kanske inte då just denna sida inte riktigt behöver det?)
-// ändra blurren manuellt på bg istället för css blur. (då kan man även fixa lite stiliserad blur?!!, samt behöver inte ändra brur-grad för olika skärmstorlekar!!)
-// GitHub API? för projects, finns det?
-// gå igenom varje section och designa mer detaljerat (kolla på exempelportfolierna), SEN koda.
