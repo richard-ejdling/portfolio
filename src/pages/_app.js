@@ -123,11 +123,11 @@ export default function App({ Component, pageProps }) {
 
     return (
       isModal ? <ul className={'w-full'}>
-        {navList.map(item => <li className={`px-2 font-semibold text-lg py-2 ${currentSection === item.name ? 'text-white bg-sky-900 border-l-2 border-l-white' : 'text-gray-200 hover:text-white'}`} key={item.id}><a href={item.path} ref={item.ref} className='flex justify-center w-full' onClick={() => setIsMenuOpen(false)}>{<span>{item.name}</span>}</a></li>)}
+        {navList.map(item => <li className={`p-2 font-semibold text-lg ${currentSection === item.name && 'bg-sky-900 border-l-2 border-l-white'}`} key={item.id}><a href={item.path} ref={item.ref} className={`flex justify-center w-full font-semibold text-lg ${currentSection === item.name ? 'text-white' : 'text-gray-200 hover:text-white'}`} onClick={() => setIsMenuOpen(false)}>{<span>{item.name}</span>}</a></li>)}
       </ul>
         :
         <ul className={'hidden sm:flex h-full'}>
-          {navList.map(item => <li className={`h-full flex items-center px-2 font-semibold ${currentSection === item.name ? 'text-white bg-sky-900 border-b-2 border-b-white' : 'text-gray-200 hover:text-white'}`} key={item.id}><a href={item.path} ref={item.ref} >{item.name}</a></li>)}
+          {navList.map(item => <li className={`h-full flex items-center px-2 ${currentSection === item.name && 'bg-sky-900 border-b-2 border-b-white'}`} key={item.id}><a href={item.path} ref={item.ref} className={`font-semibold ${currentSection === item.name ? 'text-white' : 'text-gray-200 hover:text-white'}`}>{item.name}</a></li>)}
         </ul>
     )
   }
