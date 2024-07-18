@@ -1,5 +1,5 @@
 import '@/styles/globals.css'
-import { GoMarkGithub } from 'react-icons/go'
+import { FaGithub } from "react-icons/fa";
 import { BsLinkedin } from 'react-icons/bs'
 import { HiMenu } from 'react-icons/hi'
 import { RxCross2 } from 'react-icons/rx'
@@ -10,11 +10,19 @@ import { useRouter } from 'next/router'
 import Shiva from '../../public/Shiva_1x2.png'
 import { Nunito, Ubuntu, Baloo_2, Signika, Chakra_Petch } from 'next/font/google'
 
+import { FaRegFileCode } from "react-icons/fa6";
+import { FaFileCode } from "react-icons/fa6";
+import { FaScrewdriverWrench } from "react-icons/fa6";
+import { FaUser } from "react-icons/fa6";
+import { FaPaperPlane } from "react-icons/fa6";
+
+
 import Projects from './Projects.js'
 import Technologies from './Technologies.js'
 import About from './About.js'
 import Contact from './Contact.js'
 import Home from '.'
+import Section from '@/components/Section'
 
 const signika = Signika({ subsets: ['latin'] })
 const baloo_2 = Baloo_2({ subsets: ['latin'] })
@@ -122,12 +130,13 @@ export default function App({ Component, pageProps }) {
     ]
 
     return (
-      isModal ? <ul className={'w-full'}>
-        {navList.map(item => <li className={`px-2 font-semibold text-lg py-2 ${currentSection === item.name ? 'text-white bg-sky-900 border-l-2 border-l-white' : 'text-gray-200 hover:text-white'}`} key={item.id}><a href={item.path} ref={item.ref} className='flex justify-center w-full' onClick={() => setIsMenuOpen(false)}>{<span>{item.name}</span>}</a></li>)}
-      </ul>
+      isModal ?
+        <ul className={'w-full'}>
+          {navList.map(item => <li className={`p-2 font-semibold ${currentSection === item.name && 'bg-sky-900 border-l-2 border-l-white '}`} key={item.id}><a href={item.path} ref={item.ref} className={`flex justify-center w-full font-semibold text-2xl ${currentSection === item.name ? 'text-white' : 'text-gray-200 hover:text-white'}`} onClick={() => setIsMenuOpen(false)}>{<span className={`${currentSection === item.name && 'mr-0.5'}`}>{item.name}</span>}</a></li>)}
+        </ul>
         :
         <ul className={'hidden sm:flex h-full'}>
-          {navList.map(item => <li className={`h-full flex items-center px-2 font-semibold ${currentSection === item.name ? 'text-white bg-sky-900 border-b-2 border-b-white' : 'text-gray-200 hover:text-white'}`} key={item.id}><a href={item.path} ref={item.ref} >{item.name}</a></li>)}
+          {navList.map(item => <li className={`h-full flex items-center px-2 ${currentSection === item.name && 'bg-sky-900 border-b-2 border-b-white'}`} key={item.id}><a href={item.path} ref={item.ref} className={`font-semibold  ${currentSection === item.name ? 'text-white' : 'text-gray-200 hover:text-white'}`}>{item.name}</a></li>)}
         </ul>
     )
   }
@@ -153,20 +162,20 @@ export default function App({ Component, pageProps }) {
       <div className='absolute -z-50 h-full w-full blur-md sm:blur-lg md:blur-xl lg:blur-[30px] min-[1440px]:blur-2xl min-[2560px]:blur-3xl' style={{ background: `url(/Shiva_1x2.png) repeat-y top/100%` /* , backgroundImage: 'url("https://www.alleycat.org/wp-content/uploads/2019/03/FELV-cat.jpg")', */ }}></div>
       <div className='h-full'>
         <header className='sticky top-0 left-0 z-50 bg-sky-600/75 backdrop-blur-lg'>
-          <nav className='relative box-content flex items-center h-10 max-w-6xl mx-auto px-2 z-10 justify-between'> {/* 'backdrop-blur-sm' */}
-            <h1>RE</h1>
+          <nav className='relative box-content flex items-center h-14 sm:h-10 max-w-6xl mx-auto px-2 z-10 justify-between'> {/* 'backdrop-blur-sm' */}
+            <h1 className='text-2xl sm:text-base'>RE</h1>
             <div className='flex items-center gap-6 h-full'>
-              <div className='flex gap-3'>
-                <a href="https://github.com/richard-ejdling" target='_blank'><GoMarkGithub size={20} className='text-gray-200 hover:text-white' /></a>
-                <a href="https://www.linkedin.com/in/richard-ejdling-4a0601273" target='_blank'><BsLinkedin size={20} className='text-gray-200 hover:text-white' /></a>
+              <div className='flex gap-4'>
+                <a href="https://github.com/richard-ejdling" target='_blank'><FaGithub className='text-gray-200 hover:text-white text-[28px] sm:text-xl' /></a>
+                <a href="https://www.linkedin.com/in/richard-ejdling-4a0601273" target='_blank'><BsLinkedin className='text-gray-200 hover:text-white text-[28px] sm:text-xl' /></a>
               </div>
-              <button className='sm:hidden' onClick={() => setIsMenuOpen(prev => !prev)}>{isMenuOpen ? <CgClose size={25} /> : <HiMenu size={25} />}</button>
+              <button className='sm:hidden' onClick={() => setIsMenuOpen(prev => !prev)}>{isMenuOpen ? <CgClose size={35} /> : <HiMenu size={35} />}</button>
               <NavList isModal={false} />
             </div>
           </nav>
           {isMenuOpen && (
             <div id='close' className='fixed top-0 left-0 h-screen w-full bg-black/25' onClick={(e) => e.target.id === 'close' && setIsMenuOpen(false)}>
-              <div className='flex flex-col items-center w-full h-fit bg-sky-600 p-2 pt-11 rounded-b-lg shadow-2xl shadow-black'>
+              <div className='flex flex-col items-center w-full h-fit bg-sky-600 p-2 pt-16 rounded-b-lg shadow-2xl shadow-black'>
                 {/* <button className='self-end' onClick={() => setIsMenuOpen(false)}>{<CgClose />}</button> */}
                 <NavList isModal={true} />
               </div>
@@ -175,24 +184,40 @@ export default function App({ Component, pageProps }) {
         </header>
 
         <main className="box-content flex flex-col items-center min-h-screen max-w-6xl mx-auto px-6">
-          <section id='home' className='pt-10 scroll-mt-10'>
+          <Section id='home' styles='pt-20 sm:pt-10 md:pt-40 scroll-mt-10'>
             <Home />
-          </section>
-          <section className='pt-10 scroll-mt-10' id='projects' ref={projectsRef}>
+          </Section>
+          <Section styles='pt-20 sm:pt-40 sm:-scroll-mt-20' id='projects' ref={projectsRef} title='Projects' icon={<FaFileCode />}>
             <Projects />
-          </section>
-          <section className='pt-10 scroll-mt-10' id='technologies' ref={technologiesRef}>
+          </Section>
+          <Section styles='pt-20 sm:pt-40 sm:-scroll-mt-20' id='technologies' ref={technologiesRef} title='Technologies' icon={<FaScrewdriverWrench />}>
             <Technologies />
-          </section>
-          <section className='pt-10 scroll-mt-10' id='about' ref={aboutRef}>
+          </Section>
+          <Section styles='pt-20 sm:pt-40 sm:-scroll-mt-20' id='about' ref={aboutRef} title='About' icon={<FaUser />}>
             <About />
-          </section>
-          <section className='pt-10 scroll-mt-10' id='contact' ref={contactRef}>
+          </Section>
+          <Section styles='pt-20 sm:pt-40 sm:-scroll-mt-20' id='contact' ref={contactRef} title='Contact'  icon={<FaPaperPlane />}>
             <Contact />
-          </section>
+          </Section>
         </main>
         {/* <Component {...pageProps} /> */}
       </div>
     </div>
   )
 }
+
+/* <Section id='home' styles='pt-20 scroll-mt-10'>
+            <Home />
+          </Section>
+          <Section styles='pt-20' id='projects' ref={projectsRef} title='Projects'>
+            <Projects />
+          </Section>
+          <Section styles='pt-20' id='technologies' ref={technologiesRef}  title='Technologies'>
+            <Technologies />
+          </Section>
+          <Section styles='pt-20' id='about' ref={aboutRef}  title='About'>
+            <About />
+          </Section>
+          <Section styles='pt-20' id='contact' ref={contactRef}  title='Contact'>
+            <Contact />
+          </Section> */

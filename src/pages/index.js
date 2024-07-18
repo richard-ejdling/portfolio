@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { GoMarkGithub } from 'react-icons/go'
+import { FaGithub } from "react-icons/fa";
 import { BsLinkedin } from 'react-icons/bs'
 import Projects from './Projects'
 import Technologies from './Technologies'
@@ -23,22 +23,22 @@ export default function Home() {
 
   return (
     <>
-      <div className='flex flex-col-reverse md:flex-row gap-2 items-center'>
+      <div className='flex flex-col-reverse md:flex-row gap-4 items-center'>
         <div>
-          <h1 className='text-4xl'>Hi! <br />I&apos;m Richard Ejdling</h1>
-          <p className=''>Front-end developer</p>
+          <h1 className='text-6xl'>Hi! <br />I&apos;m Richard Ejdling</h1>
+          <p className='text-xl mt-2'>Front-end developer</p>
         </div>
         <img src="/img/profile-img.jpg" alt='My Portrait' className='rounded-full object-cover object-center h-32 w-32' />
       </div>
-      <div className='flex flex-col md:flex-row justify-center items-center gap-2 md:gap-4 mt-2'>
+      <div className='flex flex-col md:flex-row justify-center items-center gap-6 mt-8'>
         <div className='flex justify-center gap-4'>
-          <a href="https://github.com/richard-ejdling" target='_blank'><GoMarkGithub size={30} className='rounded-full hover:shadow-hover ease-in-out duration-100' /></a>
-          <a href="https://www.linkedin.com/in/richard-ejdling-4a0601273" target='_blank'><BsLinkedin size={30} className='rounded-sm hover:shadow-hover ease-in-out duration-100' /></a>
+          <a href="https://github.com/richard-ejdling" target='_blank'><FaGithub size={40} className='rounded-full hover:shadow-hover ease-in-out duration-100' /></a>
+          <a href="https://www.linkedin.com/in/richard-ejdling-4a0601273" target='_blank'><BsLinkedin size={40} className='rounded-sm hover:shadow-hover ease-in-out duration-100' /></a>
         </div>
-        <div className='flex gap-1'>
+        <div className='flex items-center gap-2 text-2xl sm:text-lg'>
           <p>CV:</p>
-          <a href="/CV/CV English.pdf" download className='bg-sky-600 hover:bg-sky-700 ease-in-out duration-100 px-2 rounded-full'/* 'underline underline-offset-2' */>Download</a>
-          <a href="/CV/CV English.pdf" target='_blank' className='bg-sky-600 hover:bg-sky-700 ease-in-out duration-100 px-2 rounded-full'/* 'underline underline-offset-2' */>View</a>
+          <a href="/CV/CV English.pdf" download className='bg-sky-600 hover:bg-sky-700 ease-in-out duration-100 px-3 py-1 sm:py-0.5 rounded-full'/* 'underline underline-offset-2' */>Download</a>
+          <a href="/CV/CV English.pdf" target='_blank' className='bg-sky-600 hover:bg-sky-700 ease-in-out duration-100 px-3 py-1 sm:py-0.5 rounded-full'/* 'underline underline-offset-2' */>View</a>
         </div>
       </div>
 
@@ -53,7 +53,7 @@ export default function Home() {
         </div>
         <div className='flex flex-col md:flex-row justify-center items-center md:gap-2 mt-2'>
           <div className='flex justify-center gap-2'>
-            <a href="https://github.com/chasacademy-richard-ejdling" target='_blank'><GoMarkGithub /></a>
+            <a href="https://github.com/chasacademy-richard-ejdling" target='_blank'><FaGithub /></a>
             <a href="" target='_blank'><BsLinkedin /></a>
           </div>
           <div className='flex gap-1'>

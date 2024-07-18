@@ -114,9 +114,8 @@ export default function Technologies() {
 
     return (
         <div className="text-center">
-            <h1>Technologies</h1>
             <div>
-                <h2>Main</h2>
+                <h3>Main</h3>
                 <p className="text-left">The technologies I am proficient in</p>
                 <ul className="flex flex-wrap gap-8">
                     {mainTech.map(technology => {
@@ -128,7 +127,7 @@ export default function Technologies() {
                         )
                     })}
                 </ul>
-                <h2>Familiar with</h2>
+                <h3>Familiar with</h3>
                 <p className="text-left">The technologies I am familiar with but not yet proficient in</p>
                 <ul className="flex flex-wrap gap-8">
                     {familiarTech.map(technology => {

@@ -1,4 +1,4 @@
-import { GoMarkGithub } from 'react-icons/go'
+import { FaGithub } from "react-icons/fa";
 
 export default function Projects() {
     // Olika img för mobil doch desktop? Mobilsidor i mobilläge och desktopsidor i desktopläge?
@@ -106,7 +106,6 @@ export default function Projects() {
 
     return (
         <div>
-            <h1 className="m-auto w-fit">Projects</h1>
             <p>A selection of personal projects</p>
             <ul className="flex flex-wrap mt-8 max-h-[450px] overflow-y-auto">
                 {projects.map(project => {
@@ -121,7 +120,7 @@ export default function Projects() {
                                     </div>
                                 </div>
                             </a>
-                            <a href={project.gitHub} target='_blank' className='rounded-full overflow-hidden shrink-0 absolute bottom-6 right-6 z-10'><GoMarkGithub size={30} /></a>
+                            <a href={project.gitHub} target='_blank' className='rounded-full overflow-hidden shrink-0 absolute bottom-6 right-6 z-10'><FaGithub size={30} /></a>
                         </li>
                     )
                 })}
