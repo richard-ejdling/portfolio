@@ -184,19 +184,19 @@ export default function App({ Component, pageProps }) {
         </header>
 
         <main className="box-content flex flex-col items-center min-h-screen max-w-6xl mx-auto px-6">
-          <Section id='home' styles='pt-20 scroll-mt-10'>
+          <Section id='home' styles='pt-20 sm:pt-10 md:pt-40 scroll-mt-10'>
             <Home />
           </Section>
-          <Section styles='pt-20' id='projects' ref={projectsRef} title='Projects' icon={<FaFileCode />}>
+          <Section styles='pt-20 sm:pt-40 sm:-scroll-mt-20' id='projects' ref={projectsRef} title='Projects' icon={<FaFileCode />}>
             <Projects />
           </Section>
-          <Section styles='pt-20' id='technologies' ref={technologiesRef} title='Technologies' icon={<FaScrewdriverWrench />}>
+          <Section styles='pt-20 sm:pt-40 sm:-scroll-mt-20' id='technologies' ref={technologiesRef} title='Technologies' icon={<FaScrewdriverWrench />}>
             <Technologies />
           </Section>
-          <Section styles='pt-20' id='about' ref={aboutRef} title='About' icon={<FaUser />}>
+          <Section styles='pt-20 sm:pt-40 sm:-scroll-mt-20' id='about' ref={aboutRef} title='About' icon={<FaUser />}>
             <About />
           </Section>
-          <Section styles='pt-20' id='contact' ref={contactRef} title='Contact'  icon={<FaPaperPlane />}>
+          <Section styles='pt-20 sm:pt-40 sm:-scroll-mt-20' id='contact' ref={contactRef} title='Contact'  icon={<FaPaperPlane />}>
             <Contact />
           </Section>
         </main>
