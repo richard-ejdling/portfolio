@@ -115,25 +115,25 @@ export default function Technologies() {
     return (
         <div className="text-center">
             <div>
-                <h3>Main</h3>
-                <p className="text-left">The technologies I am proficient in</p>
-                <ul className="flex flex-wrap gap-8">
+                <h3 className="text-2xl mt-4">Main</h3>
+                <p className="text-left text-lg">The technologies I am proficient in</p>
+                <ul className="flex flex-wrap justify-center gap-8 mt-8">
                     {mainTech.map(technology => {
                         return (
-                            <li key={technology.name} className='flex flex-col items-center justify-center w-[calc(33.333333%-21.333333px)] sm:w-[calc(25%-24px)] text-center'>
-                                <img src={technology.icon} alt={technology.alt} className={`aspect-square w-full object-contain ${technology.white_bg ? 'bg-white p-2 rounded' : ''}`} />
+                            <li key={technology.name} className='flex flex-col items-center justify-center w-[calc(33.333333%-21.333333px)] sm:w-[calc(25%-24px)] md:w-[calc(20%-25.6px)] text-center'>
+                                <img src={technology.icon} alt={technology.alt} className={`aspect-square w-full max-w-[120px] object-contain ${technology.white_bg ? 'bg-white p-2 rounded' : ''}`} />
                                 <p>{technology.name}</p>
                             </li>
                         )
                     })}
                 </ul>
-                <h3>Familiar with</h3>
-                <p className="text-left">The technologies I am familiar with but not yet proficient in</p>
-                <ul className="flex flex-wrap gap-8">
+                <h3 className="text-2xl mt-8">Familiar with</h3>
+                <p className="text-left text-lg">The technologies I am familiar with</p>
+                <ul className="flex flex-wrap justify-center gap-8 mt-8">
                     {familiarTech.map(technology => {
                         return (
-                            <li key={technology.name} className='flex flex-col items-center justify-center w-[calc(33.333333%-21.333333px)] sm:w-[calc(25%-24px)] text-center'>
-                                <img src={technology.icon} alt={technology.alt} className={`aspect-square w-full object-contain ${technology.white_bg ? 'bg-white p-2 rounded' : ''}`} />
+                            <li key={technology.name} className='flex flex-col items-center justify-center w-[calc(33.333333%-21.333333px)] sm:w-[calc(25%-24px)] md:w-[calc(20%-25.6px)] text-center'>
+                                <img src={technology.icon} alt={technology.alt} className={`aspect-square w-full max-w-[120px] object-contain ${technology.white_bg ? 'bg-white p-2 rounded' : ''}`} />
                                 <p>{technology.name}</p>
                             </li>
                         )
