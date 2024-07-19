@@ -183,7 +183,7 @@ export default function App({ Component, pageProps }) {
           )}
         </header>
 
-        <main className="box-content flex flex-col items-center min-h-screen max-w-6xl mx-auto px-6">
+        <main className="box-content flex flex-col items-center min-h-screen max-w-6xl mx-auto px-10">
           <Section id='home' styles='pt-20 sm:pt-10 md:pt-40 scroll-mt-10'>
             <Home />
           </Section>
