@@ -107,24 +107,27 @@ export default function Projects() {
     return (
         <div>
             <p>A selection of personal projects</p>
-            <ul className="flex flex-wrap mt-8 max-h-[450px] overflow-y-auto">
+            <ul className="flex gap-4 sm:gap-8 mt-8 pb-2 max-sm:w-screen max-sm:-ml-10 overflow-x-auto snap-x snap-mandatory scrollbar-thin scrollbar-track-transparent scrollbar-thumb-sky-600">
                 {projects.map(project => {
                     return (
-                        <li key={project.id} className="flex flex-col w-full sm:w-1/2 p-4 relative">
-                            <a href={project.url} target='_blank' className="flex flex-col rounded-xl overflow-hidden h-full">
+                        <li key={project.id} className="flex flex-col relative snap-center sm:snap-start w-[300px] max-w-full h-full shrink-0 first:ml-4 last:mr-4">
+                            <a href={project.url} target='_blank' className="flex flex-col rounded-xl overflow-hidden">
                                 <img src={project.img} alt={project.alt} className="h-[150px] w-full object-cover" />
                                 <div className="px-2 py-1 bg-sky-600 grow">
-                                    <div className='h-full flex flex-col w-[calc(100%-38px)]'>
+                                    <div className='flex flex-col w-[calc(100%-38px)]'>
                                         <h2 className='font-bold text-lg'>{project.title}</h2>
                                         <p>{project.desc}</p>
                                     </div>
                                 </div>
                             </a>
-                            <a href={project.gitHub} target='_blank' className='rounded-full overflow-hidden shrink-0 absolute bottom-6 right-6 z-10'><FaGithub size={30} /></a>
+                            <a href={project.gitHub} target='_blank' className='rounded-full overflow-hidden shrink-0 absolute bottom-2 right-2 z-10'><FaGithub size={30} /></a>
                         </li>
                     )
                 })}
             </ul>
+            {/* <p className="whitespace-nowrap overflow-x-auto">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Recusandae sint repudiandae consequuntur laboriosam, illo dolores rem magnam tenetur sequi temporibus eum iste natus. Officia aspernatur minus hic, praesentium libero culpa!
+            </p> */}
         </div>
     )
 }

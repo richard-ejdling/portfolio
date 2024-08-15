@@ -23,7 +23,7 @@ export default function Home() {
 
   return (
     <>
-      <div className='flex flex-col-reverse md:flex-row gap-4 items-center'>
+      <div className='flex flex-col-reverse md:flex-row gap-4 justify-center items-center'>
         <div>
           <h1 className='text-6xl'>Hi! <br />I&apos;m Richard Ejdling</h1>
           <p className='text-xl mt-2'>Front-end developer</p>

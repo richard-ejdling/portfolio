@@ -22,6 +22,7 @@ module.exports = {
     hoverOnlyWhenSupported: true,
   },
   plugins: [
+    require('tailwind-scrollbar'),
     /* function({addUtilities}) {
       addUtilities({
         '.hover-shadow:hover' : {
