@@ -115,7 +115,7 @@ export default function Technologies() {
     return (
         <div className="text-center">
             <div>
-                <h3 className="text-2xl mt-4">Main</h3>
+                <h3 className="text-2xl">Main</h3>
                 <p className="text-left text-lg">The technologies I am proficient in</p>
                 <ul className="flex flex-wrap justify-center gap-8 mt-8">
                     {mainTech.map(technology => {
