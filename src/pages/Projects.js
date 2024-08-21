@@ -2,6 +2,9 @@ import debounce from "@/utils/debounce";
 import throttle from "@/utils/throttle";
 import { useEffect, useRef, useState } from "react";
 import { FaGithub } from "react-icons/fa";
+import { VscDebugRestart, VscArrowLeft, VscArrowRight } from "react-icons/vsc";
+import { RiRestartLine } from "react-icons/ri";
+import { FaArrowRotateLeft, FaArrowRotateRight, FaArrowLeft, FaArrowRight, FaAnglesLeft, FaAnglesRight, FaAngleLeft, FaAngleRight } from "react-icons/fa6";
 
 const projects = [
     /* {
@@ -110,11 +113,7 @@ export default function Projects() {
     const [isScrollStart, setIsScrollStart] = useState(true)
     const [isScrollEnd, setIsScrollEnd] = useState(false)
 
-    /* const projectsCount = projects.length */
-
     const listRef = useRef(null)
-    /* const itemRefs = useRef([]);
-    const currentItem = useRef(0) */
 
     // Show the scroll button if our main container is smaller than our content width
     // Basically when our scroll bar is shown in overflow auto
@@ -130,38 +129,28 @@ export default function Projects() {
         }
     };
 
+    // checks whether scroll is at edges and sets up to restart scroll (scroll directly back to beinning or end)
     const checkScrollEdges = () => {
-        console.log('checking edges')
         if (listRef.current) {
             const { scrollLeft, scrollWidth, clientWidth } = listRef.current;
 
             setIsScrollStart(scrollLeft === 0);
-            setIsScrollEnd(scrollLeft + clientWidth === scrollWidth);
+            setIsScrollEnd(scrollLeft + clientWidth > scrollWidth - 1);
         }
     };
 
-    const onScroll = (/* offset,  */action) => {
-        const offset = 182
 
-        /* // if scrolling forward
-        if (offset > 0) {
-            if (isScrollEnd) {
-                listRef.current.scrollLeft = 0
-            } else listRef.current.scrollLeft += offset;
-        } e */
+    const btnScroll = (action) => {
+        const offset = 182
 
         switch (action) {
             case 'forward':
-                console.log('forward')
                 if (isScrollEnd) {
-                    console.log('is end. scrolling to start')
                     listRef.current.scrollLeft = 0
                 } else listRef.current.scrollLeft += offset;
                 break;
             case 'backward':
-                console.log('backward')
                 if (isScrollStart) {
-                    console.log('is end. scrolling to start')
                     listRef.current.scrollLeft = listRef.current.scrollWidth
                 } else listRef.current.scrollLeft += -offset;
                 break;
@@ -186,7 +175,7 @@ export default function Projects() {
             <ul ref={listRef} className="flex gap-4 sm:gap-8 mt-8 pb-3 sm:pb-2 max-sm:w-[calc(100%+5rem)] max-sm:-ml-10 overflow-x-auto snap-x snap-mandatory scrollbar-thin scrollbar-track-transparent scrollbar-thumb-sky-600 scroll-smooth">
                 {projects.map((project, i) => {
                     return (
-                        <li key={project.id} /* ref={(item) => itemRefs.current[1] = item} */ className="flex flex-col relative snap-center sm:snap-start w-[300px] max-w-full h-full shrink-0 max-sm:first:ml-4 max-sm:last:mr-4">
+                        <li key={project.id} className="flex flex-col relative snap-center sm:snap-start w-[300px] max-w-full h-full shrink-0 max-sm:first:ml-4 max-sm:last:mr-4">
                             <a href={project.url} target='_blank' className="flex flex-col rounded-xl overflow-hidden">
                                 <img src={project.img} alt={project.alt} className="h-[150px] w-full object-cover" />
                                 <div className="px-2 py-1 bg-sky-600 grow">
@@ -202,12 +191,15 @@ export default function Projects() {
                 })}
             </ul>
             {isScrollVisible && <div className="flex justify-center gap-4 mt-4 w-full">
-                <button className="h-8 w-8 bg-sky-600 rounded-full" onClick={() => onScroll(/* -182,  */'backward')}>{isScrollStart ? '<!' : '<'}</button>
-                <button className="h-8 w-8 bg-sky-600 rounded-full" onClick={() => onScroll(/* 182,  */'forward')}>{isScrollEnd ? '!>' : '>'}</button>
+                <button className="flex justify-center items-center h-20 sm:h-[60px] w-20 sm:w-[60px] hover:bg-sky-600 ease-in-out duration-100 active:bg-sky-700 rounded-full" onClick={() => btnScroll('backward')}>{isScrollStart ? (<>
+                    <FaArrowRight className="text-4xl sm:text-3xl" />
+                    <FaAngleRight className="text-4xl sm:text-3xl -ml-4 sm:-ml-3.5" />
+                </>) : <FaArrowLeft className="text-4xl  sm:text-3xl" />}</button>
+                <button className="flex justify-center items-center h-20 sm:h-[60px] w-20 sm:w-[60px] hover:bg-sky-600 ease-in-out duration-100 active:bg-sky-700 rounded-full" onClick={() => btnScroll('forward')}>{isScrollEnd ? (<>
+                    <FaAngleLeft className="text-4xl sm:text-3xl -mr-4 sm:-mr-3.5" />
+                    <FaArrowLeft className="text-4xl sm:text-3xl" />
+                </>) : <FaArrowRight className="text-4xl  sm:text-3xl" />}</button>
             </div>}
-            {/* <p className="whitespace-nowrap overflow-x-auto">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Recusandae sint repudiandae consequuntur laboriosam, illo dolores rem magnam tenetur sequi temporibus eum iste natus. Officia aspernatur minus hic, praesentium libero culpa!
-            </p> */}
         </div>
     )
 }
