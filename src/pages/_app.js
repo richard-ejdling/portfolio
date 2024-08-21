@@ -23,6 +23,8 @@ import About from './About.js'
 import Contact from './Contact.js'
 import Home from '.'
 import Section from '@/components/Section'
+import debounce from '@/utils/debounce';
+import throttle from '@/utils/throttle';
 
 const signika = Signika({ subsets: ['latin'] })
 const baloo_2 = Baloo_2({ subsets: ['latin'] })
@@ -64,7 +66,8 @@ export default function App({ Component, pageProps }) {
   const aboutNav = useRef(null)
   const contactNav = useRef(null)
 
-  function handleScroll() { // Debounce for better performance 
+  function handleScroll() { 
+    console.log('handleScroll')
     const scrollPosition = window.scrollY;
     /* console.log(scrollPosition); */
 
@@ -86,11 +89,13 @@ export default function App({ Component, pageProps }) {
     }
   };
 
+  const throttledHandleScroll = throttle(handleScroll, 200)
+
   useEffect(() => {
-    handleScroll();
-    window.addEventListener("scroll", handleScroll);
+    throttledHandleScroll();
+    window.addEventListener("scroll", throttledHandleScroll);
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("scroll", throttledHandleScroll);
     };
   }, []);
 
