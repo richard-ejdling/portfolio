@@ -8,105 +8,171 @@ import { FaArrowRotateLeft, FaArrowRotateRight, FaArrowLeft, FaArrowRight, FaAng
 
 const projects = [
     /* {
-        url: 'https://github.com/richard-ejdling',
+        id: 1,
         title: 'Not available',
+        desc: 'Not Available',
         img: '/no-image-available.jpg',
         alt: 'Not Availabe',
-        desc: 'Not Available',
+        url: 'https://github.com/richard-ejdling',
         gitHub: 'https://github.com/richard-ejdling?tab=repositories',
-        id: 1
+        techs:[]
     }, */
     {
-        url: 'https://movieshop.vercel.app/',
+        id: 1,
         title: 'MovieShop',
+        desc: 'Fake Webshop using the T3-stack (in collaboration with Mojtaba-amirii, Naiso2022 and Farida1084)',
         img: '/project-img/movieshop2.png',
         alt: 'movieshop',
-        desc: 'Fake Webshop using the T3-stack (in collaboration with Mojtaba-amirii, Naiso2022 and Farida1084)',
+        url: 'https://movieshop.vercel.app/',
         gitHub: 'https://github.com/Mojtaba-amirii/webbshop',
-        id: 1
+        techs: ['next', 'typescript', 'tailwind', 'prisma', 'trpc', 'nextauth', 'mongodb',]
     },
     {
-        url: 'https://next-pokemonapi.vercel.app/',
+        id: 2,
         title: 'PokéAPI page',
+        desc: 'Website using PokéAPI where you can search for pokémon and display them and their stats',
         img: '/project-img/pokéAPI.png',
         alt: 'PokéAPI page',
-        desc: 'Website using PokéAPI where you can search for pokémon and display them and their stats',
+        url: 'https://next-pokemonapi.vercel.app/',
         gitHub: 'https://github.com/richard-ejdling/next-pokemonapi',
-        id: 2
+        techs: ['next', 'typescript', 'tailwind',]
     },
     {
-        url: 'https://zoom-copy-and-redesign.vercel.app/',
+        id: 3,
         title: 'Zoom copy and redesign',
+        desc: 'A copy and redesign of the layout of Zoom\'s website',
         img: '/project-img/zoomCopyRedesign.png',
         alt: 'Zoom copy and redesign',
-        desc: 'A copy and redesign of the layout of Zoom\'s website',
+        url: 'https://zoom-copy-and-redesign.vercel.app/',
         gitHub: 'https://github.com/richard-ejdling/zoom-copy-and-redesign',
-        id: 3
+        techs: ['react', 'vite', 'tailwind',]
     },
     {
-        url: '/project-img/weatherApp.png',
+        id: 4,
         title: 'Weather app',
+        desc: 'Weather app created in React Native',
         img: '/project-img/weatherApp.png',
         alt: 'Weather app',
-        desc: 'Weather app created in React Native',
+        url: '/project-img/weatherApp.png',
         gitHub: 'https://github.com/richard-ejdling/weather-app',
-        id: 4
+        techs: ['reactnative', 'expo']
     },
     {
-        url: 'https://richard-ejdling.github.io/chas_blackjack/',
+        id: 5,
         title: 'Blackjack',
+        desc: 'Blackjack game',
         img: '/project-img/blackjack.png',
         alt: 'Blackjack',
-        desc: 'Blackjack game',
+        url: 'https://richard-ejdling.github.io/chas_blackjack/',
         gitHub: 'https://github.com/richard-ejdling/chas_blackjack',
-        id: 5
+        techs: ['vanilla']
     },
     {
-        url: 'todo-list-redux-ten.vercel.app',
+        id: 6,
         title: 'Todo list',
+        desc: 'Todo list website with both redux and reducer',
         img: '/project-img/todo.png',
         alt: 'Todo list',
-        desc: 'Todo list website with both redux and reducer',
+        url: 'todo-list-redux-ten.vercel.app',
         gitHub: 'https://github.com/richard-ejdling/todo-list-redux',
-        id: 6
+        techs: ['react', 'vite', 'redux']
     },
     {
-        url: 'https://quizz-redux-beta.vercel.app/',
+        id: 7,
         title: 'Quiz',
+        desc: 'Create and take quizzes. Made using redux.',
         img: '/project-img/quiz.png',
         alt: 'Quiz',
-        desc: 'Create and take quizzes. Made using redux.',
+        url: 'https://quizz-redux-beta.vercel.app/',
         gitHub: 'https://github.com/richard-ejdling/quizz-redux',
-        id: 7
+        techs: ['react', 'vite', 'redux', 'tailwind']
     },
     {
-        url: 'https://richard-ejdling.github.io/hangman/',
+        id: 8,
         title: 'Hangman',
+        desc: 'Hangman game',
         img: '/project-img/hangman.png',
         alt: 'Hangman',
-        desc: 'Hangman game',
+        url: 'https://richard-ejdling.github.io/hangman/',
         gitHub: 'https://github.com/richard-ejdling/hangman',
-        id: 8
+        techs: ['vanilla']
     },
     {
-        url: 'https://richard-ejdling.github.io/chas_radioplayer/',
+        id: 9,
         title: 'Radio player',
+        desc: 'Radio player using sr.se\'s api',
         img: '/project-img/radio2.png',
         alt: 'Radio player',
-        desc: 'Radio player using sr.se\'s api',
+        url: 'https://richard-ejdling.github.io/chas_radioplayer/',
         gitHub: 'https://github.com/richard-ejdling/chas_radioplayer',
-        id: 9
+        techs: ['vanilla']
     },
     {
-        url: 'https://world-time-website.vercel.app/',
+        id: 10,
         title: 'World Time Website',
+        desc: 'React router exercise showing the time in different cities',
         img: '/project-img/worldClock.png',
         alt: 'World Time Website',
-        desc: 'React router exercise showing the time in different cities',
+        url: 'https://world-time-website.vercel.app/',
         gitHub: 'https://github.com/richard-ejdling/world-time-website',
-        id: 10
-    },
+        techs: ['react', 'vite', 'tailwind']
+    }
 ]
+
+const techInfo = {
+    react: {
+        title: 'React',
+        color: '#61DAFB',
+    },
+    next: {
+        title: 'Next.js',
+        color: '#000000',
+    },
+    vite: {
+        title: 'Vite',
+        color: '#646CFF',
+    },
+    tailwind: {
+        title: 'Tailwind CSS',
+        color: '#38B2AC',
+    },
+    vanilla: {
+        title: 'Vanilla',
+        color: '#F7DF1E',
+    },
+    redux: {
+        title: 'Redux',
+        color: '#764ABC',
+    },
+    reactnative: {
+        title: 'React Native',
+        color: '#61DAFB',
+    },
+    expo: {
+        title: 'Expo',
+        color: '#000020',
+    },
+    typescript: {
+        title: 'TypeScript',
+        color: '#3178C6',
+    },
+    prisma: {
+        title: 'Prisma',
+        color: '#2D3748',
+    },
+    trpc: {
+        title: 'tRPC',
+        color: '#D63F8D',
+    },
+    nextauth: {
+        title: 'NextAuth.js',
+        color: '#7C3AED',
+    },
+    mongodb: {
+        title: 'MongoDB',
+        color: '#47A248',
+    },
+}
 
 export default function Projects() {
     const [isScrollVisible, setIsScrollVisible] = useState(false)
@@ -172,13 +238,13 @@ export default function Projects() {
     return (
         <div>
             <p>A selection of personal projects</p>
-            <ul ref={listRef} className="flex gap-4 sm:gap-8 mt-8 pb-3 sm:pb-2 max-sm:w-[calc(100%+5rem)] max-sm:-ml-10 overflow-x-auto snap-x snap-mandatory scrollbar-thin scrollbar-track-transparent scrollbar-thumb-sky-600 scroll-smooth">
+            <ul ref={listRef} className="flex gap-4 sm:gap-8 h-72 mt-8 pb-3 sm:pb-2 max-sm:w-[calc(100%+5rem)] max-sm:-ml-10 overflow-x-auto snap-x snap-mandatory scrollbar-thin scrollbar-track-transparent scrollbar-thumb-sky-600 scroll-smooth">
                 {projects.map((project, i) => {
                     return (
-                        <li key={project.id} className="flex flex-col relative snap-center sm:snap-start w-[300px] max-w-full h-full shrink-0 max-sm:first:ml-4 max-sm:last:mr-4">
-                            <a href={project.url} target='_blank' className="flex flex-col rounded-xl overflow-hidden">
-                                <img src={project.img} alt={project.alt} className="h-[150px] w-full object-cover" />
-                                <div className="px-2 py-1 bg-sky-600 grow">
+                        <li key={project.id} className="flex flex-col relative snap-center sm:snap-start w-[300px] max-w-full h-full shrink-0 max-sm:first:ml-4 max-sm:last:mr-4 p-1.5 bg-sky-600 rounded-xl">
+                            <a href={project.url} target='_blank' className="flex flex-col rounded-xl h-full overflow-hidden">
+                                <img src={project.img} alt={project.alt} className="h-[150px] w-full object-cover rounded-xl" />
+                                <div className="pt-1">
                                     <div className='flex flex-col w-[calc(100%-38px)]'>
                                         <h2 className='font-bold text-lg'>{project.title}</h2>
                                         <p>{project.desc}</p>
@@ -186,16 +252,24 @@ export default function Projects() {
                                 </div>
                             </a>
                             <a href={project.gitHub} target='_blank' className='rounded-full overflow-hidden shrink-0 absolute bottom-2 right-2 z-10'><FaGithub size={30} /></a>
+                            <div className="absolute -right-2 top-2 flex flex-col gap-[1px]">
+                                {project.techs.map((item) => {
+                                    const tech = techInfo[item]
+                                    console.log(tech)
+                                    return <span className={`ribbon`} style={{backgroundColor: tech.color, textShadow: '0.5px 0.5px grey'}}>{tech.title}</span>
+                                })}
+                            </div>
                         </li>
                     )
                 })}
             </ul>
+
             {isScrollVisible && <div className="flex justify-center gap-4 mt-4 w-full">
-                <button className="flex justify-center items-center h-20 sm:h-[60px] w-20 sm:w-[60px] hover:bg-sky-600 ease-in-out duration-100 active:bg-sky-700 rounded-full" onClick={() => btnScroll('backward')}>{isScrollStart ? (<>
+                <button className="flex justify-center items-center h-20 sm:h-[60px] w-20 sm:w-[60px] border-2 border-white hover:border-transparent active:border-transparent hover:bg-sky-600 ease-in-out duration-100 active:bg-sky-700 rounded-full" onClick={() => btnScroll('backward')}>{isScrollStart ? (<>
                     <FaArrowRight className="text-4xl sm:text-3xl" />
                     <FaAngleRight className="text-4xl sm:text-3xl -ml-4 sm:-ml-3.5" />
                 </>) : <FaArrowLeft className="text-4xl  sm:text-3xl" />}</button>
-                <button className="flex justify-center items-center h-20 sm:h-[60px] w-20 sm:w-[60px] hover:bg-sky-600 ease-in-out duration-100 active:bg-sky-700 rounded-full" onClick={() => btnScroll('forward')}>{isScrollEnd ? (<>
+                <button className="flex justify-center items-center h-20 sm:h-[60px] w-20 sm:w-[60px] border-2 border-white hover:border-transparent active:border-transparent hover:bg-sky-600 ease-in-out duration-100 active:bg-sky-700 rounded-full" onClick={() => btnScroll('forward')}>{isScrollEnd ? (<>
                     <FaAngleLeft className="text-4xl sm:text-3xl -mr-4 sm:-mr-3.5" />
                     <FaArrowLeft className="text-4xl sm:text-3xl" />
                 </>) : <FaArrowRight className="text-4xl  sm:text-3xl" />}</button>
