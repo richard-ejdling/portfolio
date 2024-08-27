@@ -238,12 +238,12 @@ export default function Projects() {
     return (
         <div>
             <p>A selection of personal projects</p>
-            <ul ref={listRef} className="flex gap-4 sm:gap-8 h-72 mt-8 pb-3 sm:pb-2 max-sm:w-[calc(100%+5rem)] max-sm:-ml-10 overflow-x-auto snap-x snap-mandatory scrollbar-thin scrollbar-track-transparent scrollbar-thumb-sky-600 scroll-smooth">
+            <ul ref={listRef} className="flex gap-4 sm:gap-8 h-80 mt-8 pb-3 sm:pb-2 max-sm:w-[calc(100%+5rem)] max-sm:-ml-10 overflow-x-auto snap-x snap-mandatory scrollbar-thin scrollbar-track-transparent scrollbar-thumb-sky-600 scroll-smooth">
                 {projects.map((project, i) => {
                     return (
-                        <li key={project.id} className="flex flex-col relative snap-center sm:snap-start w-[300px] max-w-full h-full shrink-0 max-sm:first:ml-4 max-sm:last:mr-4 p-1.5 bg-sky-600 rounded-xl">
+                        <li key={project.id} className="flex flex-col relative snap-center sm:snap-start w-[300px] max-w-full h-full shrink-0 max-sm:first:ml-4 max-sm:last:mr-4 p-1.5 bg-sky-600 hover:bg-sky-650 rounded-xl">
                             <a href={project.url} target='_blank' className="flex flex-col rounded-xl h-full overflow-hidden">
-                                <img src={project.img} alt={project.alt} className="h-[150px] w-full object-cover rounded-xl" />
+                                <img src={project.img} alt={project.alt} className="h-[175px] w-full object-cover rounded-xl" />
                                 <div className="pt-1">
                                     <div className='flex flex-col w-[calc(100%-38px)]'>
                                         <h2 className='font-bold text-lg'>{project.title}</h2>
@@ -251,12 +251,45 @@ export default function Projects() {
                                     </div>
                                 </div>
                             </a>
-                            <a href={project.gitHub} target='_blank' className='rounded-full overflow-hidden shrink-0 absolute bottom-2 right-2 z-10'><FaGithub size={30} /></a>
-                            <div className="absolute -right-2 top-2 flex flex-col gap-[1px]">
-                                {project.techs.map((item) => {
+                            <a href={project.gitHub} target='_blank' className='rounded-full overflow-hidden shrink-0 absolute bottom-2 right-2 z-10 text-gray-100 hover:text-white hover:scale-105'><FaGithub size={30} /></a>
+                            <div className="absolute -right-2 top-2 flex flex-col items-end gap-[1px]">
+                                {project.techs.slice(0, 5).map((item) => {
                                     const tech = techInfo[item]
-                                    console.log(tech)
-                                    return <span className={`ribbon`} style={{backgroundColor: tech.color, textShadow: '0.5px 0.5px grey'}}>{tech.title}</span>
+                                    return <div
+                                        className=""
+                                        style={{
+                                            filter: 'drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.5))',
+                                        }}
+                                    >
+                                        <div
+                                            className={`ribbon font-bold tracking-wide max-[310px]:pr-2`}
+                                            style={{
+                                                backgroundColor: tech.color,
+                                                textShadow: '1px 1px grey',
+                                            }}
+                                        >
+                                            {tech.title}
+                                        </div>
+                                    </div>
+                                })}
+                                {project.techs.slice(5, project.techs.length).map((item) => {
+                                    const tech = techInfo[item]
+                                    return <div
+                                        className=""
+                                        style={{
+                                            filter: 'drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.5))',
+                                        }}
+                                    >
+                                        <div
+                                            className={`ribbon font-bold text-[8px] max-w-14 max-[310px]:w-[60px]`}
+                                            style={{
+                                                backgroundColor: tech.color,
+                                                textShadow: '1px 1px grey',
+                                            }}
+                                        >
+                                            {tech.title}
+                                        </div>
+                                    </div>
                                 })}
                             </div>
                         </li>
