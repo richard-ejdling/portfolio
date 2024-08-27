@@ -256,7 +256,7 @@ export default function Projects() {
                                 {project.techs.slice(0, 5).map((item) => {
                                     const tech = techInfo[item]
                                     return <div
-                                        className=""
+                                        key={tech.title}
                                         style={{
                                             filter: 'drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.5))',
                                         }}
@@ -275,7 +275,7 @@ export default function Projects() {
                                 {project.techs.slice(5, project.techs.length).map((item) => {
                                     const tech = techInfo[item]
                                     return <div
-                                        className=""
+                                        key={tech.title}
                                         style={{
                                             filter: 'drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.5))',
                                         }}
