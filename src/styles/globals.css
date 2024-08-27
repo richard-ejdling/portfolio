@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  html {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
 @import url('https://fonts.googleapis.com/css2?family=Source+Serif+Pro&display=swap');
 
 :root {
@@ -32,6 +38,26 @@ body {
     rgb(var(--background-start-rgb)); */
     color: white;
     background-color: black;
+}
+
+/* HTML: <div class="ribbon">Your text content</div> */
+.ribbon {
+  --f: .5em; /* control the folded part*/
+  --fpx: 8px; /* control the folded part*/
+  --r: .8em; /* control the ribbon shape */
+  
+  /* position: absolute;
+  top: 20px;
+  right: calc(-1*var(--f)); */
+  padding-inline: .25em;
+  line-height: 1.8;/* 
+  background: #FA6900; */
+  border-bottom: var(--fpx) solid #0005;
+  border-left: var(--r) solid #0000;
+  clip-path: 
+    polygon(0 0,100% 0,100% calc(100% - var(--fpx)),calc(100% - var(--fpx)) 100%,
+      calc(100% - var(--fpx)) calc(100% - var(--fpx)),0 calc(100% - var(--fpx)),
+      var(--r) calc(50% - var(--fpx)/2));
 }
 
 @media screen and (prefers-reduced-motion: reduce) {

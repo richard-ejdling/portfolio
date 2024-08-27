@@ -23,6 +23,8 @@ import About from './About.js'
 import Contact from './Contact.js'
 import Home from '.'
 import Section from '@/components/Section'
+import debounce from '@/utils/debounce';
+import throttle from '@/utils/throttle';
 
 const signika = Signika({ subsets: ['latin'] })
 const baloo_2 = Baloo_2({ subsets: ['latin'] })
@@ -51,11 +53,6 @@ export default function App({ Component, pageProps }) {
     technologiesYPos.current = technologiesRef.current.offsetTop - 40
     aboutYPos.current = aboutRef.current.offsetTop - 40
     contactYPos.current = contactRef.current.offsetTop - 40
-
-    /* console.log(projectsYPos.current)
-    console.log(technologiesYPos.current)
-    console.log(aboutYPos.current)
-    console.log(contactYPos.current) */
   }, [projectsRef, technologiesRef, aboutRef, contactRef])
 
   const homeNav = useRef(null)
@@ -64,33 +61,29 @@ export default function App({ Component, pageProps }) {
   const aboutNav = useRef(null)
   const contactNav = useRef(null)
 
-  function handleScroll() { // Debounce for better performance 
+  function handleScroll() {
     const scrollPosition = window.scrollY;
-    /* console.log(scrollPosition); */
 
     if (scrollPosition < projectsYPos.current) {
       setCurrentSection('Home')
-      /* console.log('home') */
     } else if (scrollPosition >= projectsYPos.current && scrollPosition < technologiesYPos.current) {
       setCurrentSection('Projects')
-      /* console.log('project') */
     } else if (scrollPosition >= technologiesYPos.current && scrollPosition < aboutYPos.current) {
       setCurrentSection('Technologies')
-      /* console.log('technologies') */
     } else if (scrollPosition >= aboutYPos.current && scrollPosition < contactYPos.current) {
       setCurrentSection('About')
-      /* console.log('about') */
     } else if (scrollPosition >= contactYPos.current) {
       setCurrentSection('Contact')
-      /* console.log('contact') */
     }
   };
 
+  const throttledHandleScroll = throttle(handleScroll, 200)
+
   useEffect(() => {
-    handleScroll();
-    window.addEventListener("scroll", handleScroll);
+    throttledHandleScroll();
+    window.addEventListener("scroll", throttledHandleScroll);
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("scroll", throttledHandleScroll);
     };
   }, []);
 
@@ -205,19 +198,3 @@ export default function App({ Component, pageProps }) {
     </div>
   )
 }
-
-/* <Section id='home' styles='pt-20 scroll-mt-10'>
-            <Home />
-          </Section>
-          <Section styles='pt-20' id='projects' ref={projectsRef} title='Projects'>
-            <Projects />
-          </Section>
-          <Section styles='pt-20' id='technologies' ref={technologiesRef}  title='Technologies'>
-            <Technologies />
-          </Section>
-          <Section styles='pt-20' id='about' ref={aboutRef}  title='About'>
-            <About />
-          </Section>
-          <Section styles='pt-20' id='contact' ref={contactRef}  title='Contact'>
-            <Contact />
-          </Section> */

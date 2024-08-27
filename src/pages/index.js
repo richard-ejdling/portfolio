@@ -23,7 +23,7 @@ export default function Home() {
 
   return (
     <>
-      <div className='flex flex-col-reverse md:flex-row gap-4 items-center'>
+      <div className='flex flex-col-reverse md:flex-row gap-4 justify-center items-center'>
         <div>
           <h1 className='text-6xl'>Hi! <br />I&apos;m Richard Ejdling</h1>
           <p className='text-xl mt-2'>Front-end developer</p>
@@ -37,8 +37,8 @@ export default function Home() {
         </div>
         <div className='flex items-center gap-2 text-2xl sm:text-lg'>
           <p>CV:</p>
-          <a href="/CV/CV English.pdf" download className='bg-sky-600 hover:bg-sky-700 ease-in-out duration-100 px-3 py-1 sm:py-0.5 rounded-full'/* 'underline underline-offset-2' */>Download</a>
-          <a href="/CV/CV English.pdf" target='_blank' className='bg-sky-600 hover:bg-sky-700 ease-in-out duration-100 px-3 py-1 sm:py-0.5 rounded-full'/* 'underline underline-offset-2' */>View</a>
+          <a href="/CV/CV English.pdf" download className='font-medium tracking-wide border-2 border-white hover:border-transparent active:border-transparent hover:bg-sky-600 ease-in-out duration-100 active:bg-sky-700 px-3 py-1 sm:py-0.5 rounded-full'/* 'underline underline-offset-2' */>Download</a>
+          <a href="/CV/CV English.pdf" target='_blank' className='font-medium tracking-wide border-2 border-white hover:border-transparent active:border-transparent hover:bg-sky-600 ease-in-out duration-100 active:bg-sky-700 px-3 py-1 sm:py-0.5 rounded-full'/* 'underline underline-offset-2' */>View</a>
         </div>
       </div>
 

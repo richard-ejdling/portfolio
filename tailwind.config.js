@@ -16,12 +16,16 @@ module.exports = {
         'centered': '0 0 20px 5px rgba(0, 0, 0, 0.1)',
         'hover': '0 0 15px 2px #0284c7',
       },
+      colors: {
+        'sky-650': '#0277b4'
+      }
     },
   },
   future: {
     hoverOnlyWhenSupported: true,
   },
   plugins: [
+    require('tailwind-scrollbar'),
     /* function({addUtilities}) {
       addUtilities({
         '.hover-shadow:hover' : {
