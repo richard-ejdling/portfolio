@@ -2,8 +2,33 @@ import { FaGithub } from "react-icons/fa";
 import { BsLinkedin } from 'react-icons/bs'
 
 export default function About() {
+    
     return (
         <div>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima voluptatem quam tempora rem vitae qui quidem debitis magni, voluptas expedita non eum sint corrupti sapiente a. Cumque commodi repellendus aliquam.
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima voluptatem quam tempora rem vitae qui quidem debitis magni, voluptas expedita non eum sint corrupti sapiente a. Cumque commodi repellendus aliquam.
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima voluptatem quam tempora rem vitae qui quidem debitis magni, voluptas expedita non eum sint corrupti sapiente a. Cumque commodi repellendus aliquam.
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima voluptatem quam tempora rem vitae qui quidem debitis magni, voluptas expedita non eum sint corrupti sapiente a. Cumque commodi repellendus aliquam.
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima voluptatem quam tempora rem vitae qui quidem debitis magni, voluptas expedita non eum sint corrupti sapiente a. Cumque commodi repellendus aliquam.
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima voluptatem quam tempora rem vitae qui quidem debitis magni, voluptas expedita non eum sint corrupti sapiente a. Cumque commodi repellendus aliquam.
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima voluptatem quam tempora rem vitae qui quidem debitis magni, voluptas expedita non eum sint corrupti sapiente a. Cumque commodi repellendus aliquam.
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima voluptatem quam tempora rem vitae qui quidem debitis magni, voluptas expedita non eum sint corrupti sapiente a. Cumque commodi repellendus aliquam.
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima voluptatem quam tempora rem vitae qui quidem debitis magni, voluptas expedita non eum sint corrupti sapiente a. Cumque commodi repellendus aliquam.
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima voluptatem quam tempora rem vitae qui quidem debitis magni, voluptas expedita non eum sint corrupti sapiente a. Cumque commodi repellendus aliquam.
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima voluptatem quam tempora rem vitae qui quidem debitis magni, voluptas expedita non eum sint corrupti sapiente a. Cumque commodi repellendus aliquam.
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima voluptatem quam tempora rem vitae qui quidem debitis magni, voluptas expedita non eum sint corrupti sapiente a. Cumque commodi repellendus aliquam.
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima voluptatem quam tempora rem vitae qui quidem debitis magni, voluptas expedita non eum sint corrupti sapiente a. Cumque commodi repellendus aliquam.
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima voluptatem quam tempora rem vitae qui quidem debitis magni, voluptas expedita non eum sint corrupti sapiente a. Cumque commodi repellendus aliquam.
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima voluptatem quam tempora rem vitae qui quidem debitis magni, voluptas expedita non eum sint corrupti sapiente a. Cumque commodi repellendus aliquam.
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima voluptatem quam tempora rem vitae qui quidem debitis magni, voluptas expedita non eum sint corrupti sapiente a. Cumque commodi repellendus aliquam.
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima voluptatem quam tempora rem vitae qui quidem debitis magni, voluptas expedita non eum sint corrupti sapiente a. Cumque commodi repellendus aliquam.
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima voluptatem quam tempora rem vitae qui quidem debitis magni, voluptas expedita non eum sint corrupti sapiente a. Cumque commodi repellendus aliquam.
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima voluptatem quam tempora rem vitae qui quidem debitis magni, voluptas expedita non eum sint corrupti sapiente a. Cumque commodi repellendus aliquam.
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima voluptatem quam tempora rem vitae qui quidem debitis magni, voluptas expedita non eum sint corrupti sapiente a. Cumque commodi repellendus aliquam.
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima voluptatem quam tempora rem vitae qui quidem debitis magni, voluptas expedita non eum sint corrupti sapiente a. Cumque commodi repellendus aliquam.
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima voluptatem quam tempora rem vitae qui quidem debitis magni, voluptas expedita non eum sint corrupti sapiente a. Cumque commodi repellendus aliquam.
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima voluptatem quam tempora rem vitae qui quidem debitis magni, voluptas expedita non eum sint corrupti sapiente a. Cumque commodi repellendus aliquam.
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima voluptatem quam tempora rem vitae qui quidem debitis magni, voluptas expedita non eum sint corrupti sapiente a. Cumque commodi repellendus aliquam.
             <p>Info about me.........</p>
             <div className='flex flex-col md:flex-row justify-center items-center gap-6 mt-8'>
                 <div className='flex justify-center gap-4'>
