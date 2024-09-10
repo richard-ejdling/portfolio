@@ -149,8 +149,8 @@ export default function App({ Component, pageProps }) {
   return (
     <div className={`${chakra_petch.className} relative`}>
       <div className='fixed -z-10 h-screen w-screen' style={{ background: `url(/Shiva.jpg) center/cover repeat-x`, /* , backgroundImage: 'url("https://www.alleycat.org/wp-content/uploads/2019/03/FELV-cat.jpg")', */ }}></div>
-      <header className='sticky top-0 left-0 z-50 bg-sky-600/75 backdrop-blur-lg'>
-        <nav className='relative box-content flex items-center h-14 sm:h-10 max-w-6xl mx-auto px-2 z-10 justify-between'> {/* 'backdrop-blur-sm' */}
+      <header className='sticky top-0 left-0 z-50 bg-sky-600/75 backdrop-blur-lg sm:backdrop-blur-xl'>
+        <nav className='relative box-content flex items-center h-14 sm:h-10 max-w-6xl mx-auto px-2 z-10 justify-between'> {/*  backdrop-blur-lg'sm:backdrop-blur-xl' */}
           <h1 className='text-2xl sm:text-base'>RE</h1>
           <div className='flex items-center gap-6 h-full'>
             <div className='flex gap-4'>
@@ -170,7 +170,7 @@ export default function App({ Component, pageProps }) {
           </div>
         )}
       </header>
-      <div className='h-full backdrop-blur-lg'>
+      <div className='h-full backdrop-blur-lg sm:backdrop-blur-xl'>
         <main className="box-content flex flex-col items-center min-h-screen max-w-6xl mx-auto px-10">
           <Section id='home' styles='pt-20 sm:pt-10 md:pt-40 scroll-mt-10'>
             <Home />
@@ -184,12 +184,18 @@ export default function App({ Component, pageProps }) {
           <Section id='about' styles='pt-20 sm:pt-40 sm:-scroll-mt-20' ref={aboutRef} title='About' icon={<FaUser />}>
             <About />
           </Section>
-          <Section id='contact' styles='pt-20 sm:pt-40 sm:-scroll-mt-20' ref={contactRef} title='Contact' icon={<FaPaperPlane />}>
+          <Section id='contact' styles='py-20 sm:pt-40 sm:-scroll-mt-20' ref={contactRef} title='Contact' icon={<FaPaperPlane />}>
             <Contact />
           </Section>
         </main>
         {/* <Component {...pageProps} /> */}
       </div>
+      <footer>
+        <div className='flex flex-col justify-center items-center h-[calc(100vh-40px)] text-6xl gap-6'>
+          <p className='text-center'>Thank you for visiting!</p>
+          <p className='text-center'>Have a nice day!</p>
+        </div>
+      </footer>
     </div>
   )
 }

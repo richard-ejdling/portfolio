@@ -300,7 +300,7 @@ export default function Projects() {
                 })}
             </ul>
 
-            {isScrollable &&
+            {/* isScrollable && */
                 <div className="flex justify-center gap-4 mt-4 w-full">
                     <button className="flex justify-center items-center h-20 sm:h-[60px] w-20 sm:w-[60px] border-2 border-white hover:border-transparent active:border-transparent hover:bg-sky-600 ease-in-out duration-100 active:bg-sky-700 rounded-full" onClick={() => btnScroll('backward')}>{isScrollStart ? (<>
                         <FaArrowRight className="text-4xl sm:text-3xl" />
