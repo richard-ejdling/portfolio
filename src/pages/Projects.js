@@ -187,7 +187,6 @@ export default function Projects() {
     // Show the scroll button if our main container is smaller than our content width
     // Basically when our scroll bar is shown in overflow auto
     /* const checkScroll = () => {
-        console.log('checking scroll')
         if (
             listRef &&
             listRef.current &&

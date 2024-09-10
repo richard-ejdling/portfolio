@@ -92,8 +92,6 @@ export default function App({ Component, pageProps }) {
   function handleScroll() {
     const scrollPosition = window.scrollY;
 
-    console.log('scroll position', scrollPosition)
-
     if (scrollPosition < projectsYPos.current) {
       setCurrentSection('Home')
     } else if (scrollPosition >= projectsYPos.current && scrollPosition < technologiesYPos.current) {
@@ -109,7 +107,6 @@ export default function App({ Component, pageProps }) {
 
   function setSectionPos(isLargeScreen) {
     const addition = isLargeScreen ? 80 : 0
-    console.log('setting position', addition)
     projectsYPos.current = projectsRef.current.getBoundingClientRect().top + window.scrollY + addition
     technologiesYPos.current = technologiesRef.current.getBoundingClientRect().top + window.scrollY + addition
     aboutYPos.current = aboutRef.current.getBoundingClientRect().top + window.scrollY + addition
@@ -124,10 +121,6 @@ export default function App({ Component, pageProps }) {
   const throttledHandleScroll = throttle(handleScroll, 200)
 
   useEffect(() => {
-    console.log(projectsYPos.current,
-      technologiesYPos.current,
-      aboutYPos.current,
-      contactYPos.current)
     throttledHandleScroll();
     window.addEventListener("scroll", throttledHandleScroll);
     return () => {
