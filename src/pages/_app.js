@@ -48,18 +48,46 @@ export default function App({ Component, pageProps }) {
   const aboutYPos = useRef(0)
   const contactYPos = useRef(0)
 
-  useEffect(() => {
-    projectsYPos.current = projectsRef.current.offsetTop - 40
-    technologiesYPos.current = technologiesRef.current.offsetTop - 40
-    aboutYPos.current = aboutRef.current.offsetTop - 40
-    contactYPos.current = contactRef.current.offsetTop - 40
-  }, [projectsRef, technologiesRef, aboutRef, contactRef])
+  function NavList({ isModal }) {
+    const navList = [
+      {
+        name: 'Home',
+        path: '#home',
+        id: 1
+      },
+      {
+        name: 'Projects',
+        path: '#projects',
+        id: 2
+      },
+      {
+        name: 'Technologies',
+        path: '#technologies',
+        id: 3
+      },
+      {
+        name: 'About',
+        path: '#about',
+        id: 4
+      },
+      {
+        name: 'Contact',
+        path: '#contact',
+        id: 5
+      }
+    ]
 
-  const homeNav = useRef(null)
-  const projectsNav = useRef(null)
-  const technologiesNav = useRef(null)
-  const aboutNav = useRef(null)
-  const contactNav = useRef(null)
+    return (
+      isModal ?
+        <ul className={'w-full'}>
+          {navList.map(item => <li className={`p-2 font-semibold ${currentSection === item.name && 'bg-sky-900 border-l-2 border-l-white '}`} key={item.id}><a href={item.path} className={`flex justify-center w-full font-semibold text-2xl ${currentSection === item.name ? 'text-white' : 'text-gray-200 hover:text-white'}`} onClick={() => setIsMenuOpen(false)}>{<span className={`${currentSection === item.name && 'mr-0.5'}`}>{item.name}</span>}</a></li>)}
+        </ul>
+        :
+        <ul className={'hidden sm:flex h-full'}>
+          {navList.map(item => <li className={`h-full flex items-center px-2 ${currentSection === item.name && 'bg-sky-900 border-b-2 border-b-white'}`} key={item.id}><a href={item.path} className={`font-semibold  ${currentSection === item.name ? 'text-white' : 'text-gray-200 hover:text-white'}`}>{item.name}</a></li>)}
+        </ul>
+    )
+  }
 
   function handleScroll() {
     const scrollPosition = window.scrollY;
@@ -77,6 +105,19 @@ export default function App({ Component, pageProps }) {
     }
   };
 
+  function setSectionPos(isLargeScreen) {
+    const addition = isLargeScreen ? 80 : 0
+    projectsYPos.current = projectsRef.current.getBoundingClientRect().top + window.scrollY + addition
+    technologiesYPos.current = technologiesRef.current.getBoundingClientRect().top + window.scrollY + addition
+    aboutYPos.current = aboutRef.current.getBoundingClientRect().top + window.scrollY + addition
+    contactYPos.current = contactRef.current.getBoundingClientRect().top + window.scrollY + addition
+  }
+
+  useEffect(() => {
+    const isLargeScreen = window.matchMedia('(min-width: 640px)').matches
+    setSectionPos(isLargeScreen)
+  }, [projectsRef, technologiesRef, aboutRef, contactRef])
+
   const throttledHandleScroll = throttle(handleScroll, 200)
 
   useEffect(() => {
@@ -87,53 +128,6 @@ export default function App({ Component, pageProps }) {
     };
   }, []);
 
-
-  function NavList({ isModal }) {
-    const navList = [
-      {
-        name: 'Home',
-        path: '#home',
-        ref: homeNav,
-        id: 1
-      },
-      {
-        name: 'Projects',
-        path: '#projects',
-        ref: projectsNav,
-        id: 2
-      },
-      {
-        name: 'Technologies',
-        path: '#technologies',
-        ref: technologiesNav,
-        id: 3
-      },
-      {
-        name: 'About',
-        path: '#about',
-        ref: aboutNav,
-        id: 4
-      },
-      {
-        name: 'Contact',
-        path: '#contact',
-        ref: contactNav,
-        id: 5
-      }
-    ]
-
-    return (
-      isModal ?
-        <ul className={'w-full'}>
-          {navList.map(item => <li className={`p-2 font-semibold ${currentSection === item.name && 'bg-sky-900 border-l-2 border-l-white '}`} key={item.id}><a href={item.path} ref={item.ref} className={`flex justify-center w-full font-semibold text-2xl ${currentSection === item.name ? 'text-white' : 'text-gray-200 hover:text-white'}`} onClick={() => setIsMenuOpen(false)}>{<span className={`${currentSection === item.name && 'mr-0.5'}`}>{item.name}</span>}</a></li>)}
-        </ul>
-        :
-        <ul className={'hidden sm:flex h-full'}>
-          {navList.map(item => <li className={`h-full flex items-center px-2 ${currentSection === item.name && 'bg-sky-900 border-b-2 border-b-white'}`} key={item.id}><a href={item.path} ref={item.ref} className={`font-semibold  ${currentSection === item.name ? 'text-white' : 'text-gray-200 hover:text-white'}`}>{item.name}</a></li>)}
-        </ul>
-    )
-  }
-
   useEffect(() => {
     const handleResize = () => {
       const isLargeScreen = window.matchMedia('(min-width: 640px)').matches
@@ -141,6 +135,8 @@ export default function App({ Component, pageProps }) {
       if (isLargeScreen) {
         setIsMenuOpen(false)
       }
+
+      setSectionPos(isLargeScreen)
     }
 
     window.addEventListener('resize', handleResize);
@@ -152,49 +148,54 @@ export default function App({ Component, pageProps }) {
 
   return (
     <div className={`${chakra_petch.className} relative`}>
-      <div className='absolute -z-50 h-full w-full blur-md sm:blur-lg md:blur-xl lg:blur-[30px] min-[1440px]:blur-2xl min-[2560px]:blur-3xl' style={{ background: `url(/Shiva_1x2.png) repeat-y top/100%` /* , backgroundImage: 'url("https://www.alleycat.org/wp-content/uploads/2019/03/FELV-cat.jpg")', */ }}></div>
-      <div className='h-full'>
-        <header className='sticky top-0 left-0 z-50 bg-sky-600/75 backdrop-blur-lg'>
-          <nav className='relative box-content flex items-center h-14 sm:h-10 max-w-6xl mx-auto px-2 z-10 justify-between'> {/* 'backdrop-blur-sm' */}
-            <h1 className='text-2xl sm:text-base'>RE</h1>
-            <div className='flex items-center gap-6 h-full'>
-              <div className='flex gap-4'>
-                <a href="https://github.com/richard-ejdling" target='_blank'><FaGithub className='text-gray-200 hover:text-white text-[28px] sm:text-xl' /></a>
-                <a href="https://www.linkedin.com/in/richard-ejdling-4a0601273" target='_blank'><BsLinkedin className='text-gray-200 hover:text-white text-[28px] sm:text-xl' /></a>
-              </div>
-              <button className='sm:hidden' onClick={() => setIsMenuOpen(prev => !prev)}>{isMenuOpen ? <CgClose size={35} /> : <HiMenu size={35} />}</button>
-              <NavList isModal={false} />
+      <div className='fixed -z-10 h-screen w-screen' style={{ background: `url(/Shiva.jpg) center/cover repeat-x`, /* , backgroundImage: 'url("https://www.alleycat.org/wp-content/uploads/2019/03/FELV-cat.jpg")', */ }}></div>
+      <header className='sticky top-0 left-0 z-50 bg-sky-600/75 backdrop-blur-lg sm:backdrop-blur-xl'>
+        <nav className='relative box-content flex items-center h-14 sm:h-10 max-w-6xl mx-auto px-2 z-10 justify-between'> {/*  backdrop-blur-lg'sm:backdrop-blur-xl' */}
+          <h1 className='text-2xl sm:text-base'>RE</h1>
+          <div className='flex items-center gap-6 h-full'>
+            <div className='flex gap-4'>
+              <a href="https://github.com/richard-ejdling" target='_blank'><FaGithub className='text-gray-200 hover:text-white text-[28px] sm:text-xl' /></a>
+              <a href="https://www.linkedin.com/in/richard-ejdling-4a0601273" target='_blank'><BsLinkedin className='text-gray-200 hover:text-white text-[28px] sm:text-xl' /></a>
             </div>
-          </nav>
-          {isMenuOpen && (
-            <div id='close' className='fixed top-0 left-0 h-screen w-full bg-black/25' onClick={(e) => e.target.id === 'close' && setIsMenuOpen(false)}>
-              <div className='flex flex-col items-center w-full h-fit bg-sky-600 p-2 pt-16 rounded-b-lg shadow-2xl shadow-black'>
-                {/* <button className='self-end' onClick={() => setIsMenuOpen(false)}>{<CgClose />}</button> */}
-                <NavList isModal={true} />
-              </div>
+            <button className='sm:hidden' onClick={() => setIsMenuOpen(prev => !prev)}>{isMenuOpen ? <CgClose size={35} /> : <HiMenu size={35} />}</button>
+            <NavList isModal={false} />
+          </div>
+        </nav>
+        {isMenuOpen && (
+          <div id='close' className='fixed top-0 left-0 h-screen w-full bg-black/25' onClick={(e) => e.target.id === 'close' && setIsMenuOpen(false)}>
+            <div className='flex flex-col items-center w-full h-fit bg-sky-600 p-2 pt-16 rounded-b-lg shadow-2xl shadow-black'>
+              {/* <button className='self-end' onClick={() => setIsMenuOpen(false)}>{<CgClose />}</button> */}
+              <NavList isModal={true} />
             </div>
-          )}
-        </header>
-
+          </div>
+        )}
+      </header>
+      <div className='h-full backdrop-blur-lg sm:backdrop-blur-xl'>
         <main className="box-content flex flex-col items-center min-h-screen max-w-6xl mx-auto px-10">
           <Section id='home' styles='pt-20 sm:pt-10 md:pt-40 scroll-mt-10'>
             <Home />
           </Section>
-          <Section styles='pt-20 sm:pt-40 sm:-scroll-mt-20' id='projects' ref={projectsRef} title='Projects' icon={<FaFileCode />}>
+          <Section id='projects' styles='pt-20 sm:pt-40 sm:-scroll-mt-20' ref={projectsRef} title='Projects' icon={<FaFileCode />}>
             <Projects />
           </Section>
-          <Section styles='pt-20 sm:pt-40 sm:-scroll-mt-20' id='technologies' ref={technologiesRef} title='Technologies' icon={<FaScrewdriverWrench />}>
+          <Section id='technologies' styles='pt-20 sm:pt-40 sm:-scroll-mt-20' ref={technologiesRef} title='Technologies' icon={<FaScrewdriverWrench />}>
             <Technologies />
           </Section>
-          <Section styles='pt-20 sm:pt-40 sm:-scroll-mt-20' id='about' ref={aboutRef} title='About' icon={<FaUser />}>
+          <Section id='about' styles='pt-20 sm:pt-40 sm:-scroll-mt-20' ref={aboutRef} title='About' icon={<FaUser />}>
             <About />
           </Section>
-          <Section styles='pt-20 sm:pt-40 sm:-scroll-mt-20' id='contact' ref={contactRef} title='Contact'  icon={<FaPaperPlane />}>
+          <Section id='contact' styles='py-20 sm:pt-40 sm:-scroll-mt-20' ref={contactRef} title='Contact' icon={<FaPaperPlane />}>
             <Contact />
           </Section>
         </main>
         {/* <Component {...pageProps} /> */}
       </div>
+      <footer>
+        <div className='flex flex-col justify-center items-center h-[calc(100vh-40px)] text-6xl gap-6'>
+          <p className='text-center'>Thank you for visiting!</p>
+          <p className='text-center'>Have a nice day!</p>
+        </div>
+      </footer>
     </div>
   )
 }

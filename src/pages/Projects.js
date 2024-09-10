@@ -175,25 +175,28 @@ const techInfo = {
 }
 
 export default function Projects() {
-    const [isScrollVisible, setIsScrollVisible] = useState(false)
+    const [isScrollable, setIsScrollable] = useState(false)
     const [isScrollStart, setIsScrollStart] = useState(true)
     const [isScrollEnd, setIsScrollEnd] = useState(false)
 
     const listRef = useRef(null)
 
+
+    // vv checkScroll only necessary with <4 projects vv
+
     // Show the scroll button if our main container is smaller than our content width
     // Basically when our scroll bar is shown in overflow auto
-    const checkScroll = () => {
+    /* const checkScroll = () => {
         if (
             listRef &&
             listRef.current &&
             listRef.current.scrollWidth > listRef.current.clientWidth
         ) {
-            setIsScrollVisible(true);
+            setIsScrollable(true);
         } else {
-            setIsScrollVisible(false);
+            setIsScrollable(false);
         }
-    };
+    }; */
 
     // checks whether scroll is at edges and sets up to restart scroll (scroll directly back to beinning or end)
     const checkScrollEdges = () => {
@@ -226,7 +229,7 @@ export default function Projects() {
     const throttledCheckScrollEdges = throttle(checkScrollEdges, 200)
 
     useEffect(() => {
-        checkScroll();
+        /* checkScroll(); */
 
         listRef.current.addEventListener('scroll', throttledCheckScrollEdges)
 
@@ -297,16 +300,17 @@ export default function Projects() {
                 })}
             </ul>
 
-            {isScrollVisible && <div className="flex justify-center gap-4 mt-4 w-full">
-                <button className="flex justify-center items-center h-20 sm:h-[60px] w-20 sm:w-[60px] border-2 border-white hover:border-transparent active:border-transparent hover:bg-sky-600 ease-in-out duration-100 active:bg-sky-700 rounded-full" onClick={() => btnScroll('backward')}>{isScrollStart ? (<>
-                    <FaArrowRight className="text-4xl sm:text-3xl" />
-                    <FaAngleRight className="text-4xl sm:text-3xl -ml-4 sm:-ml-3.5" />
-                </>) : <FaArrowLeft className="text-4xl  sm:text-3xl" />}</button>
-                <button className="flex justify-center items-center h-20 sm:h-[60px] w-20 sm:w-[60px] border-2 border-white hover:border-transparent active:border-transparent hover:bg-sky-600 ease-in-out duration-100 active:bg-sky-700 rounded-full" onClick={() => btnScroll('forward')}>{isScrollEnd ? (<>
-                    <FaAngleLeft className="text-4xl sm:text-3xl -mr-4 sm:-mr-3.5" />
-                    <FaArrowLeft className="text-4xl sm:text-3xl" />
-                </>) : <FaArrowRight className="text-4xl  sm:text-3xl" />}</button>
-            </div>}
-        </div>
+            {/* isScrollable && */
+                <div className="flex justify-center gap-4 mt-4 w-full">
+                    <button className="flex justify-center items-center h-20 sm:h-[60px] w-20 sm:w-[60px] border-2 border-white hover:border-transparent active:border-transparent hover:bg-sky-600 ease-in-out duration-100 active:bg-sky-700 rounded-full" onClick={() => btnScroll('backward')}>{isScrollStart ? (<>
+                        <FaArrowRight className="text-4xl sm:text-3xl" />
+                        <FaAngleRight className="text-4xl sm:text-3xl -ml-4 sm:-ml-3.5" />
+                    </>) : <FaArrowLeft className="text-4xl  sm:text-3xl" />}</button>
+                    <button className="flex justify-center items-center h-20 sm:h-[60px] w-20 sm:w-[60px] border-2 border-white hover:border-transparent active:border-transparent hover:bg-sky-600 ease-in-out duration-100 active:bg-sky-700 rounded-full" onClick={() => btnScroll('forward')}>{isScrollEnd ? (<>
+                        <FaAngleLeft className="text-4xl sm:text-3xl -mr-4 sm:-mr-3.5" />
+                        <FaArrowLeft className="text-4xl sm:text-3xl" />
+                    </>) : <FaArrowRight className="text-4xl  sm:text-3xl" />}</button>
+                </div>}
+        </div >
     )
 }
