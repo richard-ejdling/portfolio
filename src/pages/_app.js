@@ -90,7 +90,7 @@ export default function App({ Component, pageProps }) {
   }
 
   function handleScroll() {
-    const scrollPosition = window.scrollY;
+    const scrollPosition = Math.floor(window.scrollY);
 
     if (scrollPosition < projectsYPos.current) {
       setCurrentSection('Home')
@@ -107,10 +107,10 @@ export default function App({ Component, pageProps }) {
 
   function setSectionPos(isLargeScreen) {
     const addition = isLargeScreen ? 80 : 0
-    projectsYPos.current = projectsRef.current.getBoundingClientRect().top + window.scrollY + addition
-    technologiesYPos.current = technologiesRef.current.getBoundingClientRect().top + window.scrollY + addition
-    aboutYPos.current = aboutRef.current.getBoundingClientRect().top + window.scrollY + addition
-    contactYPos.current = contactRef.current.getBoundingClientRect().top + window.scrollY + addition
+    projectsYPos.current = Math.floor(projectsRef.current.getBoundingClientRect().top + window.scrollY + addition)
+    technologiesYPos.current = Math.floor(technologiesRef.current.getBoundingClientRect().top + window.scrollY + addition)
+    aboutYPos.current = Math.floor(aboutRef.current.getBoundingClientRect().top + window.scrollY + addition)
+    contactYPos.current = Math.floor(contactRef.current.getBoundingClientRect().top + window.scrollY + addition)
   }
 
   useEffect(() => {
