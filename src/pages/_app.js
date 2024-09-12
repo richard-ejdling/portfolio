@@ -148,9 +148,9 @@ export default function App({ Component, pageProps }) {
 
   return (
     <div className={`${chakra_petch.className} relative`}>
-      <div className='fixed -z-10 h-screen w-screen' style={{ background: `url(/Shiva.jpg) center/cover repeat-x`, /* , backgroundImage: 'url("https://www.alleycat.org/wp-content/uploads/2019/03/FELV-cat.jpg")', */ }}></div>
+      <div className='fixed -z-10 h-screen w-screen' style={{ background: `url(/Shiva.jpg) center/cover repeat-x` }}></div>
       <header className='sticky top-0 left-0 z-50 bg-sky-600/75 backdrop-blur-lg sm:backdrop-blur-xl'>
-        <nav className='relative box-content flex items-center h-14 sm:h-10 max-w-6xl mx-auto px-2 z-10 justify-between'> {/*  backdrop-blur-lg'sm:backdrop-blur-xl' */}
+        <nav className='relative box-content flex items-center h-14 sm:h-10 max-w-6xl mx-auto px-2 z-10 justify-between'>
           <h1 className='text-2xl sm:text-base'>RE</h1>
           <div className='flex items-center gap-6 h-full'>
             <div className='flex gap-4'>
@@ -164,7 +164,6 @@ export default function App({ Component, pageProps }) {
         {isMenuOpen && (
           <div id='close' className='fixed top-0 left-0 h-screen w-full bg-black/25' onClick={(e) => e.target.id === 'close' && setIsMenuOpen(false)}>
             <div className='flex flex-col items-center w-full h-fit bg-sky-600 p-2 pt-16 rounded-b-lg shadow-2xl shadow-black'>
-              {/* <button className='self-end' onClick={() => setIsMenuOpen(false)}>{<CgClose />}</button> */}
               <NavList isModal={true} />
             </div>
           </div>
@@ -172,10 +171,10 @@ export default function App({ Component, pageProps }) {
       </header>
       <div className='h-full backdrop-blur-lg sm:backdrop-blur-xl'>
         <main className="box-content flex flex-col items-center min-h-screen max-w-6xl mx-auto px-10">
-          <Section id='home' styles='pt-20 sm:pt-10 md:pt-40 scroll-mt-10'>
+          <Section id='home' styles='pt-20 sm:pt-10 md:pt-40 scroll-mt-20'>
             <Home />
           </Section>
-          <Section id='projects' styles='pt-20 sm:pt-40 sm:-scroll-mt-20' ref={projectsRef} title='Projects' icon={<FaFileCode />}>
+          <Section id='projects' styles='pt-20 sm:pt-40 sm:-scroll-mt-14' ref={projectsRef} title='Projects' icon={<FaFileCode />}>
             <Projects />
           </Section>
           <Section id='technologies' styles='pt-20 sm:pt-40 sm:-scroll-mt-20' ref={technologiesRef} title='Technologies' icon={<FaScrewdriverWrench />}>
