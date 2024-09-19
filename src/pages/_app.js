@@ -95,25 +95,18 @@ export default function App({ Component, pageProps }) {
         {navList.map((item) => (
           <li
             className={`p-2 ${
-              currentSection === item.name &&
-              "bg-sky-900 border-l-2 border-l-white "
+              currentSection === item.name && "bg-sky-900 border-l-2 border-l-white "
             }`}
             key={item.id}
           >
             <a
               href={item.path}
               className={`flex justify-center w-full font-semibold tracking-wide text-2xl ${
-                currentSection === item.name
-                  ? "text-white"
-                  : "text-gray-200 hover:text-white"
+                currentSection === item.name ? "text-white" : "text-gray-200 hover:text-white"
               }`}
               onClick={() => setIsMenuOpen(false)}
             >
-              {
-                <span className={`${currentSection === item.name && "mr-0.5"}`}>
-                  {item.name}
-                </span>
-              }
+              {<span className={`${currentSection === item.name && "mr-0.5"}`}>{item.name}</span>}
             </a>
           </li>
         ))}
@@ -123,17 +116,14 @@ export default function App({ Component, pageProps }) {
         {navList.map((item) => (
           <li
             className={`h-full flex items-center px-2 ${
-              currentSection === item.name &&
-              "bg-sky-900 border-b-2 border-b-white"
+              currentSection === item.name && "bg-sky-900 border-b-2 border-b-white"
             }`}
             key={item.id}
           >
             <a
               href={item.path}
               className={`font-semibold tracking-wide  ${
-                currentSection === item.name
-                  ? "text-white"
-                  : "text-gray-200 hover:text-white"
+                currentSection === item.name ? "text-white" : "text-gray-200 hover:text-white"
               }`}
             >
               {item.name}
@@ -146,6 +136,7 @@ export default function App({ Component, pageProps }) {
 
   function handleScroll() {
     const scrollPosition = Math.floor(window.scrollY);
+    console.log(scrollPosition);
 
     if (scrollPosition < projectsYPos.current) {
       setCurrentSection("Home");
@@ -154,15 +145,9 @@ export default function App({ Component, pageProps }) {
       scrollPosition < technologiesYPos.current
     ) {
       setCurrentSection("Projects");
-    } else if (
-      scrollPosition >= technologiesYPos.current &&
-      scrollPosition < aboutYPos.current
-    ) {
+    } else if (scrollPosition >= technologiesYPos.current && scrollPosition < aboutYPos.current) {
       setCurrentSection("Technologies");
-    } else if (
-      scrollPosition >= aboutYPos.current &&
-      scrollPosition < contactYPos.current
-    ) {
+    } else if (scrollPosition >= aboutYPos.current && scrollPosition < contactYPos.current) {
       setCurrentSection("About");
     } else if (scrollPosition >= contactYPos.current) {
       setCurrentSection("Contact");
@@ -172,14 +157,10 @@ export default function App({ Component, pageProps }) {
   function setSectionPos(isLargeScreen) {
     const addition = isLargeScreen ? 80 : 0;
     projectsYPos.current = Math.floor(
-      projectsRef.current.getBoundingClientRect().top +
-        window.scrollY +
-        addition
+      projectsRef.current.getBoundingClientRect().top + window.scrollY + addition
     );
     technologiesYPos.current = Math.floor(
-      technologiesRef.current.getBoundingClientRect().top +
-        window.scrollY +
-        addition
+      technologiesRef.current.getBoundingClientRect().top + window.scrollY + addition
     );
     aboutYPos.current = Math.floor(
       aboutRef.current.getBoundingClientRect().top + window.scrollY + addition
@@ -187,6 +168,11 @@ export default function App({ Component, pageProps }) {
     contactYPos.current = Math.floor(
       contactRef.current.getBoundingClientRect().top + window.scrollY + addition
     );
+
+    console.log(projectsRef.current.getBoundingClientRect().top + window.scrollY + addition,
+    technologiesRef.current.getBoundingClientRect().top + window.scrollY + addition,
+    aboutRef.current.getBoundingClientRect().top + window.scrollY + addition,
+    contactRef.current.getBoundingClientRect().top + window.scrollY + addition)
   }
 
   useEffect(() => {
@@ -240,11 +226,12 @@ export default function App({ Component, pageProps }) {
           >
             {"尺巨"} {'尺臣'}
           </h1> */}
-          <h1
+          <a
+            href="#home"
             className={`text-2xl sm:text-base ${rocknroll_one.className}`}
           >
             {"尺巨"} {/* '尺臣' */}
-          </h1>
+          </a>
           {/* <h1
             className={`text-2xl sm:text-base ${rampart_one.className} font-semibold`}
           >
@@ -291,13 +278,13 @@ export default function App({ Component, pageProps }) {
         <main className="box-content flex flex-col items-center min-h-screen max-w-6xl mx-auto px-10">
           <Section
             id="home"
-            styles="pt-20 sm:pt-10 md:pt-40 scroll-mt-20"
+            styles="pt-20 sm:pt-10 md:pt-40 scroll-mt-14"
           >
             <Home />
           </Section>
           <Section
             id="projects"
-            styles="pt-20 sm:pt-40 sm:-scroll-mt-14"
+            styles="pt-20 sm:pt-40 sm:-scroll-mt-20"
             ref={projectsRef}
             title="Projects"
             icon={<FaFileCode />}
@@ -335,7 +322,7 @@ export default function App({ Component, pageProps }) {
         {/* <Component {...pageProps} /> */}
       </div>
       <footer>
-        <div className="flex flex-col justify-center items-center h-[calc(100vh-40px)] text-6xl gap-6">
+        <div className="flex flex-col justify-center items-center h-[calc(100vh-40px)] text-6xl gap-6 mx-2">
           <p className="text-center">Thank you for visiting!</p>
           <p className="text-center">Have a nice day!</p>
         </div>

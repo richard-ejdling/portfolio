@@ -255,10 +255,10 @@ export default function Projects() {
 
   return (
     <div>
-      <p>A selection of personal projects</p>
+      <p className="text-xl sm:text-lg">A selection of personal projects</p>
       <ul
         ref={listRef}
-        className="flex gap-4 sm:gap-8 h-80 mt-8 pb-3 sm:pb-2 max-sm:w-[calc(100%+5rem)] max-sm:-ml-10 overflow-x-auto snap-x snap-mandatory scrollbar-thin scrollbar-track-transparent scrollbar-thumb-sky-600 scroll-smooth"
+        className="flex gap-4 sm:gap-8 h-[26rem] sm:h-80 mt-8 pb-3 sm:pb-2 max-sm:w-[calc(100%+5rem)] max-sm:-ml-10 overflow-x-auto snap-x snap-mandatory scrollbar-thin scrollbar-track-transparent scrollbar-thumb-sky-600 scroll-smooth"
       >
         {projects.map((project, i) => {
           return (
@@ -274,12 +274,12 @@ export default function Projects() {
                 <img
                   src={project.img}
                   alt={project.alt}
-                  className="h-[175px] w-full object-cover rounded-xl"
+                  className="h-60 sm:h-44 w-full object-cover rounded-xl"
                 />
                 <div className="pt-1">
                   <div className="flex flex-col w-[calc(100%-38px)]">
-                    <h2 className="font-semibold tracking-wide text-lg">{project.title}</h2>
-                    <p>{project.desc}</p>
+                    <h2 className="font-semibold tracking-wide text-2xl sm:text-lg">{project.title}</h2>
+                    <p className="max-sm:text-xl">{project.desc}</p>
                   </div>
                 </div>
               </a>

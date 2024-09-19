@@ -80,7 +80,7 @@ export default function About() {
       voluptatem quam tempora rem vitae qui quidem debitis magni, voluptas
       expedita non eum sint corrupti sapiente a. Cumque commodi repellendus
       aliquam.
-      <p>Info about me.........</p>
+      <p className="text-xl sm:text-lg">Info about me.........</p>
       <Links />
     </div>
   );

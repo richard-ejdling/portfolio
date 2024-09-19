@@ -74,6 +74,7 @@ export default function Contact() {
       voluptatem quam tempora rem vitae qui quidem debitis magni, voluptas
       expedita non eum sint corrupti sapiente a. Cumque commodi repellendus
       aliquam.
+      <p className="text-xl sm:text-lg">Contact info.........</p>
     </div>
   );
 }

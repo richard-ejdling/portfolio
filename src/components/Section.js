@@ -9,7 +9,7 @@ const Section = forwardRef(({ title, icon, id, styles, children }, ref) => {
     >
       <div className="flex items-center gap-2 m-auto w-fit mb-4">
         <span className="text-3xl sm:text-4xl inline">{icon}</span>
-        <h2 className=" text-3xl sm:text-4xl">{title}</h2>
+        <h2 className=" text-[40px] sm:text-4xl">{title}</h2>
       </div>
       {children}
     </section>
