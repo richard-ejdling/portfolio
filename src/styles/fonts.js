@@ -1,38 +1,32 @@
+import { /* Nunito, Ubuntu, */ Baloo_2, /* Signika, Chakra_Petch */ } from "next/font/google";
 import {
-  Nunito,
-  Ubuntu,
-  Baloo_2,
-  Signika,
-  Chakra_Petch,
-  Shippori_Antique_B1,
-  Zen_Kurenaido,
-} from "next/font/google";
-import {
-  Zen_Kaku_Gothic_New,
+  /* Zen_Kaku_Gothic_New,
   Zen_Maru_Gothic,
   Kosugi_Maru,
-  Kiwi_Maru,
+  Kiwi_Maru, */
   RocknRoll_One,
-  Potta_One,
+  /* Potta_One,
   Rampart_One,
   Yuji_Syuku,
   New_Tegomin,
   Kaisei_Decol,
   Mochiy_Pop_One,
-  Yusei_Magic,
+  Yusei_Magic, 
+  Shippori_Antique_B1,
+  Zen_Kurenaido,*/
 } from "next/font/google";
 
-export const signika = Signika({
+/* export const signika = Signika({
   subsets: ["latin"],
   variable: "--font-signika",
-});
+}); */
 
 export const baloo_2 = Baloo_2({
   subsets: ["latin"],
   variable: "--font-baloo-2",
 });
 
-export const nunito = Nunito({
+/* export const nunito = Nunito({
   subsets: ["latin"],
   variable: "--font-nunito",
 });
@@ -81,7 +75,7 @@ export const kiwi_maru = Kiwi_Maru({
   style: ["normal"],
   display: "swap",
   variable: "--font-kiwi-maru",
-});
+}); */
 
 export const rocknroll_one = RocknRoll_One({
   weight: ["400"],
@@ -91,7 +85,7 @@ export const rocknroll_one = RocknRoll_One({
   variable: "--font-rocknroll-one",
 });
 
-export const potta_one = Potta_One({
+/* export const potta_one = Potta_One({
   weight: ["400"],
   subsets: ["latin"],
   style: ["normal"],
@@ -162,3 +156,4 @@ export const shippori_antique_b1 = Shippori_Antique_B1({
   display: "swap",
   variable: "--font-shippori-antique-b1",
 });
+ */

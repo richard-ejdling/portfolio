@@ -24,17 +24,17 @@ import Section from "@/components/Section";
 import debounce from "@/utils/debounce";
 import throttle from "@/utils/throttle";
 import {
-  signika,
+  /* signika, */
   baloo_2,
-  nunito,
+  /* nunito,
   ubuntu,
   chakra_petch,
   zen_kaku_gothic_new,
   zen_maru_gothic,
   kosugi_maru,
-  kiwi_maru,
+  kiwi_maru, */
   rocknroll_one,
-  potta_one,
+  /* potta_one,
   rampart_one,
   yuji_syuku,
   new_tegomin,
@@ -42,7 +42,7 @@ import {
   mochiy_pop_one,
   yusei_magic,
   zen_kurenaido,
-  shippori_antique_b1,
+  shippori_antique_b1, */
 } from "@/styles/fonts";
 
 export default function App({ Component, pageProps }) {
