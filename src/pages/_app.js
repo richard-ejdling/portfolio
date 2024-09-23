@@ -98,6 +98,7 @@ export default function App({ Component, pageProps }) {
               currentSection === item.name && "bg-sky-900 border-l-2 border-l-white "
             }`}
             key={item.id}
+            aria-current={currentSection === item.name ? "location" : undefined}
           >
             <a
               href={item.path}
@@ -112,13 +113,14 @@ export default function App({ Component, pageProps }) {
         ))}
       </ul>
     ) : (
-      <ul className={"hidden sm:flex h-full"}>
+      <ul className={"flex h-full"}>
         {navList.map((item) => (
           <li
             className={`h-full flex items-center px-2 ${
               currentSection === item.name && "bg-sky-900 border-b-2 border-b-white"
             }`}
             key={item.id}
+            aria-current={currentSection === item.name ? "location" : undefined}
           >
             <a
               href={item.path}
@@ -169,10 +171,12 @@ export default function App({ Component, pageProps }) {
       contactRef.current.getBoundingClientRect().top + window.scrollY + addition
     );
 
-    console.log(projectsRef.current.getBoundingClientRect().top + window.scrollY + addition,
-    technologiesRef.current.getBoundingClientRect().top + window.scrollY + addition,
-    aboutRef.current.getBoundingClientRect().top + window.scrollY + addition,
-    contactRef.current.getBoundingClientRect().top + window.scrollY + addition)
+    console.log(
+      projectsRef.current.getBoundingClientRect().top + window.scrollY + addition,
+      technologiesRef.current.getBoundingClientRect().top + window.scrollY + addition,
+      aboutRef.current.getBoundingClientRect().top + window.scrollY + addition,
+      contactRef.current.getBoundingClientRect().top + window.scrollY + addition
+    );
   }
 
   useEffect(() => {
@@ -209,13 +213,13 @@ export default function App({ Component, pageProps }) {
   }, []);
 
   return (
-    <div className={` relative ${baloo_2.className}`}>
+    <div className={`relative ${baloo_2.className}`}>
       <div
         className="fixed -z-10 h-screen w-screen"
         style={{ background: `url(/Shiva.jpg) center/cover repeat-x` }}
       ></div>
-      <header className="sticky top-0 left-0 z-50 bg-sky-600/75 backdrop-blur-lg sm:backdrop-blur-xl">
-        <nav className="relative box-content flex items-center h-14 sm:h-10 max-w-6xl mx-auto px-2 z-10 justify-between">
+      <header className=" z-50 bg-sky-600/75 backdrop-blur-lg sm:backdrop-blur-xl">
+        <div className="relative box-content flex items-center h-14 sm:h-10 max-w-6xl mx-auto px-2 z-10 justify-between">
           {/* <h1
             className={`text-2xl sm:text-base ${kiwi_maru.className} font-semibold`}
           >
@@ -226,7 +230,9 @@ export default function App({ Component, pageProps }) {
           >
             {"尺巨"} {'尺臣'}
           </h1> */}
-          <a
+          <a        
+            title="Go to Home"
+            aria-label="Navigate to Home"
             href="#home"
             className={`text-2xl sm:text-base ${rocknroll_one.className}`}
           >
@@ -241,12 +247,16 @@ export default function App({ Component, pageProps }) {
           <div className="flex items-center gap-6 h-full">
             <div className="flex gap-4">
               <a
+                aria-label="Visit my GitHub page"
+                title="GitHub"
                 href="https://github.com/richard-ejdling"
                 target="_blank"
               >
                 <FaGithub className="text-gray-200 hover:text-white text-[28px] sm:text-xl" />
               </a>
               <a
+                aria-label="Visit my LinkedIn page"
+                title="LinkedIn"
                 href="https://www.linkedin.com/in/richard-ejdling-4a0601273"
                 target="_blank"
               >
@@ -256,21 +266,32 @@ export default function App({ Component, pageProps }) {
             <button
               className="sm:hidden"
               onClick={() => setIsMenuOpen((prev) => !prev)}
+              aria-controls="menu"
+              aria-expanded={isMenuOpen}
+              aria-haspopup="true"
             >
               {isMenuOpen ? <CgClose size={35} /> : <HiMenu size={35} />}
             </button>
-            <NavList isModal={false} />
+            <div className="hidden sm:block h-full">
+              <nav className="h-full">
+                <NavList isModal={false} />
+              </nav>
+            </div>
           </div>
-        </nav>
+        </div>
         {isMenuOpen && (
           <div
             id="close"
             className="fixed top-0 left-0 h-screen w-full bg-black/25"
             onClick={(e) => e.target.id === "close" && setIsMenuOpen(false)}
           >
-            <div className="flex flex-col items-center w-full h-fit bg-sky-600 p-2 pt-16 rounded-b-lg shadow-2xl shadow-black">
+            <nav
+              id="menu"
+              aria-hidden={!isMenuOpen}
+              className="flex flex-col items-center w-full h-fit bg-sky-600 p-2 pt-16 rounded-b-lg shadow-2xl shadow-black"
+            >
               <NavList isModal={true} />
-            </div>
+            </nav>
           </div>
         )}
       </header>

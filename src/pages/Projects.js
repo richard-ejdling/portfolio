@@ -34,15 +34,7 @@ const projects = [
     alt: "movieshop",
     url: "https://movieshop.vercel.app/",
     gitHub: "https://github.com/Mojtaba-amirii/webbshop",
-    techs: [
-      "next",
-      "typescript",
-      "tailwind",
-      "prisma",
-      "trpc",
-      "nextauth",
-      "mongodb",
-    ],
+    techs: ["next", "typescript", "tailwind", "prisma", "trpc", "nextauth", "mongodb"],
   },
   {
     id: 2,
@@ -278,7 +270,9 @@ export default function Projects() {
                 />
                 <div className="pt-1">
                   <div className="flex flex-col w-[calc(100%-38px)]">
-                    <h2 className="font-semibold tracking-wide text-2xl sm:text-lg">{project.title}</h2>
+                    <h2 className="font-semibold tracking-wide text-2xl sm:text-lg">
+                      {project.title}
+                    </h2>
                     <p className="max-sm:text-xl">{project.desc}</p>
                   </div>
                 </div>
@@ -304,7 +298,11 @@ export default function Projects() {
                         className={`ribbon font-semibold tracking-wide max-[310px]:pr-2`}
                         style={{
                           backgroundColor: tech.color,
-                          textShadow: "1px 1px grey",
+                          /* textShadow: "1px 1px grey", */
+                          /* textShadow:
+                            "1px 0 0 black, -1px 0 0 black, 0 1px 0 black, 0 -1px 0 black,0.5px 0.5px 0 black, -0.5px 0.5px 0 black, 0.5px -0.5px 0 black, -0.5px -0.5px 0 black, 0.25px 0.25px 0 black, -0.25px 0.25px 0 black, 0.25px -0.25px 0 black, -0.25px -0.25px 0 black",
+                         */
+                            textShadow: "1px 1px 0 black, 0.5px 1px 0 black, -0.5px 1px 0 black, -1px -1px 0 black, -1px 0 0 black, -1px 1px 0 black, 1px -1px 0 black, 1px 0 0 black, 1px 1px 0 black, 0px 1px 0 black, 0px -1px 0 black, -1px 0 0 black, 0.5px 0.5px 0 black, -0.5px -0.5px 0 black, -0.5px 0.5px 0 black, 0.5px -0.5px 0 black",
                         }}
                       >
                         {tech.title}

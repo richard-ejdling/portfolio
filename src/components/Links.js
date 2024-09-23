@@ -14,6 +14,7 @@ export default function Links() {
     <div className="flex flex-col md:flex-row justify-center items-center gap-6 mt-8">
       <div className="flex justify-center gap-4">
         <a
+        title="GitHub"
           href="https://github.com/richard-ejdling"
           target="_blank"
         >
@@ -23,6 +24,7 @@ export default function Links() {
           />
         </a>
         <a
+        title="LinkedIn"
           href="https://www.linkedin.com/in/richard-ejdling-4a0601273"
           target="_blank"
         >
