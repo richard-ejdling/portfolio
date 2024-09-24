@@ -213,36 +213,45 @@ export default function App({ Component, pageProps }) {
   }, []);
 
   return (
-    <div className={`relative ${baloo_2.className}`}>
+    <div className={` relative ${baloo_2.className}`}>
       <div
         className="fixed -z-10 h-screen w-screen"
         style={{ background: `url(/Shiva.jpg) center/cover repeat-x` }}
       ></div>
-      <header className=" z-50 bg-sky-600/75 backdrop-blur-lg sm:backdrop-blur-xl">
+      <header className="sticky top-0 left-0 z-50 bg-sky-600/75 backdrop-blur-lg sm:backdrop-blur-xl">
         <div className="relative box-content flex items-center h-14 sm:h-10 max-w-6xl mx-auto px-2 z-10 justify-between">
-          {/* <h1
+          <div className="flex flex-row-reverse items-center min-w-0">
+            <a
+              title="Skip to main content"
+              href="#home"
+              className="opacity-0 focus:opacity-100 pointer-events-none focus:pointer-events-auto overflow-hidden text-ellipsis whitespace-nowrap px-1 mx-2"
+            >
+              Skip to main content
+            </a>
+            {/* <h1
             className={`text-2xl sm:text-base ${kiwi_maru.className} font-semibold`}
           >
             {"尺巨"} {'尺臣'}
           </h1> */}
-          {/* <h1
+            {/* <h1
             className={`text-2xl sm:text-base ${zen_maru_gothic.className} font-semibold`}
           >
             {"尺巨"} {'尺臣'}
           </h1> */}
-          <a        
-            title="Go to Home"
-            aria-label="Navigate to Home"
-            href="#home"
-            className={`text-2xl sm:text-base ${rocknroll_one.className}`}
-          >
-            {"尺巨"} {/* '尺臣' */}
-          </a>
-          {/* <h1
+            <a
+              title="Go to Home"
+              aria-label="Navigate to Home"
+              href="#home"
+              className={`shrink-0 text-2xl sm:text-base ${rocknroll_one.className}`}
+            >
+              {"尺巨"} {/* '尺臣' */}
+            </a>
+            {/* <h1
             className={`text-2xl sm:text-base ${rampart_one.className} font-semibold`}
           >
             {"尺巨"} {'尺臣'}
           </h1> */}
+          </div>
 
           <div className="flex items-center gap-6 h-full">
             <div className="flex gap-4">
