@@ -82,7 +82,7 @@ const projects = [
     desc: "Todo list website with both redux and reducer",
     img: "/project-img/todo.png",
     alt: "Todo list",
-    url: "todo-list-redux-ten.vercel.app",
+    url: "https://todo-list-redux-ten.vercel.app",
     gitHub: "https://github.com/richard-ejdling/todo-list-redux",
     techs: ["react", "vite", "redux"],
   },
@@ -256,12 +256,14 @@ export default function Projects() {
           return (
             <li
               key={project.id}
-              className="flex flex-col relative snap-center sm:snap-start w-[300px] max-w-full h-full shrink-0 max-sm:first:ml-4 max-sm:last:mr-4 p-1.5 bg-sky-600 hover:bg-sky-650 rounded-xl"
+              className="flex flex-col relative snap-center sm:snap-start w-[calc(300px+4px)] max-w-full h-[calc(100%-4px)] shrink-0 max-sm:first:ml-4 max-sm:last:mr-4 rounded-xl mt-1 pl-1"
             >
               <a
                 href={project.url}
                 target="_blank"
-                className="flex flex-col rounded-xl h-full overflow-hidden"
+                title={`Open ${project.title}`}
+                aria-label={`Open ${project.title} in a new tab`}
+                className="flex flex-col rounded-xl h-full p-1.5 bg-sky-600 hover:bg-sky-650"
               >
                 <img
                   src={project.img}
@@ -270,21 +272,14 @@ export default function Projects() {
                 />
                 <div className="pt-1">
                   <div className="flex flex-col w-[calc(100%-38px)]">
-                    <h2 className="font-semibold tracking-wide text-2xl sm:text-lg">
+                    <h3 className="font-semibold tracking-wide text-2xl sm:text-lg">
                       {project.title}
-                    </h2>
+                    </h3>
                     <p className="max-sm:text-xl">{project.desc}</p>
                   </div>
                 </div>
-              </a>
-              <a
-                href={project.gitHub}
-                target="_blank"
-                className="rounded-full overflow-hidden shrink-0 absolute bottom-2 right-2 z-10 text-gray-100 hover:text-white hover:scale-105"
-              >
-                <FaGithub size={30} />
-              </a>
-              <div className="absolute -right-2 top-2 flex flex-col items-end gap-[1px]">
+                
+              <div title="Tecnologies used for this project" aria-label="Tecnologies used for this project" className="absolute -right-2 top-2 flex flex-col items-end gap-[1px]">
                 {project.techs.slice(0, 5).map((item) => {
                   const tech = techInfo[item];
                   return (
@@ -332,6 +327,16 @@ export default function Projects() {
                   );
                 })}
               </div>
+              </a>
+              <a
+                href={project.gitHub}
+                target="_blank"
+                title={`Visit ${project.title}'s GitHub page`}
+                aria-label={`Visit ${project.title}'s GitHub page`}
+                className="rounded-full overflow-hidden shrink-0 absolute bottom-2 right-2 z-10 text-gray-100 hover:text-white hover:scale-105"
+              >
+                <FaGithub size={30} />
+              </a>
             </li>
           );
         })}

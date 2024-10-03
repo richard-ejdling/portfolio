@@ -275,6 +275,7 @@ export default function App({ Component, pageProps }) {
             <button
               className="sm:hidden"
               onClick={() => setIsMenuOpen((prev) => !prev)}
+              aria-label={isMenuOpen ? "Close navigation menu" : "Open navigation menu"}
               aria-controls="menu"
               aria-expanded={isMenuOpen}
               aria-haspopup="true"
