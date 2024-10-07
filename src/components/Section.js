@@ -6,6 +6,7 @@ const Section = forwardRef(({ title, icon, id, styles, children }, ref) => {
       id={id}
       ref={ref}
       className={`${styles} w-full`}
+      tabIndex={"-1"}
     >
       <div className="flex items-center gap-2 m-auto w-fit mb-4">
         {icon && <span className="text-3xl sm:text-4xl inline">{icon}</span>}

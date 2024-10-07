@@ -278,55 +278,60 @@ export default function Projects() {
                     <p className="max-sm:text-xl">{project.desc}</p>
                   </div>
                 </div>
-                
-              <div title="Tecnologies used for this project" aria-label="Tecnologies used for this project" className="absolute -right-2 top-2 flex flex-col items-end gap-[1px]">
-                {project.techs.slice(0, 5).map((item) => {
-                  const tech = techInfo[item];
-                  return (
-                    <div
-                      key={tech.title}
-                      style={{
-                        filter: "drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.5))",
-                      }}
-                    >
+
+                <div
+                  title="Tecnologies used for this project"
+                  aria-label="Tecnologies used for this project"
+                  className="absolute -right-2 top-2 flex flex-col items-end gap-[1px]"
+                >
+                  {project.techs.slice(0, 5).map((item) => {
+                    const tech = techInfo[item];
+                    return (
                       <div
-                        className={`ribbon font-semibold tracking-wide max-[310px]:pr-2`}
+                        key={tech.title}
                         style={{
-                          backgroundColor: tech.color,
-                          /* textShadow: "1px 1px grey", */
-                          /* textShadow:
+                          filter: "drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.5))",
+                        }}
+                      >
+                        <div
+                          className={`ribbon font-semibold tracking-wide max-[310px]:pr-2`}
+                          style={{
+                            backgroundColor: tech.color,
+                            /* textShadow: "1px 1px grey", */
+                            /* textShadow:
                             "1px 0 0 black, -1px 0 0 black, 0 1px 0 black, 0 -1px 0 black,0.5px 0.5px 0 black, -0.5px 0.5px 0 black, 0.5px -0.5px 0 black, -0.5px -0.5px 0 black, 0.25px 0.25px 0 black, -0.25px 0.25px 0 black, 0.25px -0.25px 0 black, -0.25px -0.25px 0 black",
                          */
-                            textShadow: "1px 1px 0 black, 0.5px 1px 0 black, -0.5px 1px 0 black, -1px -1px 0 black, -1px 0 0 black, -1px 1px 0 black, 1px -1px 0 black, 1px 0 0 black, 1px 1px 0 black, 0px 1px 0 black, 0px -1px 0 black, -1px 0 0 black, 0.5px 0.5px 0 black, -0.5px -0.5px 0 black, -0.5px 0.5px 0 black, 0.5px -0.5px 0 black",
-                        }}
-                      >
-                        {tech.title}
+                            textShadow:
+                              "1px 1px 0 black, 0.5px 1px 0 black, -0.5px 1px 0 black, -1px -1px 0 black, -1px 0 0 black, -1px 1px 0 black, 1px -1px 0 black, 1px 0 0 black, 1px 1px 0 black, 0px 1px 0 black, 0px -1px 0 black, -1px 0 0 black, 0.5px 0.5px 0 black, -0.5px -0.5px 0 black, -0.5px 0.5px 0 black, 0.5px -0.5px 0 black",
+                          }}
+                        >
+                          {tech.title}
+                        </div>
                       </div>
-                    </div>
-                  );
-                })}
-                {project.techs.slice(5, project.techs.length).map((item) => {
-                  const tech = techInfo[item];
-                  return (
-                    <div
-                      key={tech.title}
-                      style={{
-                        filter: "drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.5))",
-                      }}
-                    >
+                    );
+                  })}
+                  {project.techs.slice(5, project.techs.length).map((item) => {
+                    const tech = techInfo[item];
+                    return (
                       <div
-                        className={`ribbon font-semibold tracking-wide text-[8px] max-w-14 max-[310px]:w-[60px]`}
+                        key={tech.title}
                         style={{
-                          backgroundColor: tech.color,
-                          textShadow: "1px 1px grey",
+                          filter: "drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.5))",
                         }}
                       >
-                        {tech.title}
+                        <div
+                          className={`ribbon font-semibold tracking-wide text-[8px] max-w-14 max-[310px]:w-[60px]`}
+                          style={{
+                            backgroundColor: tech.color,
+                            textShadow: "1px 1px grey",
+                          }}
+                        >
+                          {tech.title}
+                        </div>
                       </div>
-                    </div>
-                  );
-                })}
-              </div>
+                    );
+                  })}
+                </div>
               </a>
               <a
                 href={project.gitHub}
@@ -346,6 +351,8 @@ export default function Projects() {
         /* isScrollable && */
         <div className="flex justify-center gap-4 mt-4 w-full">
           <button
+            title={isScrollStart ? "Jump to the end of the list" : "Go to the previous list item"}
+            aria-label={isScrollStart ? "Jump to to end of the list" : "Go to the previous list item"}
             className="flex justify-center items-center h-20 sm:h-[60px] w-20 sm:w-[60px] border-2 border-white hover:border-transparent active:border-transparent hover:bg-sky-600 ease-in-out duration-100 active:bg-sky-700 rounded-full"
             onClick={() => btnScroll("backward")}
           >
@@ -359,6 +366,8 @@ export default function Projects() {
             )}
           </button>
           <button
+            title={isScrollEnd ? "Jump to the start of the list" : "Go to the next list item"}
+            aria-label={isScrollEnd ? "Jump to the start of the list" : "Go to the next list item"}
             className="flex justify-center items-center h-20 sm:h-[60px] w-20 sm:w-[60px] border-2 border-white hover:border-transparent active:border-transparent hover:bg-sky-600 ease-in-out duration-100 active:bg-sky-700 rounded-full"
             onClick={() => btnScroll("forward")}
           >
