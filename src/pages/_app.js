@@ -5,7 +5,7 @@ import { HiMenu } from "react-icons/hi";
 import { RxCross2 } from "react-icons/rx";
 import { CgClose } from "react-icons/cg";
 import Link from "next/link";
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect, useCallback } from "react";
 import { useRouter } from "next/router";
 import Shiva from "../../public/Shiva_1x2.png";
 
@@ -148,7 +148,6 @@ export default function App({ Component, pageProps }) {
 
   function handleScroll() {
     const scrollPosition = Math.floor(window.scrollY);
-    console.log(scrollPosition);
 
     if (scrollPosition < projectsYPos.current) {
       setCurrentSection("Home");
@@ -180,23 +179,25 @@ export default function App({ Component, pageProps }) {
     contactYPos.current = Math.floor(
       contactRef.current.getBoundingClientRect().top + window.scrollY + addition
     );
-
-    console.log(
-      projectsRef.current.getBoundingClientRect().top + window.scrollY + addition,
-      technologiesRef.current.getBoundingClientRect().top + window.scrollY + addition,
-      aboutRef.current.getBoundingClientRect().top + window.scrollY + addition,
-      contactRef.current.getBoundingClientRect().top + window.scrollY + addition
-    );
   }
 
   function handleAnchorClick(ref) {
-  // Sets focus to the target section after navigation (otherwise focus returns to nav menu button when the modal closes instead)
+    // Sets focus to the target section after navigation (otherwise focus returns to nav menu button when the modal closes instead)
     setTimeout(() => {
       if (ref.current) {
         ref.current.focus();
       }
-    }, 500);
+    }, 800);
   }
+
+  const handleNavEsc = useCallback(
+    (e) => {
+      if (e.key === "Escape" && isMenuOpen) {
+        setIsMenuOpen(false)
+      }
+    },
+    [isMenuOpen, setIsMenuOpen]
+  );
 
   useEffect(() => {
     const isLargeScreen = window.matchMedia("(min-width: 640px)").matches;
@@ -230,6 +231,16 @@ export default function App({ Component, pageProps }) {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
+
+  useEffect(() => {
+    if (isMenuOpen) {
+      window.addEventListener("keydown", handleNavEsc);
+    }
+
+    return () => {
+      window.removeEventListener("keydown", handleNavEsc);
+    };
+  }, [isMenuOpen]);
 
   return (
     <div className={`relative ${baloo_2.className}`}>
