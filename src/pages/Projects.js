@@ -34,15 +34,7 @@ const projects = [
     alt: "movieshop",
     url: "https://movieshop.vercel.app/",
     gitHub: "https://github.com/Mojtaba-amirii/webbshop",
-    techs: [
-      "next",
-      "typescript",
-      "tailwind",
-      "prisma",
-      "trpc",
-      "nextauth",
-      "mongodb",
-    ],
+    techs: ["next", "typescript", "tailwind", "prisma", "trpc", "nextauth", "mongodb"],
   },
   {
     id: 2,
@@ -90,7 +82,7 @@ const projects = [
     desc: "Todo list website with both redux and reducer",
     img: "/project-img/todo.png",
     alt: "Todo list",
-    url: "todo-list-redux-ten.vercel.app",
+    url: "https://todo-list-redux-ten.vercel.app",
     gitHub: "https://github.com/richard-ejdling/todo-list-redux",
     techs: ["react", "vite", "redux"],
   },
@@ -264,12 +256,14 @@ export default function Projects() {
           return (
             <li
               key={project.id}
-              className="flex flex-col relative snap-center sm:snap-start w-[300px] max-w-full h-full shrink-0 max-sm:first:ml-4 max-sm:last:mr-4 p-1.5 bg-sky-600 hover:bg-sky-650 rounded-xl"
+              className="flex flex-col relative snap-center sm:snap-start w-[calc(300px+4px)] max-w-full h-[calc(100%-4px)] shrink-0 max-sm:first:ml-4 max-sm:last:mr-4 rounded-xl mt-1 pl-1"
             >
               <a
                 href={project.url}
                 target="_blank"
-                className="flex flex-col rounded-xl h-full overflow-hidden"
+                title={`Open ${project.title} in a new tab`}
+                aria-label={`Open ${project.title} in a new tab`}
+                className="flex flex-col rounded-xl h-full p-1.5 bg-sky-600 hover:bg-sky-650"
               >
                 <img
                   src={project.img}
@@ -278,62 +272,78 @@ export default function Projects() {
                 />
                 <div className="pt-1">
                   <div className="flex flex-col w-[calc(100%-38px)]">
-                    <h2 className="font-semibold tracking-wide text-2xl sm:text-lg">{project.title}</h2>
+                    <h3 className="font-semibold tracking-wide text-2xl sm:text-lg">
+                      {project.title}
+                    </h3>
                     <p className="max-sm:text-xl">{project.desc}</p>
+                  </div>
+                </div>
+                <div>
+                  <h3 className="sr-only">Tecnologies used for this project</h3>
+                  <div
+                    title="Tecnologies used for this project"
+                    className="absolute -right-2 top-2 flex flex-col items-end gap-[1px]"
+                  >
+                    {project.techs.slice(0, 5).map((item) => {
+                      const tech = techInfo[item];
+                      return (
+                        <div
+                          key={tech.title}
+                          style={{
+                            filter: "drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.5))",
+                          }}
+                        >
+                          <div
+                            className={`ribbon font-semibold tracking-wide max-[310px]:pr-2`}
+                            style={{
+                              backgroundColor: tech.color,
+                              /* textShadow: "1px 1px grey", */
+                              /* textShadow:
+                            "1px 0 0 black, -1px 0 0 black, 0 1px 0 black, 0 -1px 0 black,0.5px 0.5px 0 black, -0.5px 0.5px 0 black, 0.5px -0.5px 0 black, -0.5px -0.5px 0 black, 0.25px 0.25px 0 black, -0.25px 0.25px 0 black, 0.25px -0.25px 0 black, -0.25px -0.25px 0 black",
+                         */
+                              textShadow:
+                                "1px 1px 0 black, 0.5px 1px 0 black, -0.5px 1px 0 black, -1px -1px 0 black, -1px 0 0 black, -1px 1px 0 black, 1px -1px 0 black, 1px 0 0 black, 1px 1px 0 black, 0px 1px 0 black, 0px -1px 0 black, -1px 0 0 black, 0.5px 0.5px 0 black, -0.5px -0.5px 0 black, -0.5px 0.5px 0 black, 0.5px -0.5px 0 black",
+                            }}
+                          >
+                            {tech.title}
+                          </div>
+                        </div>
+                      );
+                    })}
+                    {project.techs.slice(5, project.techs.length).map((item) => {
+                      const tech = techInfo[item];
+                      return (
+                        <div
+                          key={tech.title}
+                          style={{
+                            filter: "drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.5))",
+                          }}
+                        >
+                          <div
+                            className={`ribbon font-semibold tracking-wide text-[8px] max-w-14 max-[310px]:w-[60px]`}
+                            style={{
+                              backgroundColor: tech.color,
+                              textShadow:
+                                "1px 1px 0 black, 0.5px 1px 0 black, -0.5px 1px 0 black, -1px -1px 0 black, -1px 0 0 black, -1px 1px 0 black, 1px -1px 0 black, 1px 0 0 black, 1px 1px 0 black, 0px 1px 0 black, 0px -1px 0 black, -1px 0 0 black, 0.5px 0.5px 0 black, -0.5px -0.5px 0 black, -0.5px 0.5px 0 black, 0.5px -0.5px 0 black",
+                            }}
+                          >
+                            {tech.title}
+                          </div>
+                        </div>
+                      );
+                    })}
                   </div>
                 </div>
               </a>
               <a
                 href={project.gitHub}
                 target="_blank"
+                title={`Visit ${project.title}'s GitHub page`}
+                aria-label={`Visit ${project.title}'s GitHub page`}
                 className="rounded-full overflow-hidden shrink-0 absolute bottom-2 right-2 z-10 text-gray-100 hover:text-white hover:scale-105"
               >
                 <FaGithub size={30} />
               </a>
-              <div className="absolute -right-2 top-2 flex flex-col items-end gap-[1px]">
-                {project.techs.slice(0, 5).map((item) => {
-                  const tech = techInfo[item];
-                  return (
-                    <div
-                      key={tech.title}
-                      style={{
-                        filter: "drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.5))",
-                      }}
-                    >
-                      <div
-                        className={`ribbon font-semibold tracking-wide max-[310px]:pr-2`}
-                        style={{
-                          backgroundColor: tech.color,
-                          textShadow: "1px 1px grey",
-                        }}
-                      >
-                        {tech.title}
-                      </div>
-                    </div>
-                  );
-                })}
-                {project.techs.slice(5, project.techs.length).map((item) => {
-                  const tech = techInfo[item];
-                  return (
-                    <div
-                      key={tech.title}
-                      style={{
-                        filter: "drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.5))",
-                      }}
-                    >
-                      <div
-                        className={`ribbon font-semibold tracking-wide text-[8px] max-w-14 max-[310px]:w-[60px]`}
-                        style={{
-                          backgroundColor: tech.color,
-                          textShadow: "1px 1px grey",
-                        }}
-                      >
-                        {tech.title}
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
             </li>
           );
         })}
@@ -343,6 +353,10 @@ export default function Projects() {
         /* isScrollable && */
         <div className="flex justify-center gap-4 mt-4 w-full">
           <button
+            title={isScrollStart ? "Jump to the end of the list" : "Go to the previous list item"}
+            aria-label={
+              isScrollStart ? "Jump to to end of the list" : "Go to the previous list item"
+            }
             className="flex justify-center items-center h-20 sm:h-[60px] w-20 sm:w-[60px] border-2 border-white hover:border-transparent active:border-transparent hover:bg-sky-600 ease-in-out duration-100 active:bg-sky-700 rounded-full"
             onClick={() => btnScroll("backward")}
           >
@@ -356,6 +370,8 @@ export default function Projects() {
             )}
           </button>
           <button
+            title={isScrollEnd ? "Jump to the start of the list" : "Go to the next list item"}
+            aria-label={isScrollEnd ? "Jump to the start of the list" : "Go to the next list item"}
             className="flex justify-center items-center h-20 sm:h-[60px] w-20 sm:w-[60px] border-2 border-white hover:border-transparent active:border-transparent hover:bg-sky-600 ease-in-out duration-100 active:bg-sky-700 rounded-full"
             onClick={() => btnScroll("forward")}
           >

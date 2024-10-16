@@ -5,7 +5,7 @@ import { HiMenu } from "react-icons/hi";
 import { RxCross2 } from "react-icons/rx";
 import { CgClose } from "react-icons/cg";
 import Link from "next/link";
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect, useCallback } from "react";
 import { useRouter } from "next/router";
 import Shiva from "../../public/Shiva_1x2.png";
 
@@ -44,6 +44,7 @@ import {
   zen_kurenaido,
   shippori_antique_b1, */
 } from "@/styles/fonts";
+import FocusTrap from "focus-trap-react";
 
 export default function App({ Component, pageProps }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -51,6 +52,7 @@ export default function App({ Component, pageProps }) {
 
   /* const router = useRouter() */
 
+  const homeRef = useRef(null);
   const projectsRef = useRef(null);
   const technologiesRef = useRef(null);
   const aboutRef = useRef(null);
@@ -67,26 +69,31 @@ export default function App({ Component, pageProps }) {
         name: "Home",
         path: "#home",
         id: 1,
+        ref: homeRef,
       },
       {
         name: "Projects",
         path: "#projects",
         id: 2,
+        ref: projectsRef,
       },
       {
         name: "Technologies",
         path: "#technologies",
         id: 3,
+        ref: technologiesRef,
       },
       {
         name: "About",
         path: "#about",
         id: 4,
+        ref: aboutRef,
       },
       {
         name: "Contact",
         path: "#contact",
         id: 5,
+        ref: contactRef,
       },
     ];
 
@@ -98,13 +105,17 @@ export default function App({ Component, pageProps }) {
               currentSection === item.name && "bg-sky-900 border-l-2 border-l-white "
             }`}
             key={item.id}
+            aria-current={currentSection === item.name ? "location" : undefined}
           >
             <a
               href={item.path}
               className={`flex justify-center w-full font-semibold tracking-wide text-2xl ${
                 currentSection === item.name ? "text-white" : "text-gray-200 hover:text-white"
               }`}
-              onClick={() => setIsMenuOpen(false)}
+              onClick={(e) => {
+                setIsMenuOpen(false);
+                handleAnchorClick(item.ref);
+              }}
             >
               {<span className={`${currentSection === item.name && "mr-0.5"}`}>{item.name}</span>}
             </a>
@@ -112,13 +123,14 @@ export default function App({ Component, pageProps }) {
         ))}
       </ul>
     ) : (
-      <ul className={"hidden sm:flex h-full"}>
+      <ul className={"flex h-full"}>
         {navList.map((item) => (
           <li
             className={`h-full flex items-center px-2 ${
               currentSection === item.name && "bg-sky-900 border-b-2 border-b-white"
             }`}
             key={item.id}
+            aria-current={currentSection === item.name ? "location" : undefined}
           >
             <a
               href={item.path}
@@ -136,7 +148,6 @@ export default function App({ Component, pageProps }) {
 
   function handleScroll() {
     const scrollPosition = Math.floor(window.scrollY);
-    console.log(scrollPosition);
 
     if (scrollPosition < projectsYPos.current) {
       setCurrentSection("Home");
@@ -168,12 +179,25 @@ export default function App({ Component, pageProps }) {
     contactYPos.current = Math.floor(
       contactRef.current.getBoundingClientRect().top + window.scrollY + addition
     );
-
-    console.log(projectsRef.current.getBoundingClientRect().top + window.scrollY + addition,
-    technologiesRef.current.getBoundingClientRect().top + window.scrollY + addition,
-    aboutRef.current.getBoundingClientRect().top + window.scrollY + addition,
-    contactRef.current.getBoundingClientRect().top + window.scrollY + addition)
   }
+
+  function handleAnchorClick(ref) {
+    // Sets focus to the target section after navigation (otherwise focus returns to nav menu button when the modal closes instead)
+    setTimeout(() => {
+      if (ref.current) {
+        ref.current.focus();
+      }
+    }, 800);
+  }
+
+  const handleNavEsc = useCallback(
+    (e) => {
+      if (e.key === "Escape" && isMenuOpen) {
+        setIsMenuOpen(false)
+      }
+    },
+    [isMenuOpen, setIsMenuOpen]
+  );
 
   useEffect(() => {
     const isLargeScreen = window.matchMedia("(min-width: 640px)").matches;
@@ -208,77 +232,120 @@ export default function App({ Component, pageProps }) {
     };
   }, []);
 
+  useEffect(() => {
+    if (isMenuOpen) {
+      window.addEventListener("keydown", handleNavEsc);
+    }
+
+    return () => {
+      window.removeEventListener("keydown", handleNavEsc);
+    };
+  }, [isMenuOpen]);
+
   return (
-    <div className={` relative ${baloo_2.className}`}>
+    <div className={`relative ${baloo_2.className}`}>
       <div
         className="fixed -z-10 h-screen w-screen"
         style={{ background: `url(/Shiva.jpg) center/cover repeat-x` }}
       ></div>
       <header className="sticky top-0 left-0 z-50 bg-sky-600/75 backdrop-blur-lg sm:backdrop-blur-xl">
-        <nav className="relative box-content flex items-center h-14 sm:h-10 max-w-6xl mx-auto px-2 z-10 justify-between">
-          {/* <h1
+        <FocusTrap active={isMenuOpen}>
+          <div>
+            <div className="relative box-content flex items-center h-14 sm:h-10 max-w-6xl mx-auto px-2 z-10 justify-between">
+              <div className="flex flex-row-reverse items-center min-w-0">
+                <a
+                  title="Skip to main content"
+                  href="#home"
+                  onClick={() => isMenuOpen && setIsMenuOpen(false)}
+                  className="opacity-0 focus:opacity-100 pointer-events-none focus:pointer-events-auto overflow-hidden text-ellipsis whitespace-nowrap px-1 mx-2"
+                >
+                  Skip to main content
+                </a>
+                {/* <h1
             className={`text-2xl sm:text-base ${kiwi_maru.className} font-semibold`}
-          >
+            >
             {"尺巨"} {'尺臣'}
-          </h1> */}
-          {/* <h1
+            </h1> */}
+                {/* <h1
             className={`text-2xl sm:text-base ${zen_maru_gothic.className} font-semibold`}
-          >
+            >
             {"尺巨"} {'尺臣'}
-          </h1> */}
-          <a
-            href="#home"
-            className={`text-2xl sm:text-base ${rocknroll_one.className}`}
-          >
-            {"尺巨"} {/* '尺臣' */}
-          </a>
-          {/* <h1
+            </h1> */}
+                <a
+                  title="Go to Home"
+                  aria-label="Navigate to Home"
+                  href="#home"
+                  className={`shrink-0 text-2xl sm:text-base ${rocknroll_one.className}`}
+                >
+                  {"尺巨"} {/* '尺臣' */}
+                </a>
+                {/* <h1
             className={`text-2xl sm:text-base ${rampart_one.className} font-semibold`}
           >
             {"尺巨"} {'尺臣'}
           </h1> */}
+              </div>
 
-          <div className="flex items-center gap-6 h-full">
-            <div className="flex gap-4">
-              <a
-                href="https://github.com/richard-ejdling"
-                target="_blank"
-              >
-                <FaGithub className="text-gray-200 hover:text-white text-[28px] sm:text-xl" />
-              </a>
-              <a
-                href="https://www.linkedin.com/in/richard-ejdling-4a0601273"
-                target="_blank"
-              >
-                <BsLinkedin className="text-gray-200 hover:text-white text-[28px] sm:text-xl" />
-              </a>
+              <div className="flex items-center gap-6 h-full">
+                <div className="flex gap-4">
+                  <a
+                    aria-label="Visit my GitHub page"
+                    title="GitHub"
+                    href="https://github.com/richard-ejdling"
+                    target="_blank"
+                  >
+                    <FaGithub className="text-gray-200 hover:text-white text-[28px] sm:text-xl" />
+                  </a>
+                  <a
+                    aria-label="Visit my LinkedIn page"
+                    title="LinkedIn"
+                    href="https://www.linkedin.com/in/richard-ejdling-4a0601273"
+                    target="_blank"
+                  >
+                    <BsLinkedin className="text-gray-200 hover:text-white text-[28px] sm:text-xl" />
+                  </a>
+                </div>
+                <button
+                  className="sm:hidden"
+                  onClick={() => setIsMenuOpen((prev) => !prev)}
+                  aria-label={isMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+                  aria-controls="menu"
+                  aria-expanded={isMenuOpen}
+                  aria-haspopup="true"
+                >
+                  {isMenuOpen ? <CgClose size={35} /> : <HiMenu size={35} />}
+                </button>
+                <div className="hidden sm:block h-full">
+                  <nav className="h-full">
+                    <NavList isModal={false} />
+                  </nav>
+                </div>
+              </div>
             </div>
-            <button
-              className="sm:hidden"
-              onClick={() => setIsMenuOpen((prev) => !prev)}
-            >
-              {isMenuOpen ? <CgClose size={35} /> : <HiMenu size={35} />}
-            </button>
-            <NavList isModal={false} />
+            {isMenuOpen && (
+              <div
+                id="close"
+                className="fixed top-0 left-0 h-screen w-full bg-black/25"
+                onClick={(e) => e.target.id === "close" && setIsMenuOpen(false)}
+              >
+                <nav
+                  id="menu"
+                  aria-hidden={!isMenuOpen}
+                  className="flex flex-col items-center w-full h-fit bg-sky-600 p-2 pt-16 rounded-b-lg shadow-2xl shadow-black"
+                >
+                  <NavList isModal={true} />
+                </nav>
+              </div>
+            )}
           </div>
-        </nav>
-        {isMenuOpen && (
-          <div
-            id="close"
-            className="fixed top-0 left-0 h-screen w-full bg-black/25"
-            onClick={(e) => e.target.id === "close" && setIsMenuOpen(false)}
-          >
-            <div className="flex flex-col items-center w-full h-fit bg-sky-600 p-2 pt-16 rounded-b-lg shadow-2xl shadow-black">
-              <NavList isModal={true} />
-            </div>
-          </div>
-        )}
+        </FocusTrap>
       </header>
       <div className="h-full backdrop-blur-lg sm:backdrop-blur-xl">
         <main className="box-content flex flex-col items-center min-h-screen max-w-6xl mx-auto px-10">
           <Section
             id="home"
             styles="pt-20 sm:pt-10 md:pt-40 scroll-mt-14"
+            ref={homeRef}
           >
             <Home />
           </Section>

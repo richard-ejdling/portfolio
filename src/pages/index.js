@@ -8,10 +8,12 @@ import Contact from "./Contact";
 import { useEffect, useRef, useState } from "react";
 import { isMobileDevice } from "@/utils/isMobile";
 import Links from "@/components/Links";
+import { rocknroll_one } from "@/styles/fonts";
 
 export default function Home() {
   return (
     <>
+      {/* <div className={`${rocknroll_one.className} w-[800px] h-[800px] bg-sky-600 flex justify-center items-center`}><p className="text-[300px] font-semibold -mt-[75px]">{"尺巨"}</p></div> */}
       <div className="flex flex-col-reverse md:flex-row gap-4 justify-center items-center">
         <div>
           <h1 className="text-6xl">
