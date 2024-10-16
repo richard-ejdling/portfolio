@@ -53,7 +53,7 @@ export default function Links() {
                 href="/CV/CV English.pdf"
                 download
                 aria-label="Download English CV"
-                className="font-medium tracking-wide border-2 border-white hover:border-transparent active:border-transparent hover:bg-sky-600 ease-in-out duration-100 active:bg-sky-700 px-3 py-1 sm:py-0.5 rounded-full" /* 'underline underline-offset-2' */
+                className="font-medium tracking-wide border-2 border-white hover:border-transparent active:border-transparent hover:bg-sky-600 ease-in-out duration-100 active:bg-sky-700 px-3 pt-1.5 pb-0.5 sm:py-0.5 rounded-full " /* 'underline underline-offset-2' */
               >
                 Download
               </a>
@@ -62,7 +62,7 @@ export default function Links() {
                   href="/CV/CV English.pdf"
                   target="_blank"
                   aria-label="Open English CV in a new tab"
-                  className="font-medium tracking-wide border-2 border-white hover:border-transparent active:border-transparent hover:bg-sky-600 ease-in-out duration-100 active:bg-sky-700 px-3 py-1 sm:py-0.5 rounded-full" /* 'underline underline-offset-2' */
+                  className="font-medium tracking-wide border-2 border-white hover:border-transparent active:border-transparent hover:bg-sky-600 ease-in-out duration-100 active:bg-sky-700 px-3 pt-1.5 pb-0.5 sm:py-0.5 rounded-full " /* 'underline underline-offset-2' */
                 >
                   View
                 </a>
@@ -76,7 +76,7 @@ export default function Links() {
                 href="/CV/CV English.pdf"
                 download
                 aria-label="Download Swedish CV"
-                className="font-medium tracking-wide border-2 border-white hover:border-transparent active:border-transparent hover:bg-sky-600 ease-in-out duration-100 active:bg-sky-700 px-3 py-1 sm:py-0.5 rounded-full" /* 'underline underline-offset-2' */
+                className="font-medium tracking-wide border-2 border-white hover:border-transparent active:border-transparent hover:bg-sky-600 ease-in-out duration-100 active:bg-sky-700 px-3 pt-1.5 pb-0.5 sm:py-0.5 rounded-full " /* 'underline underline-offset-2' */
               >
                 Download
               </a>
@@ -85,7 +85,7 @@ export default function Links() {
                   href="/CV/CV English.pdf"
                   target="_blank"
                   aria-label="Open Swedish CV in a new tab"
-                  className="font-medium tracking-wide border-2 border-white hover:border-transparent active:border-transparent hover:bg-sky-600 ease-in-out duration-100 active:bg-sky-700 px-3 py-1 sm:py-0.5 rounded-full" /* 'underline underline-offset-2' */
+                  className="font-medium tracking-wide border-2 border-white hover:border-transparent active:border-transparent hover:bg-sky-600 ease-in-out duration-100 active:bg-sky-700 px-3 pt-1.5 pb-0.5 sm:py-0.5 rounded-full " /* 'underline underline-offset-2' */
                 >
                   View
                 </a>

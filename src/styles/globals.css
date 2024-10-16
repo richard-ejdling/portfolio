@@ -6,7 +6,11 @@
   html {
     -webkit-tap-highlight-color: transparent;
   }
-  
+
+  body {
+    text-shadow: 1px 1px 0 black;
+  }
+
   /* :focus {
     @apply outline-none ring-2 ring-offset-[3px] ring-white ring-offset-black;
   } */
