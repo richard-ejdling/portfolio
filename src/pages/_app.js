@@ -193,7 +193,7 @@ export default function App({ Component, pageProps }) {
   const handleNavEsc = useCallback(
     (e) => {
       if (e.key === "Escape" && isMenuOpen) {
-        setIsMenuOpen(false)
+        setIsMenuOpen(false);
       }
     },
     [isMenuOpen, setIsMenuOpen]
@@ -250,7 +250,7 @@ export default function App({ Component, pageProps }) {
       ></div>
       <header className="sticky top-0 left-0 z-50 bg-sky-600/75 backdrop-blur-lg sm:backdrop-blur-xl">
         <FocusTrap active={isMenuOpen}>
-          <div>
+          <div aria-modal={isMenuOpen}>
             <div className="relative box-content flex items-center h-14 sm:h-10 max-w-6xl mx-auto px-2 z-10 justify-between">
               <div className="flex flex-row-reverse items-center min-w-0">
                 <a

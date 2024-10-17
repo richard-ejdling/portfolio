@@ -50,7 +50,7 @@ export default function Links() {
             <p className="w-[90px] sm:w-[68px]">English:</p>
             <div className="flex gap-2">
               <a
-                href="/CV/CV English.pdf"
+                href="/CV/CV_English.pdf"
                 download
                 aria-label="Download English CV"
                 className="font-medium tracking-wide border-2 border-white hover:border-transparent active:border-transparent hover:bg-sky-600 ease-in-out duration-100 active:bg-sky-700 px-3 pt-1.5 pb-0.5 sm:py-0.5 rounded-full " /* 'underline underline-offset-2' */
@@ -59,7 +59,7 @@ export default function Links() {
               </a>
               {!isMobile && (
                 <a
-                  href="/CV/CV English.pdf"
+                  href="/CV/CV_English.pdf"
                   target="_blank"
                   aria-label="Open English CV in a new tab"
                   className="font-medium tracking-wide border-2 border-white hover:border-transparent active:border-transparent hover:bg-sky-600 ease-in-out duration-100 active:bg-sky-700 px-3 pt-1.5 pb-0.5 sm:py-0.5 rounded-full " /* 'underline underline-offset-2' */
@@ -73,7 +73,7 @@ export default function Links() {
             <p className="w-[90px] sm:w-[68px]">Swedish:</p>
             <div className="flex gap-2">
               <a
-                href="/CV/CV English.pdf"
+                href="/CV/CV_Swedish.pdf"
                 download
                 aria-label="Download Swedish CV"
                 className="font-medium tracking-wide border-2 border-white hover:border-transparent active:border-transparent hover:bg-sky-600 ease-in-out duration-100 active:bg-sky-700 px-3 pt-1.5 pb-0.5 sm:py-0.5 rounded-full " /* 'underline underline-offset-2' */
@@ -82,7 +82,7 @@ export default function Links() {
               </a>
               {!isMobile && (
                 <a
-                  href="/CV/CV English.pdf"
+                  href="/CV/CV_Swedish.pdf"
                   target="_blank"
                   aria-label="Open Swedish CV in a new tab"
                   className="font-medium tracking-wide border-2 border-white hover:border-transparent active:border-transparent hover:bg-sky-600 ease-in-out duration-100 active:bg-sky-700 px-3 pt-1.5 pb-0.5 sm:py-0.5 rounded-full " /* 'underline underline-offset-2' */
