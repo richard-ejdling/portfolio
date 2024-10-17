@@ -5,10 +5,10 @@ export default function Document() {
     <Html lang="en">
       <Head>
         <title>Richard Ejdling</title>
-        <meta name='description' constent="Richard Ejdling's Portfolio Page" />
+        <meta name='description' content="Richard Ejdling's Portfolio Page" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta charset="UTF-8" />
-        <link rel="icon" href="/favicon_portfolio_R_small.ico" />
+        <link rel="icon" href="/favicon/favicon_portfolio_R_small.ico" />
 
         <meta property="og:title" content="Richard Ejdling" />
         <meta property="og:description" content="Richard Ejdling's Portfolio Page." />

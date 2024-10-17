@@ -81,7 +81,7 @@ const familiarTech = [
   },
   {
     name: "GraphQL",
-    icon: "/technology-icons/GraphQL Logo (Rhodamine).png",
+    icon: "/technology-icons/GraphQL_Logo_(Rhodamine).png",
     alt: "GraphQL Logo",
     white_bg: false,
   },
