@@ -7,7 +7,7 @@
     -webkit-tap-highlight-color: transparent;
   }
 
-  body {
+  * {
     text-shadow: 1px 1px 0 black;
   }
 
