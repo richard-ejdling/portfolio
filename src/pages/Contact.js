@@ -1,16 +1,24 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { MdCopyAll } from "react-icons/md";
 import { FaCheck } from "react-icons/fa6";
 import ContactForm from "@/components/ContactForm";
 
 export default function Contact() {
   const [copied, setCopied] = useState(false);
+  const timeoutRef = useRef();
 
   function handleCopy() {
     navigator.clipboard.writeText("richardej@hotmail.se");
     setCopied(true);
 
-    setTimeout(() => setCopied(false), 3000);
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
+
+    timeoutRef.current = setTimeout(() => {
+      setCopied(false);
+      timeoutRef.current = null;
+    }, 3000);
   }
 
   return (
@@ -21,16 +29,18 @@ export default function Contact() {
           richardej@hotmail.se
           <button
             onClick={handleCopy}
-            className="flex flex-row items-center gap-1 text-lg sm:text-base border-l-2 border-white rounded-r-md p-1 h-full bg-sky-700 hover:bg-sky-600 active:bg-white active:text-sky-600"
+            className="flex flex-row items-center gap-1 text-lg sm:text-base border-l-2 border-white rounded-r-md p-1 h-full bg-sky-700 hover:bg-sky-800 active:bg-sky-900 transition-colors duration-100"
           >
             {copied ? <FaCheck size={20} /> : <MdCopyAll size={20} />}
             {copied ? "Copied" : "Copy"}
           </button>
         </div>
       </div>
-      <p>Or</p>
       <div className="flex flex-col items-center gap-2 w-full">
-        <h3>Use the form below</h3>
+        <h3 className="text-center">
+          Or <br />
+          Use the form below
+        </h3>
         <ContactForm />
       </div>
     </div>
