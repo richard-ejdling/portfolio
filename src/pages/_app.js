@@ -272,9 +272,7 @@ export default function App({ Component, pageProps }) {
             {"尺巨"} {'尺臣'}
             </h1> */}
                 <a
-                  title="Go to Home"
-                  aria-label="Navigate to Home"
-                  href="#home"
+                  href="https://richardejdling.vercel.app"
                   className={`shrink-0 text-2xl sm:text-base ${rocknroll_one.className}`}
                 >
                   {"尺巨"} {/* '尺臣' */}

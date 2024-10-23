@@ -1,14 +1,14 @@
-import { isMobileDevice } from "@/utils/isMobile";
-import { useEffect, useState } from "react";
+/* import { isMobileDevice } from "@/utils/isMobile";
+import { useEffect, useState } from "react"; */
 import { BsLinkedin } from "react-icons/bs";
 import { FaGithub } from "react-icons/fa";
 
 export default function Links() {
-  const [isMobile, setIsMobile] = useState(false);
+  /* const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     setIsMobile(isMobileDevice());
-  }, []);
+  }, []); */
 
   return (
     <div className="flex flex-col md:flex-row justify-center items-center gap-6 mt-8">
@@ -36,7 +36,7 @@ export default function Links() {
           />
         </a>
       </div>
-      <div className="flex items-center gap-4 text-2xl sm:text-lg">
+      {/* <div className="flex items-center gap-4 text-2xl sm:text-lg">
         <p
           className="font-normal text-4xl sm:text-2xl"
         >
@@ -53,7 +53,7 @@ export default function Links() {
                 href="/CV/CV_English.pdf"
                 download
                 aria-label="Download English CV"
-                className="font-medium tracking-wide border-2 border-white hover:border-transparent active:border-transparent hover:bg-sky-600 ease-in-out duration-100 active:bg-sky-700 px-3 pt-1.5 pb-0.5 sm:py-0.5 rounded-full " /* 'underline underline-offset-2' */
+                className="font-medium tracking-wide border-2 border-white hover:border-transparent active:border-transparent hover:bg-sky-600 ease-in-out duration-100 active:bg-sky-700 px-3 pt-1.5 pb-0.5 sm:py-0.5 rounded-full "
               >
                 Download
               </a>
@@ -62,7 +62,7 @@ export default function Links() {
                   href="/CV/CV_English.pdf"
                   target="_blank"
                   aria-label="Open English CV in a new tab"
-                  className="font-medium tracking-wide border-2 border-white hover:border-transparent active:border-transparent hover:bg-sky-600 ease-in-out duration-100 active:bg-sky-700 px-3 pt-1.5 pb-0.5 sm:py-0.5 rounded-full " /* 'underline underline-offset-2' */
+                  className="font-medium tracking-wide border-2 border-white hover:border-transparent active:border-transparent hover:bg-sky-600 ease-in-out duration-100 active:bg-sky-700 px-3 pt-1.5 pb-0.5 sm:py-0.5 rounded-full "
                 >
                   View
                 </a>
@@ -76,7 +76,7 @@ export default function Links() {
                 href="/CV/CV_Swedish.pdf"
                 download
                 aria-label="Download Swedish CV"
-                className="font-medium tracking-wide border-2 border-white hover:border-transparent active:border-transparent hover:bg-sky-600 ease-in-out duration-100 active:bg-sky-700 px-3 pt-1.5 pb-0.5 sm:py-0.5 rounded-full " /* 'underline underline-offset-2' */
+                className="font-medium tracking-wide border-2 border-white hover:border-transparent active:border-transparent hover:bg-sky-600 ease-in-out duration-100 active:bg-sky-700 px-3 pt-1.5 pb-0.5 sm:py-0.5 rounded-full "
               >
                 Download
               </a>
@@ -85,7 +85,7 @@ export default function Links() {
                   href="/CV/CV_Swedish.pdf"
                   target="_blank"
                   aria-label="Open Swedish CV in a new tab"
-                  className="font-medium tracking-wide border-2 border-white hover:border-transparent active:border-transparent hover:bg-sky-600 ease-in-out duration-100 active:bg-sky-700 px-3 pt-1.5 pb-0.5 sm:py-0.5 rounded-full " /* 'underline underline-offset-2' */
+                  className="font-medium tracking-wide border-2 border-white hover:border-transparent active:border-transparent hover:bg-sky-600 ease-in-out duration-100 active:bg-sky-700 px-3 pt-1.5 pb-0.5 sm:py-0.5 rounded-full "
                 >
                   View
                 </a>
@@ -93,7 +93,7 @@ export default function Links() {
             </div>
           </li>
         </ul>
-      </div>
+      </div> */}
     </div>
   );
 }
