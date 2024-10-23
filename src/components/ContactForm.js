@@ -104,6 +104,7 @@ export default function ContactForm() {
         name="from_name"
         value="Portfolio Direct Message"
       />
+
       <button
         className={`relative flex items-center justify-center gap-2 mt-2 w-full text-center p-1 overflow-hidden ${
           mailStatus === 0
@@ -114,22 +115,28 @@ export default function ContactForm() {
         } rounded-lg transition-colors duration-100`}
         type="submit"
         disabled={mailStatus != 0}
+        aria-live="polite"
       >
         {mailStatus === 0 ? (
           <>
             {isLoading ? (
-              <div className="h-5 sm:h-[18px]">
-                <Loader
-                  weight={3}
-                  speed="0.75"
-                  easing="ease-in-out"
-                  design="standard"
-                />
-              </div>
+              <>
+                <div className="h-5 sm:h-[18px]">
+                  <Loader
+                    weight={3}
+                    speed="0.75"
+                    easing="ease-in-out"
+                    design="standard"
+                  />
+                </div>
+                Sending
+              </>
             ) : (
-              <FaPaperPlane />
+              <>
+                <FaPaperPlane />
+                Send Email
+              </>
             )}
-            Send Email
           </>
         ) : mailStatus === 1 ? (
           <>
@@ -142,7 +149,11 @@ export default function ContactForm() {
             Error. Try again
           </>
         )}
-        <div className={`absolute bottom-0 left-0 h-[4px] ${mailStatus === 0 ? 'w-full' : 'w-0'} ${mailStatus === 0 ? 'bg-transparent': mailStatus === 1 ? 'bg-green-800':'bg-red-800'}  rounded-full transition-[width] duration-[5000ms] ease-linear`} />
+        <div
+          className={`absolute bottom-0 left-0 h-[4px] ${mailStatus === 0 ? "w-full" : "w-0"} ${
+            mailStatus === 0 ? "bg-transparent" : mailStatus === 1 ? "bg-green-800" : "bg-red-800"
+          }  rounded-full transition-[width] duration-[5000ms] ease-linear`}
+        />
       </button>
     </form>
   );
