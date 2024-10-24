@@ -4,9 +4,7 @@ import Loader from "./Loader";
 
 export default function ContactForm() {
   const [isLoading, setIsLoading] = useState(false);
-  const [mailStatus, setMailStatus] = useState(0); // 0=default, 1=success, 2=failure/error
-
-  console.log(mailStatus, mailStatus === 1);
+  const [mailStatus, setMailStatus] = useState(0); // 0=default/null, 1=success, 2=failure/error
 
   const timeoutRef = useRef();
 
@@ -33,7 +31,6 @@ export default function ContactForm() {
     });
     const result = await response.json();
 
-    console.log(result);
     if (result.success) {
       setIsLoading(false);
       setMailStatus(1);
@@ -52,10 +49,15 @@ export default function ContactForm() {
     }, 5000);
   }
 
+  function closeStatus(event) {
+    event.preventDefault();
+    setMailStatus(0);
+  }
+
   return (
     <form
       className="flex flex-col gap-2 w-full max-w-lg bg-sky-600 rounded-lg p-4"
-      onSubmit={handleSubmit}
+      onSubmit={mailStatus === 0 ? handleSubmit : closeStatus}
     >
       <div className="flex flex-col">
         <label htmlFor="name">Name:</label>
@@ -107,14 +109,15 @@ export default function ContactForm() {
 
       <button
         className={`relative flex items-center justify-center gap-2 mt-2 w-full text-center p-1 overflow-hidden ${
-          mailStatus === 0
+          isLoading
+            ? "bg-sky-700 hover:bg-sky-700 active:bg-sky-700"
+            : mailStatus === 0
             ? "bg-sky-700 hover:bg-sky-800 active:bg-sky-900"
             : mailStatus === 1
             ? "bg-green-600 hover:bg-green-600 active:bg-green-600"
             : "bg-red-600 hover:bg-red-600 active:bg-red-600"
-        } rounded-lg transition-colors duration-100`}
+        } ${isLoading && "pointer-events-none"} rounded-lg transition-colors duration-100`}
         type="submit"
-        disabled={mailStatus != 0}
         aria-live="polite"
       >
         {mailStatus === 0 ? (
