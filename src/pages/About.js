@@ -21,7 +21,7 @@ export default function About() {
           <br />
           I love to learn, solve problems, and create, so when I discovered programming, it felt like a perfect fit for me.
           <br />
-          <br />Recently graduated from a web development program, I'm eager to apply my skills in a practical setting and collaborate on innovative projects.
+          <br />Recently graduated from a web development program, I&apos;m eager to apply my skills in a practical setting and collaborate on innovative projects.
         </p>
       </div>
       <Links />
