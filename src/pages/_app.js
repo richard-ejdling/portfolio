@@ -45,6 +45,7 @@ import {
   shippori_antique_b1, */
 } from "@/styles/fonts";
 import FocusTrap from "focus-trap-react";
+import Head from "next/head";
 
 export default function App({ Component, pageProps }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -243,155 +244,208 @@ export default function App({ Component, pageProps }) {
   }, [isMenuOpen]);
 
   return (
-    <div className={`relative ${baloo_2.className}`}>
-      <div
-        className="fixed -z-10 h-screen w-screen"
-        style={{ background: `url(/Shiva.jpg) center/cover repeat-x` }}
-      ></div>
-      <header className="sticky top-0 left-0 z-50 bg-sky-600/75 backdrop-blur-lg sm:backdrop-blur-xl">
-        <FocusTrap active={isMenuOpen}>
-          <div aria-modal={isMenuOpen}>
-            <div className="relative box-content flex items-center h-14 sm:h-10 max-w-6xl mx-auto px-2 z-10 justify-between">
-              <div className="flex flex-row-reverse items-center min-w-0">
-                <a
-                  title="Skip to main content"
-                  href="#home"
-                  onClick={() => isMenuOpen && setIsMenuOpen(false)}
-                  className="opacity-0 focus:opacity-100 pointer-events-none focus:pointer-events-auto overflow-hidden text-ellipsis whitespace-nowrap px-1 mx-2"
-                >
-                  Skip to main content
-                </a>
-                {/* <h1
+    <>
+      <Head>
+        <title>Richard Ejdling</title>
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1"
+        />
+        <meta
+          name="description"
+          content="Richard Ejdling's Portfolio Page"
+        />
+        <meta
+          property="og:title"
+          content="Richard Ejdling"
+        />
+        <meta
+          property="og:description"
+          content="Richard Ejdling's Portfolio Page."
+        />
+        <meta
+          property="og:image"
+          content="/open_graph_img.png"
+        />
+        <meta
+          property="og:url"
+          content="https://richardejdling.vercel.app"
+        />
+        <meta
+          name="twitter:card"
+          content="summary"
+        />
+        <meta
+          name="twitter:title"
+          content="Richard Ejdling"
+        />
+        <meta
+          name="twitter:description"
+          content="Richard Ejdling's Portfolio Page."
+        />
+        <meta
+          name="twitter:image"
+          content="twitter_small.png"
+        />
+        <meta
+          name="twitter:url"
+          content="https://richardejdling.vercel.app"
+        />
+        <link
+          rel="canonical"
+          href="https://richardejdling.vercel.app"
+        />
+      </Head>
+      <div className={`relative ${baloo_2.className}`}>
+        <div
+          className="fixed -z-10 h-screen w-screen"
+          style={{ background: `url(/Shiva.jpg) center/cover repeat-x` }}
+        ></div>
+        <header className="sticky top-0 left-0 z-50 bg-sky-600/75 backdrop-blur-lg sm:backdrop-blur-xl">
+          <FocusTrap active={isMenuOpen}>
+            <div aria-modal={isMenuOpen}>
+              <div className="relative box-content flex items-center h-14 sm:h-10 max-w-6xl mx-auto px-2 z-10 justify-between">
+                <div className="flex flex-row-reverse items-center min-w-0">
+                  <a
+                    title="Skip to main content"
+                    href="#home"
+                    onClick={() => isMenuOpen && setIsMenuOpen(false)}
+                    className="opacity-0 focus:opacity-100 pointer-events-none focus:pointer-events-auto overflow-hidden text-ellipsis whitespace-nowrap px-1 mx-2"
+                  >
+                    Skip to main content
+                  </a>
+                  {/* <h1
             className={`text-2xl sm:text-base ${kiwi_maru.className} font-semibold`}
             >
             {"尺巨"} {'尺臣'}
             </h1> */}
-                {/* <h1
+                  {/* <h1
             className={`text-2xl sm:text-base ${zen_maru_gothic.className} font-semibold`}
             >
             {"尺巨"} {'尺臣'}
             </h1> */}
-                <a
-                  href="https://richardejdling.vercel.app"
-                  className={`shrink-0 text-2xl sm:text-base ${rocknroll_one.className}`}
-                >
-                  {"尺巨"} {/* '尺臣' */}
-                </a>
-                {/* <h1
+                  <a
+                    href="https://richardejdling.vercel.app"
+                    className={`shrink-0 text-2xl sm:text-base ${rocknroll_one.className}`}
+                  >
+                    {"尺巨"} {/* '尺臣' */}
+                  </a>
+                  {/* <h1
             className={`text-2xl sm:text-base ${rampart_one.className} font-semibold`}
           >
             {"尺巨"} {'尺臣'}
           </h1> */}
-              </div>
-
-              <div className="flex items-center gap-6 h-full">
-                <div className="flex gap-4">
-                  <a
-                    aria-label="Visit my GitHub page"
-                    title="GitHub"
-                    href="https://github.com/richard-ejdling"
-                    target="_blank"
-                  >
-                    <FaGithub className="text-gray-200 hover:text-white text-[28px] sm:text-xl" />
-                  </a>
-                  <a
-                    aria-label="Visit my LinkedIn page"
-                    title="LinkedIn"
-                    href="https://www.linkedin.com/in/richard-ejdling-4a0601273"
-                    target="_blank"
-                  >
-                    <BsLinkedin className="text-gray-200 hover:text-white text-[28px] sm:text-xl" />
-                  </a>
                 </div>
-                <button
-                  className="sm:hidden"
-                  onClick={() => setIsMenuOpen((prev) => !prev)}
-                  aria-label={isMenuOpen ? "Close navigation menu" : "Open navigation menu"}
-                  aria-controls="menu"
-                  aria-expanded={isMenuOpen}
-                  aria-haspopup="true"
+
+                <div className="flex items-center gap-6 h-full">
+                  <div className="flex gap-4">
+                    <a
+                      aria-label="Visit my GitHub page"
+                      title="GitHub"
+                      href="https://github.com/richard-ejdling"
+                      target="_blank"
+                    >
+                      <FaGithub className="text-gray-200 hover:text-white text-[28px] sm:text-xl" />
+                    </a>
+                    <a
+                      aria-label="Visit my LinkedIn page"
+                      title="LinkedIn"
+                      href="https://www.linkedin.com/in/richard-ejdling-4a0601273"
+                      target="_blank"
+                    >
+                      <BsLinkedin className="text-gray-200 hover:text-white text-[28px] sm:text-xl" />
+                    </a>
+                  </div>
+                  <button
+                    className="sm:hidden"
+                    onClick={() => setIsMenuOpen((prev) => !prev)}
+                    aria-label={isMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+                    aria-controls="menu"
+                    aria-expanded={isMenuOpen}
+                    aria-haspopup="true"
+                  >
+                    {isMenuOpen ? <CgClose size={35} /> : <HiMenu size={35} />}
+                  </button>
+                  <div className="hidden sm:block h-full">
+                    <nav className="h-full">
+                      <NavList isModal={false} />
+                    </nav>
+                  </div>
+                </div>
+              </div>
+              {isMenuOpen && (
+                <div
+                  id="close"
+                  className="fixed top-0 left-0 h-screen w-full bg-black/25"
+                  onClick={(e) => e.target.id === "close" && setIsMenuOpen(false)}
                 >
-                  {isMenuOpen ? <CgClose size={35} /> : <HiMenu size={35} />}
-                </button>
-                <div className="hidden sm:block h-full">
-                  <nav className="h-full">
-                    <NavList isModal={false} />
+                  <nav
+                    id="menu"
+                    aria-hidden={!isMenuOpen}
+                    className="flex flex-col items-center w-full h-fit bg-sky-600 p-2 pt-16 rounded-b-lg shadow-2xl shadow-black"
+                  >
+                    <NavList isModal={true} />
                   </nav>
                 </div>
-              </div>
+              )}
             </div>
-            {isMenuOpen && (
-              <div
-                id="close"
-                className="fixed top-0 left-0 h-screen w-full bg-black/25"
-                onClick={(e) => e.target.id === "close" && setIsMenuOpen(false)}
-              >
-                <nav
-                  id="menu"
-                  aria-hidden={!isMenuOpen}
-                  className="flex flex-col items-center w-full h-fit bg-sky-600 p-2 pt-16 rounded-b-lg shadow-2xl shadow-black"
-                >
-                  <NavList isModal={true} />
-                </nav>
-              </div>
-            )}
-          </div>
-        </FocusTrap>
-      </header>
-      <div className="h-full backdrop-blur-lg sm:backdrop-blur-xl">
-        <main className="box-content flex flex-col items-center min-h-screen max-w-6xl mx-auto px-10">
-          <Section
-            id="home"
-            styles="pt-20 sm:pt-10 md:pt-40 scroll-mt-14"
-            ref={homeRef}
-          >
-            <Home />
-          </Section>
-          <Section
-            id="projects"
-            styles="pt-20 sm:pt-40 sm:-scroll-mt-20"
-            ref={projectsRef}
-            title="Projects"
-            icon={<FaFileCode />}
-          >
-            <Projects />
-          </Section>
-          <Section
-            id="technologies"
-            styles="pt-20 sm:pt-40 sm:-scroll-mt-20"
-            ref={technologiesRef}
-            title="Technologies"
-            icon={<FaScrewdriverWrench />}
-          >
-            <Technologies />
-          </Section>
-          <Section
-            id="about"
-            styles="pt-20 sm:pt-40 sm:-scroll-mt-20"
-            ref={aboutRef}
-            title="About"
-            icon={<FaUser />}
-          >
-            <About />
-          </Section>
-          <Section
-            id="contact"
-            styles="py-20 sm:pt-40 sm:-scroll-mt-20"
-            ref={contactRef}
-            title="Contact"
-            icon={<FaPaperPlane />}
-          >
-            <Contact />
-          </Section>
-        </main>
-        {/* <Component {...pageProps} /> */}
-      </div>
-      <footer>
-        <div className="flex flex-col justify-center items-center h-[calc(100vh-40px)] text-6xl gap-6 mx-2">
-          <p className="text-center">Thank you for visiting!</p>
-          <p className="text-center">Have a nice day!</p>
+          </FocusTrap>
+        </header>
+        <div className="h-full backdrop-blur-lg sm:backdrop-blur-xl">
+          <main className="box-content flex flex-col items-center min-h-screen max-w-6xl mx-auto px-10">
+            <Section
+              id="home"
+              styles="pt-20 sm:pt-10 md:pt-40 scroll-mt-14"
+              ref={homeRef}
+            >
+              <Home />
+            </Section>
+            <Section
+              id="projects"
+              styles="pt-20 sm:pt-40 sm:-scroll-mt-20"
+              ref={projectsRef}
+              title="Projects"
+              icon={<FaFileCode />}
+            >
+              <Projects />
+            </Section>
+            <Section
+              id="technologies"
+              styles="pt-20 sm:pt-40 sm:-scroll-mt-20"
+              ref={technologiesRef}
+              title="Technologies"
+              icon={<FaScrewdriverWrench />}
+            >
+              <Technologies />
+            </Section>
+            <Section
+              id="about"
+              styles="pt-20 sm:pt-40 sm:-scroll-mt-20"
+              ref={aboutRef}
+              title="About"
+              icon={<FaUser />}
+            >
+              <About />
+            </Section>
+            <Section
+              id="contact"
+              styles="py-20 sm:pt-40 sm:-scroll-mt-20"
+              ref={contactRef}
+              title="Contact"
+              icon={<FaPaperPlane />}
+            >
+              <Contact />
+            </Section>
+          </main>
+          {/* <Component {...pageProps} /> */}
         </div>
-      </footer>
-    </div>
+        <footer>
+          <div className="flex flex-col justify-center items-center h-[calc(100vh-40px)] text-6xl gap-6 mx-2">
+            <p className="text-center">Thank you for visiting!</p>
+            <p className="text-center">Have a nice day!</p>
+          </div>
+        </footer>
+      </div>
+    </>
   );
 }
