@@ -39,10 +39,10 @@ const projects = [
   {
     id: 2,
     title: "PokéAPI page",
-    desc: "Website using PokéAPI where you can search for pokémon and display them and their stats",
-    img: "/project-img/pokéAPI.png",
+    desc: "Website using PokéAPI where you can search for pokémon and view their attributes",
+    img: "/project-img/pokeapi2.png",
     alt: "PokéAPI page",
-    url: "https://next-pokemonapi.vercel.app/",
+    url: "https://riej-pokemonapi.vercel.app/",
     gitHub: "https://github.com/richard-ejdling/next-pokemonapi",
     techs: ["next", "typescript", "tailwind"],
   },
